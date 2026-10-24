@@ -14,6 +14,7 @@
 
 import * as React from "react";
 import { Ban, Check, Flag, RefreshCw, ShieldAlert, Scale } from "lucide-react";
+import { Logo } from "./bidwit-logo";
 import { Field, Modal, Quote } from "./bidwit-modal";
 import type { AuditItem, ReqRow, ReqStatus, VaultDoc } from "@/data/adapter-types";
 
@@ -956,12 +957,7 @@ export function BidWitBento(props: BidWitBentoProps) {
       <style>{`@keyframes bw-pulse { 0%,100% { opacity: 1 } 50% { opacity: .55 } }`}</style>
 
       <nav className="mb-3 flex flex-wrap items-center justify-between gap-3 px-1" aria-label="Dashboard">
-        <span className="flex items-center gap-2 text-[15px] font-semibold tracking-[-0.02em]">
-          <span className="grid size-6 place-items-center rounded-lg font-mono text-[12px] font-bold" style={{ background: p.accent, color: "oklch(0.145 0 0)" }}>
-            B
-          </span>
-          BidWit
-        </span>
+        <Logo size={22} />
         <div className="flex items-center gap-2">
           {props.navExtra}
           <span className="flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-[12px] font-medium">

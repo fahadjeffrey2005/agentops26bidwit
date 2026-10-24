@@ -43,6 +43,7 @@ class RunState(TypedDict, total=False):
     run_id: str
     tender_path: str
     company: str                                         # which bidder's evidence library to search
+    cached_only: bool                                    # demo mode: AI answers come from the cache only
     out_dir: str
     today: date
     started: float

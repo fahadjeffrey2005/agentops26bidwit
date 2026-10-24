@@ -20,6 +20,7 @@ import os
 import tempfile
 import threading
 import time
+from contextvars import ContextVar
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, TypeVar
@@ -238,6 +239,18 @@ def parse_chain(chain: str, transport: httpx.BaseTransport | None = None,
     return providers
 
 
+CACHED_ONLY: ContextVar[bool] = ContextVar("bidwit_cached_only", default=False)
+
+
+def set_cached_only(on: bool):
+    """Demo mode: serve AI answers from the cache only, never call a provider. Returns a reset token."""
+    return CACHED_ONLY.set(bool(on))
+
+
+def reset_cached_only(token) -> None:
+    CACHED_ONLY.reset(token)
+
+
 @dataclass
 class LLMClient:
     providers: list
@@ -270,6 +283,8 @@ class LLMClient:
                 return schema.model_validate(stored["output"]), CallInfo("cache", True, 0.0)
             except (OSError, ValueError, KeyError, ValidationError):
                 pass                                            # bad cache entry: ignore, ask again
+        if CACHED_ONLY.get():                                   # demo mode: no provider is ever called
+            raise LLMUnavailable("cached answers only: this question is not in the cache")
         n = len(self.providers)
         order = self.providers[start % n:] + self.providers[:start % n] if n else []
         for p in order:

@@ -151,6 +151,7 @@ export interface Health {
   keys: { groq: boolean; gemini: boolean };
   max_upload_mb: number;
   ai_budget: number;
+  cached_answers: number;
 }
 
 async function call<T>(path: string, init?: RequestInit): Promise<T> {
@@ -177,16 +178,18 @@ export const api = {
   company: (id: string) => call<CompanyProfile>(`/api/companies/${encodeURIComponent(id)}`),
   runs: () => call<RunRow[]>("/api/runs"),
   run: (id: string) => call<RunView>(`/api/runs/${encodeURIComponent(id)}`),
-  startSample: (sample: string, company?: string) => {
+  startSample: (sample: string, company?: string, cached?: boolean) => {
     const f = new FormData();
     f.append("sample", sample);
     if (company) f.append("company", company);
+    if (cached) f.append("cached", "true");
     return call<{ run_id: string }>("/api/runs", { method: "POST", body: f });
   },
-  upload: (file: File, company?: string) => {
+  upload: (file: File, company?: string, cached?: boolean) => {
     const f = new FormData();
     f.append("file", file);
     if (company) f.append("company", company);
+    if (cached) f.append("cached", "true");
     return call<{ run_id: string }>("/api/runs", { method: "POST", body: f });
   },
   answer: (id: string, gate: "A" | "no_go" | "B", body: object) =>

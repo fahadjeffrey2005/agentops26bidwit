@@ -140,12 +140,20 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
         v.pop("out_dir", None)
         return {**v, "doing": doing or ""}
 
+    def _cached_count(st) -> int:
+        d = Path(st.runs_dir) / "cache" / "llm"
+        try:
+            return sum(1 for _ in d.glob("*.json"))
+        except OSError:
+            return 0
+
     @app.get("/api/health")
     def health():
         st = load_settings()
         return {"ok": True, "version": SCHEMA_VERSION, "llm": st.llm, "chain": st.llm_chain.split(","),
                 "keys": {"groq": bool(os.environ.get("GROQ_API_KEY")), "gemini": bool(os.environ.get("GEMINI_API_KEY"))},
-                "max_upload_mb": st.max_upload_mb, "ai_budget": st.llm_max_calls}
+                "max_upload_mb": st.max_upload_mb, "ai_budget": st.llm_max_calls,
+                "cached_answers": _cached_count(st)}
 
     @app.get("/api/companies")
     def companies():
@@ -179,7 +187,7 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
 
     @app.post("/api/runs", status_code=202)
     def create_run(file: UploadFile | None = File(default=None), sample: str | None = Form(default=None),
-                   company: str = Form(default=DEFAULT_COMPANY)):
+                   company: str = Form(default=DEFAULT_COMPANY), cached: bool = Form(default=False)):
         if (file is None) == (sample is None):
             raise HTTPException(422, "send exactly one of: a PDF file, or a sample name")
         if sample is not None and sample not in SAMPLES:
@@ -212,7 +220,7 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
                 path.unlink(missing_ok=True)
                 folder.rmdir()
                 raise HTTPException(*problem)
-        background(run_id, "reading the tender", runner.start, path, run_id, None, company)
+        background(run_id, "reading the tender", runner.start, path, run_id, None, company, cached)
         return {"run_id": run_id, "status": "running"}
 
     @app.get("/api/runs")

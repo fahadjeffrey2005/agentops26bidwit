@@ -87,6 +87,15 @@ export default function App() {
   }, [runId, tick, setRunId]);
 
   const resumed = () => setTick((t) => t + 1);
+  // a new gate renders above the fold: move there, or it looks like nothing happened
+  const stage = `${view?.run_id ?? ""}:${view?.status ?? ""}:${view?.gate?.gate ?? ""}`;
+  const lastStage = React.useRef(stage);
+  React.useEffect(() => {
+    if (stage !== lastStage.current) {
+      lastStage.current = stage;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [stage]);
   const v = view && view.run_id === runId ? view : null;
   const isRun = runId.startsWith("run-");
 

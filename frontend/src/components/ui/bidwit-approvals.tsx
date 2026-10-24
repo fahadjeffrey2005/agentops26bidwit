@@ -4,7 +4,7 @@
 import * as React from "react";
 import { AlertTriangle, Bot, Check, ChevronDown, ListChecks, Scale, Undo2, X } from "lucide-react";
 import { Pills, Tile, cx } from "./bidwit-bento";
-import { StatsBento } from "./stats-bento";
+import { GateHeader, RunRibbon } from "./bidwit-gatechrome";
 import { api } from "@/data/api";
 import type { Gate, PassFailReq, QueueEntry, RunView } from "@/data/api";
 
@@ -140,14 +140,23 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
   };
 
   return (
-    <Tile title="Gate A · confirm the tender\u2019s must-meet rules" action={<Pills label="filter" value={filter} options={["All", "To review", "Eligibility"]} onChange={setFilter} />}>
-      <StatsBento
-        primary={{ label: "Must-meet rules found", value: items.length,
-          caption: `Conditions the buyer sets in this tender: miss one and the bid is rejected outright, before any scoring. Confirm each one. So far: ${n("yes")} confirmed, ${n("no")} not must-meet, ${n("drop")} removed.` }}
-        secondary={{ label: "By category", value: <span className="font-mono">{gate.requirement_count} <span className="text-[13px] text-muted-foreground">requirements read in the tender</span></span>,
-          bars: cats.map((c, i) => ({ label: c, value: items.filter((r) => r.category === c).length, color: [ACCENT, VIOLET, WARN, MUTED][i] })) }}
-        small={{ value: open ? open : <Check className="mx-auto size-6" />, label: open ? "left to review" : "all reviewed" }}
-        wide={{ icon: gate.classify_mode === "ai" ? <Bot className="size-4" /> : <ListChecks className="size-4" />, value: gate.classify_mode === "ai" ? "Found by AI + rules" : "Found by rules", label: `Reviewer: ${reviewer}` }}
+    <>
+    <RunRibbon at="Gate A" tender={view.report?.tender?.file} />
+    <Tile title={<span className="font-mono text-[11px] uppercase tracking-widest">Gate A of 2 · the tender</span>}
+      action={<Pills label="filter" value={filter} options={["All", "To review", "Eligibility"]} onChange={setFilter} />}>
+      <GateHeader
+        gate="A"
+        kicker="What the tender demands"
+        title="Confirm the must-meet rules"
+        lede="These are the buyer's own conditions, lifted from the tender. Miss one and the bid is rejected outright, before any scoring. Nothing is searched or drafted until you confirm this list."
+        stat={items.length}
+        statLabel="must-meet rules found"
+        strip={cats.map((c, i) => ({ label: c, value: items.filter((r) => r.category === c).length, color: ["oklch(0.145 0 0)", "oklch(0.42 0 0)", "oklch(0.6 0 0)", "oklch(0.75 0 0)"][i] }))}
+        meta={<span className="flex flex-wrap items-center gap-x-5 gap-y-1 opacity-70">
+          <span>{gate.requirement_count} requirements read in the tender</span>
+          <span className="flex items-center gap-1.5">{gate.classify_mode === "ai" ? <Bot className="size-3.5" /> : <ListChecks className="size-3.5" />}{gate.classify_mode === "ai" ? "found by AI + rules" : "found by rules"}</span>
+          <span>{n("yes")} confirmed · {n("no")} not must-meet · {n("drop")} removed · <b>{open} left</b></span>
+        </span>}
       />
 
       {gate.notes.length > 0 && (
@@ -220,6 +229,7 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
       </Footer>
       {err && <p className="mt-2 text-[13px]" style={{ color: WARN }}>{err}</p>}
     </Tile>
+    </>
   );
 }
 
@@ -335,19 +345,29 @@ export function GateBReviewTile({ view, gate, reviewer, onSent }: { view: RunVie
   const v = gate.verdict;
 
   return (
-    <Tile title="Gate B · review before anything leaves" action={<Pills label="filter" value={filter} options={["All", "Open", "Risky"]} onChange={setFilter} />}>
-      <StatsBento
-        primary={{ label: "Decisions", value: `${done}/${q.length}`, caption: "Riskiest first. Undecided items stay open in the report; nothing is sent on the AI's word." }}
-        secondary={{ label: "Queue by risk", value: <span className="font-mono">{count(["failed_check", "blocking_gap", "gap"])} <span className="text-[13px] text-muted-foreground">need a careful look</span></span>,
-          bars: [
-            { label: "failed checks", value: count(["failed_check"]), color: WARN },
-            { label: "blocking gaps", value: count(["blocking_gap"]), color: WARN },
-            { label: "gaps", value: count(["gap"]), color: VIOLET },
-            { label: "answers", value: count(["pass_fail", "answer"]), color: ACCENT },
-            { label: "groups", value: count(["human_task", "compliance"]), color: MUTED },
-          ] }}
-        small={{ value: v.blocking.length, label: "blocking" }}
-        wide={{ icon: <Scale className="size-4" />, value: `Judge: ${v.decision.replace("_", "-").toUpperCase()}`, label: v.summary }}
+    <>
+    <RunRibbon at="Gate B" tender={view.report?.tender?.file} />
+    <Tile title={<span className="font-mono text-[11px] uppercase tracking-widest">Gate B of 2 · your bid</span>}
+      action={<Pills label="filter" value={filter} options={["All", "Open", "Risky"]} onChange={setFilter} />}>
+      <GateHeader
+        gate="B"
+        kicker="What we are about to send"
+        title="Review the answers and gaps"
+        lede={`The judge says ${v.decision.replace("_", "-").toUpperCase()}. ${v.summary.replace(/[.\s]*$/, "")}. Every answer below was written from company evidence and already checked in code.`}
+        stat={<>{done}<span className="opacity-40">/{q.length}</span></>}
+        statLabel="decided by you"
+        strip={[
+          { label: "failed checks", value: count(["failed_check"]), color: WARN },
+          { label: "blocking gaps", value: count(["blocking_gap"]), color: WARN },
+          { label: "gaps", value: count(["gap"]), color: "oklch(0.5 0 0)" },
+          { label: "answers", value: count(["pass_fail", "answer"]), color: "oklch(0.97 0 0)" },
+          { label: "one-click groups", value: count(["human_task", "compliance"]), color: "oklch(0.33 0 0)" },
+        ]}
+        meta={<span className="flex flex-wrap items-center gap-x-5 gap-y-1 text-muted-foreground">
+          <span className="flex items-center gap-1.5"><Scale className="size-3.5" /> {v.blocking.length} blocking gap{v.blocking.length === 1 ? "" : "s"}</span>
+          <span>reviewer: {reviewer}</span>
+          <span>undecided items stay open in the report</span>
+        </span>}
       />
 
       <div className="mt-5 space-y-6">
@@ -373,5 +393,6 @@ export function GateBReviewTile({ view, gate, reviewer, onSent }: { view: RunVie
       </Footer>
       {err && <p className="mt-2 text-[13px]" style={{ color: WARN }}>{err}</p>}
     </Tile>
+    </>
   );
 }

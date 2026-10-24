@@ -1,8 +1,9 @@
 /* Live-run tiles shown full-width above the bento: start, progress, no-go gate, outputs (Gate A/B: bidwit-approvals).
    Same visual language as bidwit-bento (Tile, mono numbers, lime accent). */
 import * as React from "react";
-import { Download, FileUp, Loader2 } from "lucide-react";
+import { Database, Download, FileUp, Loader2, Zap } from "lucide-react";
 import { Tile, cx } from "./bidwit-bento";
+import { GateHeader, RunRibbon } from "./bidwit-gatechrome";
 import { api } from "@/data/api";
 import type { Gate, Health, RunRow, RunView } from "@/data/api";
 
@@ -38,6 +39,7 @@ export function StartTile({ health, runs, company, companyName, onStarted, onOpe
   const [busy, setBusy] = React.useState(false);
   const [err, setErr] = React.useState("");
   const [over, setOver] = React.useState(false);
+  const [cached, setCached] = React.useState(true);          // demo default: instant, no provider calls
   const input = React.useRef<HTMLInputElement>(null);
 
   const go = async (p: Promise<{ run_id: string }>) => {
@@ -51,11 +53,33 @@ export function StartTile({ health, runs, company, companyName, onStarted, onOpe
       setBusy(false);
     }
   };
-  const pick = (f: File | undefined) => f && go(api.upload(f, company));
+  const pick = (f: File | undefined) => f && go(api.upload(f, company, cached));
 
   return (
     <Tile title={companyName ? `Give ${companyName} a tender` : "Start a run"}
       action={<span className="flex items-center gap-2">{onBack && <button type="button" onClick={onBack} className="rounded-full border border-border px-3 py-1 font-mono text-[11px] hover:bg-muted">change company</button>}{health && <AiBadge health={health} />}</span>}>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border p-3">
+        <span className="flex min-w-0 items-center gap-2.5">
+          {cached ? <Database className="size-4 shrink-0" /> : <Zap className="size-4 shrink-0" />}
+          <span className="min-w-0 text-[13px]">
+            <b>{cached ? "Use cached data" : "Call the AI live"}</b>
+            <span className="text-muted-foreground">
+              {cached
+                ? ` — answers replay from ${health?.cached_answers ?? 0} saved AI responses. Seconds, and no provider is called.`
+                : " — every batch goes to the provider. Minutes on a free tier, and it can hit a rate limit."}
+            </span>
+          </span>
+        </span>
+        <span className="flex shrink-0 gap-1" role="radiogroup" aria-label="AI mode">
+          {([[true, "Use cached data"], [false, "Live AI"]] as [boolean, string][]).map(([v, label]) => (
+            <button key={label} type="button" role="radio" aria-checked={cached === v} onClick={() => setCached(v)}
+              className="rounded-full border border-border px-3 py-1.5 text-[12px] font-semibold"
+              style={cached === v ? { background: "oklch(0.97 0 0)", color: "oklch(0.145 0 0)", borderColor: "oklch(0.97 0 0)" } : undefined}>
+              {label}
+            </button>
+          ))}
+        </span>
+      </div>
       <div className="grid gap-3 md:grid-cols-[1.3fr_1fr]">
         <div
           role="button"
@@ -75,8 +99,8 @@ export function StartTile({ health, runs, company, companyName, onStarted, onOpe
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-[12px] font-medium text-muted-foreground">Or a bundled public tender</p>
-          <Btn kind="primary" disabled={busy} onClick={() => go(api.startSample("tender_main", company))}>Network operations centre RFP (85 pages)</Btn>
-          <Btn disabled={busy} onClick={() => go(api.startSample("tender_backup", company))}>Security operations centre RFP (backup)</Btn>
+          <Btn kind="primary" disabled={busy} onClick={() => go(api.startSample("tender_main", company, cached))}>Network operations centre RFP (85 pages)</Btn>
+          <Btn disabled={busy} onClick={() => go(api.startSample("tender_backup", company, cached))}>Security operations centre RFP (backup)</Btn>
           {runs.length > 0 && (
             <>
               <p className="mt-2 text-[12px] font-medium text-muted-foreground">Previous runs</p>
@@ -141,6 +165,11 @@ export function LiveTile({ view }: { view: RunView }) {
     >
       <p className="text-[22px] font-semibold tracking-[-0.02em]">{view.doing || "starting"}</p>
       <p className="mt-1 text-[13px] text-muted-foreground">Every stage reports as it works. You can leave this open; the run keeps going.</p>
+      {(view.progress ?? []).some((t) => /cached answers only/.test(t.message)) && (
+        <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 font-mono text-[11px]">
+          <Database className="size-3.5" /> replaying cached AI answers
+        </p>
+      )}
 
       <div className="mt-6 grid flex-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
         <ol className="space-y-0">
@@ -196,6 +225,7 @@ export function LiveTile({ view }: { view: RunView }) {
 export function NoGoTile({ view, gate, reviewer, onSent }: { view: RunView; gate: Extract<Gate, { gate: "no_go" }>; reviewer: string; onSent: () => void }) {
   const [busy, setBusy] = React.useState(false);
   const [err, setErr] = React.useState("");
+  const v = gate.verdict;
   const send = async (action: "stop" | "continue") => {
     setBusy(true);
     try {
@@ -207,17 +237,45 @@ export function NoGoTile({ view, gate, reviewer, onSent }: { view: RunView; gate
     }
   };
   return (
-    <Tile title="No-go gate · the judge recommends not bidding">
-      <p className="text-[15px] font-semibold">{gate.verdict.summary}</p>
-      <ul className="mt-2 space-y-1 text-[12px]">
-        {gate.verdict.blocking.slice(0, 8).map((b) => <li key={b.requirement_id}><b className="font-mono">{b.requirement_id}</b> · {b.detail || b.reason}</li>)}
+    <>
+    <RunRibbon at="Judge" tender={view.report?.tender?.file} />
+    <Tile title={<span className="font-mono text-[11px] uppercase tracking-widest">Decision gate · before any drafting</span>}>
+      <GateHeader
+        gate="B"
+        kicker="The judge recommends not bidding"
+        title="No-go"
+        lede={`${v.summary.replace(/[.\s]*$/, "")}. Nothing has been drafted yet. Either stop here, or override and let the system draft what it can for the criteria that are covered.`}
+        stat={<>{v.pass_fail_covered}<span className="opacity-40">/{v.pass_fail_total}</span></>}
+        statLabel="must-meet criteria backed"
+        strip={[
+          { label: "backed by evidence", value: v.pass_fail_covered, color: "oklch(0.97 0 0)" },
+          { label: "blocking gaps", value: v.blocking.length, color: WARN },
+        ]}
+        meta={<span className="text-muted-foreground">Decided in code, not by the AI. You can override it.</span>}
+      />
+
+      <h4 className="mb-2 mt-5 px-1 font-mono text-[11px] font-semibold uppercase tracking-widest" style={{ color: WARN }}>
+        Blocking gaps <span className="font-normal text-muted-foreground">{v.blocking.length}</span>
+      </h4>
+      <ul className="divide-y divide-border overflow-hidden rounded-2xl border border-border">
+        {v.blocking.map((b) => (
+          <li key={b.requirement_id} className="flex flex-col gap-1 p-4 sm:flex-row sm:items-baseline sm:gap-3">
+            <span className="w-[62px] shrink-0 font-mono text-[11px] text-muted-foreground">{b.requirement_id}</span>
+            <span className="min-w-0 text-[14px] leading-relaxed">{b.detail || b.reason}</span>
+          </li>
+        ))}
       </ul>
-      <div className="mt-4 flex justify-end gap-2">
-        <Btn disabled={busy} onClick={() => send("continue")}>Draft anyway</Btn>
-        <Btn kind="warn" disabled={busy} onClick={() => send("stop")}>Stop: no bid</Btn>
+
+      <div className="sticky bottom-3 z-10 mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
+        <span className="text-[13px] text-muted-foreground">Stopping here ends the run with a report. Overriding continues to drafting and Gate B.</span>
+        <span className="flex gap-2">
+          <Btn disabled={busy} onClick={() => send("continue")}>Override: draft anyway</Btn>
+          <Btn kind="warn" disabled={busy} onClick={() => send("stop")}>Confirm: do not bid</Btn>
+        </span>
       </div>
       <Err msg={err} />
     </Tile>
+    </>
   );
 }
 

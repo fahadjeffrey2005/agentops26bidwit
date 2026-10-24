@@ -1,6 +1,7 @@
 /* Landing hero from the supplied "background-paths" template. Same paths, title animation and glass button;
    motion is done with CSS (stroke-dashoffset + keyframes) instead of framer-motion, so no extra dependencies. */
 import * as React from "react";
+import { LogoMark } from "./bidwit-logo";
 
 function FloatingPaths({ position }: { position: number }) {
   const paths = React.useMemo(
@@ -53,6 +54,7 @@ export function BackgroundPaths({ title, subtitle, cta, onCta, children }: { tit
       </div>
 
       <div className="bw-fade relative z-10 mx-auto w-full max-w-4xl px-4 text-center md:px-6">
+        <LogoMark title="BidWit" className="mx-auto mb-7 h-16 w-auto text-white sm:h-20" />
         <h1 className="mb-6 text-5xl font-bold tracking-tighter sm:text-7xl md:text-8xl">
           {words.map((word, wi) => (
             <span key={wi} className="mr-4 inline-block last:mr-0">

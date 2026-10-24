@@ -14,7 +14,7 @@ synthetic bidder's evidence in `data/kb/evidence.json`. Gold labels: 498 items h
 | Gold items extracted intact | **490/498** (98.4%) |
 | Restricted or expired evidence ever cited | **0** (blocked in code before search; checked again on every claim) |
 | Human review load, main tender (Gate B) | **33 decisions** instead of 663 |
-| Automated tests | **173 passing** (`cd backend && python -m pytest`) |
+| Automated tests | **178 passing** (`cd backend && python -m pytest`) |
 
 ## 1. Extraction (Part 2)
 `python -m pytest tests/extract`
@@ -46,7 +46,21 @@ synthetic bidder's evidence in `data/kb/evidence.json`. Gold labels: 498 items h
 - Backup tender (rules + keyword search): **CONDITIONAL**, 14/17 backed; blocking R-386 (remote SOC certifications incl. ISO 27001), R-073, R-390.
 
 ## 5. Writer and Checker (Parts 5b, 5c)
-Live AI run on `tender_main.pdf`: **[to fill from the run: answers drafted, checks failed in round 1, rewrites, final failed checks, AI calls]**
+Live AI run on `tender_main.pdf` (Northwind, Groq for classify and writer, keyword evidence search):
+
+| | |
+|---|---|
+| answers drafted from evidence | **40** |
+| passed every check, round 1 | **40/40** |
+| rewrite rounds needed | **0** |
+| gaps flagged for a person | 82 |
+| standard compliance statements | 458 |
+| **silent misses** | **0** |
+| AI calls | 46 |
+| wall time, cold cache | 738 s |
+
+The judge called it NO-GO (37/49 must-meet criteria backed, 12 blocking gaps); the reviewer overrode it, and the
+system drafted the 40 answers it could support. A repeat of the same run replays from the answer cache in seconds.
 
 Checker tests (`tests/test_agents.py`), each planted and caught:
 - "led" where the evidence says "supported" → overclaim
@@ -81,4 +95,5 @@ parsing, at most 3 active runs, CSV formula injection escaped, HTML in Markdown 
 - The evidence library is a JSON file; there is no screen to add documents.
 - Rejecting an answer at Gate B marks it rejected; it does not trigger a rewrite.
 - Paused runs live in memory: restarting the server during a gate loses that run (finished runs are kept on disk).
-- Free-tier AI limits a brand-new tender to about 6 minutes of classification.
+- Free-tier AI limits a brand-new tender to about 6 minutes of classification. The **Use cached data** switch replays
+  saved answers instead, with no provider call at all, so a demo cannot be broken by a rate limit.

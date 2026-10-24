@@ -18,6 +18,7 @@ from typing import Any
 from langgraph.types import Command
 
 from bidwit.core.config import load_settings
+from bidwit.core.llm import reset_cached_only, set_cached_only
 from bidwit.core.progress import reset_sink, set_sink
 
 from .graph import MAX_REWRITES, build_graph
@@ -56,14 +57,15 @@ class Runner:
     def new_run_id(self) -> str:
         return RUN_ID.format(datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S"), secrets.token_hex(3))
 
-    def start(self, tender_path: str | Path, run_id: str | None = None, today: date | None = None, company: str = "northwind") -> dict:
+    def start(self, tender_path: str | Path, run_id: str | None = None, today: date | None = None,
+              company: str = "northwind", cached_only: bool = False) -> dict:
         run_id = run_id or self.new_run_id()
         with self._lock(run_id):
             if self.graph.get_state(self._cfg(run_id)).values:
                 raise RunNotWaiting(f"{run_id} already exists")
             self._invoke(run_id, {"run_id": run_id, "tender_path": str(tender_path), "company": company,
                                   "today": today or date.today(), "out_dir": str(self.runs_dir / run_id),
-                                  "errors": [], "audit": []})
+                                  "cached_only": cached_only, "errors": [], "audit": []})
         return self.view(run_id)
 
     def resume(self, run_id: str, answer: dict[str, Any]) -> dict:
@@ -83,13 +85,20 @@ class Runner:
             trail.append({"t": datetime.now(timezone.utc).isoformat(timespec="seconds"), "part": part, "message": msg})
             del trail[:-PROGRESS_KEEP]
 
-        token = set_sink(sink)
+        cached = bool(getattr(inp, "resume", None) is None and isinstance(inp, dict) and inp.get("cached_only"))
+        if not cached:                                    # on resume, read the flag back off the run's state
+            try:
+                cached = bool(self.graph.get_state(self._cfg(run_id)).values.get("cached_only"))
+            except Exception:                             # noqa: BLE001 - no state yet
+                cached = False
+        token, ctoken = set_sink(sink), set_cached_only(cached)
         try:
             self.graph.invoke(inp, self._cfg(run_id))
             self._failed.pop(run_id, None)
         except Exception as e:                            # noqa: BLE001 - reported, the server keeps running
             self._failed[run_id] = f"{type(e).__name__}: {e}"[:500]
         finally:
+            reset_cached_only(ctoken)
             reset_sink(token)
 
     @staticmethod

@@ -130,8 +130,31 @@ def test_companies_and_profiles(api):
 def test_run_uses_the_chosen_company(api, runner):  # noqa: F811
     started = {}
     real = runner.start
-    runner.start = lambda path, rid=None, today=None, company="northwind": (started.update(company=company), real(path, rid, today, company))[1]
-    assert api.post("/api/runs", data={"sample": "tender_main", "company": "meridian"}).status_code == 202
-    wait(api, api.get("/api/runs").json()[0]["run_id"])
+    runner.start = lambda path, rid=None, today=None, company="northwind", cached_only=False: (
+        started.update(company=company), real(path, rid, today, company, cached_only))[1]
+    r = api.post("/api/runs", data={"sample": "tender_main", "company": "meridian"})
+    assert r.status_code == 202
+    wait(api, r.json()["run_id"])
     assert started["company"] == "meridian"
     assert api.post("/api/runs", data={"sample": "tender_main", "company": "ghost"}).status_code == 422
+
+
+def test_cached_only_never_calls_a_provider(api, runner, monkeypatch):  # noqa: F811
+    """The demo switch: with no cached answer, the AI parts fall back instead of reaching the network."""
+    import httpx
+    import bidwit.parts.classify as classify
+    import bidwit.parts.writer as writer
+    from bidwit.core.llm import LLMClient, parse_chain
+
+    def no_network(request):
+        raise AssertionError(f"a provider was called in cached-only mode: {request.url}")
+
+    def client():
+        return LLMClient(parse_chain("groq:m1", httpx.MockTransport(no_network)), cache_dir=None, max_calls=50)
+    monkeypatch.setattr(classify, "make_client", client)
+    monkeypatch.setattr(writer, "make_client", client)
+    rid = api.post("/api/runs", data={"sample": "tender_main", "cached": "true"}).json()["run_id"]
+    v = wait(api, rid)
+    assert v["status"] == "waiting" and v["gate"]["gate"] == "A"      # reached Gate A without any provider call
+    assert v["gate"]["classify_mode"] == "rules"                      # nothing cached here, so it fell back
+    assert isinstance(api.get("/api/health").json()["cached_answers"], int)

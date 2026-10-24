@@ -4,6 +4,7 @@
 import * as React from "react";
 import { ArrowLeft, ArrowRight, Ban, BadgeCheck, Briefcase, Building2, FileText, Plus, ShieldCheck, Users } from "lucide-react";
 import { Tile, cx } from "./bidwit-bento";
+import { LogoMark } from "./bidwit-logo";
 import { Modal, Quote } from "./bidwit-modal";
 import type { Company, CompanyProfile, ProfileDoc } from "@/data/api";
 
@@ -117,6 +118,7 @@ export function CompanyProfilePage({ profile, onBack, onContinue }: { profile: C
           contain: "paint",
         }} />
         <div className="relative mx-auto w-full max-w-[1120px] px-4 py-10 sm:px-8">
+          <LogoMark className="mb-6 h-7 w-auto opacity-80" />
           <button type="button" onClick={onBack} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" style={{ background: "oklch(0.145 0 0 / 0.08)" }}>
             <ArrowLeft className="size-3.5" /> All companies
           </button>

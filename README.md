@@ -112,6 +112,12 @@ extract -> classify -> GATE A -> evidence search -> judge -> [NO-GO gate] -> wri
 - Outputs in `runs/<run_id>/`: `report.json`, `compliance.csv`, `bid_draft.md` (approved answers with citations, then every gap), `audit.jsonl`.
 - Run state is kept in memory; finished runs are read back from disk after a restart.
 
+### Demo mode: cached answers
+The tender screen has a **Use cached data / Live AI** switch (`cached=true` on `POST /api/runs`). In cached mode the
+AI client serves answers from `runs/cache/llm/` and **never calls a provider**: a question that is not cached falls
+back to the part's rules path instead of reaching the network. A run finishes in seconds and cannot be broken by a
+rate limit or a dead free tier. `GET /api/health` reports how many answers are cached.
+
 ### Part 7: API (FastAPI)
 `uvicorn bidwit.api:app --host 127.0.0.1 --port 8000`, docs at `/api/docs`.
 `GET /api/health`, `GET /api/evidence` (restricted text never sent), `POST /api/runs` (PDF upload or `sample=tender_main`), `GET /api/runs`, `GET /api/runs/{id}` (status, waiting gate, live audit), `POST /api/runs/{id}/gates/{A|no_go|B}`, `GET /api/runs/{id}/files/{name}`.
