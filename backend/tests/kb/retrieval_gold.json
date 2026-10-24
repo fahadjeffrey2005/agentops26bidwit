@@ -1,0 +1,142 @@
+[
+ {
+  "label": "Eligibility Criteria 5",
+  "page": 9,
+  "text": "Bidder should not be blacklisted by any Government, Government Body, PSU, Bank, Autonomous body and any other entity for any reasons within last 3 years from the RFP date. | Self-declaration by the bidder on it Letter Head duly signed by the Authorized Signatory",
+  "expected_any": [
+   "E-029"
+  ]
+ },
+ {
+  "label": "Eligibility Criteria 6",
+  "page": 9,
+  "text": "The bidder must have following valid Certifications: \u2022 ISO 9001/ISO 20000 and \u2022 ISO 27001:2013 certified 24\u00d77 NOC | Relevant ISO Certificates.",
+  "expected_any": [
+   "E-003",
+   "E-004"
+  ]
+ },
+ {
+  "label": "Eligibility Criteria 2",
+  "page": 8,
+  "text": "Should have an average annual turnover of at least Rs. 10 Crores per annum for last three financial years (2020-21, 2021-22 and 2022-23). It should be of individual company and not of Group of Companies | Certificate from CA mentioning annual turnover for last three financial years.",
+  "expected_any": [
+   "E-001"
+  ]
+ },
+ {
+  "label": "Eligibility Criteria 7",
+  "page": 9,
+  "text": "Bidder should minimum below no. of Trained and Certified Employees on their payroll with valid certifications, having 2 years\u2019 relevant experience (post certification) \u2013 CCNA: More than 20 CCNP: More than 3 CCIE: More than 2 PMP: More than 2 | Self-declaration by the bidder on it Letter Head duly signed by the authorised signatory",
+  "expected_any": [
+   "E-021"
+  ]
+ },
+ {
+  "label": "RFP Details note [*] (MSME)",
+  "page": 3,
+  "text": "[*] - Bidders registered under Micro, Small and Medium Enterprises (MSME) for specific trade are exempted from EMD. Bidders shall upload the scanned copy of necessary documents as part of eligibility criteria documents.",
+  "expected_any": [
+   "E-007"
+  ]
+ },
+ {
+  "label": "Manpower Eligibility (A)1",
+  "page": 10,
+  "text": "Project Manager cum L3 Engineer (One Number) | Should be Degree qualified Engineer with CCNP | 5 years\u2019 experience post CCNP certification and Project Management skills plus exposure on WLAN, Voice and Video Conferencing with hands on experience on OEM like Cisco, Arista, Juniper, Extreme etc. network devices. | 1. Degree Certificate 2. Valid CCNP Certification 3. Experience Certificates",
+  "expected_any": [
+   "E-022"
+  ]
+ },
+ {
+  "label": "Manpower Eligibility (A)4",
+  "page": 11,
+  "text": "Technician (Cabling) (1 number) | Minimum Graduate / Technical Diploma Holder in related field with minimum 05 years of experience in Data Centre Non-IT Infrastructure | Experience in Data Center Structured cabling, designing, installation and maintenance | 1. Degree/Diploma Certificate 2. Experience Certificates",
+  "expected_any": [
+   "E-026",
+   "E-014"
+  ]
+ },
+ {
+  "label": "Eligibility Criteria 4",
+  "page": 8,
+  "text": "The bidder should have experience in minimum 03 (three) corporate customers in India for at least last 05 (five) years from RFP date for providing onsite (from customer premises) NOC services for managing and monitoring the network consisting of - (i) At least 900 remote network devices (such as routers, switches, etc.) per project. (ii) Providing remote Network Management Service such as installation, configuration & management of WAN links, L3 & L2 network devices of atleast 200 branches (iii) Experience of managing minimum 500 links (Branch Links, Extranet links,) WiMAX/CDMA/ISDN Backup Link) from multiple service providers | Copy of Purchase Orders / Completion Certificate",
+  "expected_any": [
+   "E-008",
+   "E-009",
+   "E-011"
+  ]
+ },
+ {
+  "label": "4.1 (smooth transfer and transition plan)",
+  "page": 31,
+  "text": "The bidder should ensure the smooth transfer of the services so as to continue to meet StockHolding\u2019s business requirements in a way that minimizes unplanned business interruptions. The bidder will be responsible for planning, preparing and submitting a Transition Plan to StockHolding. Bidder will fully cooperate and work with any and all StockHolding\u2019s Third Party Contractors/Vendors/Consultant in a manner that will result in a seamless transfer of Services, and such transfer of Services shall be in accordance with the Transition / Due diligence plan.",
+  "expected_any": [
+   "E-030"
+  ]
+ },
+ {
+  "label": "1.2 bullet 1",
+  "page": 21,
+  "text": "The bidder is required to maintain the syslog of critical network devices installed at DC, NDR, DR and critical locations for a period of three months. The logs should be onsite for three months as well as integrated with SIEM services opted by organization and can be stored on tapes and submitted to the StockHolding.",
+  "expected_any": [
+   "E-027"
+  ]
+ },
+ {
+  "label": "Manpower Eligibility (A)3 (NMS Engineer)",
+  "page": 11,
+  "text": "NMS Engineer (5 numbers) | Should be Degree/Diploma Engineer with CCNA | 3 years\u2019 experience in Network Management Services. Should have exposure to WAN environment and network monitoring tools. Expert in handling network devices like routers. THREE will be dedicated Engineers in Mumbai, and one each at Bangalore and Delhi location. | 1. Degree/Diploma Certificate 2. Valid CCNA Certification 3. Experience Certificates",
+  "expected_any": [
+   "E-025"
+  ]
+ },
+ {
+  "label": "2.5 bullet 1",
+  "page": 25,
+  "text": "The bidder will conduct branch visit every quarter in each branch where the bidder personnel will conduct a satisfaction survey of end user services with the branch manager and also conduct a detailed preventive maintenance of all the network infrastructure components in the branch and provide a report of the same in the branch and file the same with the head office. Any findings in the branch visit will be actioned and concluded by the Bidder within one week. These feedback reports will need to be filed with StockHolding with the branch manager\u2019s signature and will be considered as part of the bidder\u2019s assessment.",
+  "expected_any": [
+   "E-020"
+  ]
+ },
+ {
+  "label": "2.5 Billing and Service Closures (billing)",
+  "page": 24,
+  "text": "Bidder has to ensure that billing of such service providers has manage centrally as per the billing frequencies of Monthly, Quarterly, half-yearly, yearly etc. accepted by StockHolding. Bidder has to follow-up with service providers to ensure all such invoices are received promptly by StockHolding and same has been verified as per maker- checker arrangement to be created with NMS engineer.",
+  "expected_any": [
+   "E-019"
+  ]
+ },
+ {
+  "label": "1(r)",
+  "page": 19,
+  "text": "The bidder will deploy and make available Qualified Shadow resources for NMS, L2 engineer, Network Project Manager and NMS Project Manager and same has to be identified well in advance and trained in StockHolding environment and reviewed and confirmed by Networking team, same resource only will be deployed in case of onsite engineer goes on planned or emergency leave.",
+  "expected_any": [
+   "E-028"
+  ]
+ },
+ {
+  "label": "2.5 bullet 7",
+  "page": 25,
+  "text": "Migration of IPv4 to IPv6 (As and when required)",
+  "expected_any": [
+   "E-018"
+  ]
+ },
+ {
+  "label": "4.3 Screening (A) bullet 1",
+  "page": 38,
+  "text": "Background verification checks for all personnel deployed at StockHolding.",
+  "expected_any": [
+   "E-028"
+  ]
+ },
+ {
+  "label": "4.4 Table N row 1",
+  "page": 52,
+  "text": "Root Cause | % of RCA report submitted (Critical) | SLA | Total number of RCAs submitted within 48 Hrs / Total number of RCAs | Percentage | Monthly | >95%",
+  "expected_any": [
+   "E-027"
+  ]
+ }
+]

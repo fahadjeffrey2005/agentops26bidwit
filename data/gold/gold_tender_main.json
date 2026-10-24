@@ -1,0 +1,3488 @@
+[
+  {
+    "clause": "RFP Details 4 (EMD)",
+    "page": 3,
+    "text": "Interest free Earnest Money Deposit (EMD) [*] | Rs.5,00,000/- (Indian Rupees Five Lakhs only) by way of RTGS/NEFT to be paid to Stock Holding Corporation of India Limited as Earnest Money Deposit should be submitted separately before submission of online bids by way of RTGS/NEFT on StockHolding’s Bank Account No.: 004103000033442 Bank: IDBI Bank (Nariman Point Branch) IFSC: IBKL0000004. Please share the UTR details to us on below mentioned email address.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "RFP Details 8 (Last date)",
+    "page": 3,
+    "text": "Last Date for Submission of Online Bid | 26 - Feb -2024 03:00 PM",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "RFP Details note [*] (MSME)",
+    "page": 3,
+    "text": "[*] - Bidders registered under Micro, Small and Medium Enterprises (MSME) for specific trade are exempted from EMD. Bidders shall upload the scanned copy of necessary documents as part of eligibility criteria documents.",
+    "mandatory": true,
+    "category": "commercial"
+  },
+  {
+    "clause": "Eligibility Guideline 1",
+    "page": 8,
+    "text": "Bidder should upload all supporting documents at the time of submission duly signed and stamped on their company’s letter head.",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 1",
+    "page": 8,
+    "text": "The Bidder should be a registered Company in India as per Indian Companies Act, 1956 or Indian Companies Act, 2013 with experience of owning and managing a well-established Network Operation Center (NOC) for at least 7 years. | Copy of Certificate of Incorporation issued by the Registrar of Companies and Self-declaration by the bidder on it Letter Head duly signed by the Authorized Signatory",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 2",
+    "page": 8,
+    "text": "Should have an average annual turnover of at least Rs. 10 Crores per annum for last three financial years (2020-21, 2021-22 and 2022-23). It should be of individual company and not of Group of Companies | Certificate from CA mentioning annual turnover for last three financial years.",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 3",
+    "page": 8,
+    "text": "Bidder should be in Net Profit in the last 03 (three) audited financial years | Certificate from CA mentioning profit/loss for the past three financial years.",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 4",
+    "page": 8,
+    "text": "The bidder should have experience in minimum 03 (three) corporate customers in India for at least last 05 (five) years from RFP date for providing onsite (from customer premises) NOC services for managing and monitoring the network consisting of - (i) At least 900 remote network devices (such as routers, switches, etc.) per project. (ii) Providing remote Network Management Service such as installation, configuration & management of WAN links, L3 & L2 network devices of atleast 200 branches (iii) Experience of managing minimum 500 links (Branch Links, Extranet links,) WiMAX/CDMA/ISDN Backup Link) from multiple service providers | Copy of Purchase Orders / Completion Certificate",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 5",
+    "page": 9,
+    "text": "Bidder should not be blacklisted by any Government, Government Body, PSU, Bank, Autonomous body and any other entity for any reasons within last 3 years from the RFP date. | Self-declaration by the bidder on it Letter Head duly signed by the Authorized Signatory",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 6",
+    "page": 9,
+    "text": "The bidder must have following valid Certifications: • ISO 9001/ISO 20000 and • ISO 27001:2013 certified 24×7 NOC | Relevant ISO Certificates.",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 7",
+    "page": 9,
+    "text": "Bidder should minimum below no. of Trained and Certified Employees on their payroll with valid certifications, having 2 years’ relevant experience (post certification) – CCNA: More than 20 CCNP: More than 3 CCIE: More than 2 PMP: More than 2 | Self-declaration by the bidder on it Letter Head duly signed by the authorised signatory",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 8",
+    "page": 9,
+    "text": "Bidder/ need to certify that they have read the clauses contained in O.M. No. 6/18/2019-PPD, dated 23.07.2020 order (Public Procurement No. 1), order (Public Procurement No. 2) dated 23.07.2020 and order (Public Procurement No. 3) dated 24.07.2020 regarding restrictions on procurement from a bidder of a country which shares a land border with India. Bidder also to certify that bidder and OEM are not from such a country or if from a country, has been registered with competent authority. | Self-declaration from bidder on their letter head duly signed by authorized signatory",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 9",
+    "page": 9,
+    "text": "Bidder should have presence at all Tier 1 cities in India | Self-declaration on company letter head along with list of locations.",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Eligibility Criteria 10",
+    "page": 9,
+    "text": "Bidder to provide undertaking that no penalties, amounting to up to 10% of the contract value per year, have been imposed in the last three years by any of its client(s). | Self-declaration from bidder on their letter head duly signed by authorized signatory",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Manpower Eligibility (A)1",
+    "page": 10,
+    "text": "Project Manager cum L3 Engineer (One Number) | Should be Degree qualified Engineer with CCNP | 5 years’ experience post CCNP certification and Project Management skills plus exposure on WLAN, Voice and Video Conferencing with hands on experience on OEM like Cisco, Arista, Juniper, Extreme etc. network devices. | 1. Degree Certificate 2. Valid CCNP Certification 3. Experience Certificates",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Manpower Eligibility (A)2",
+    "page": 10,
+    "text": "Core Network Engineer (Two Numbers) | Should be Degree qualified Engineer with CCNP | 3 years’ experience post CCNP certification in similar environment in terms of Management of the MPLS network / SDWAN architecture kind of topology, SDWAN, Network Access Control (NAC) architecture rollout / routing protocol deployed at StockHolding. Should have expertise on router / switches configurations, Voice, WLAN, Video conferencing, Policy based routing, Access Control List management, IPSLA, performance routing, troubleshooting and excellent documentation skills with hands on experience on OEM like Cisco, Arista, Juniper, Extreme etc. network devices. | 1. Degree Certificate 2. Valid CCNP Certification 3. Experience Certificates",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Manpower Eligibility (A)3 (Project Manager - NMS)",
+    "page": 11,
+    "text": "Project Manager – NMS (1 Number) | Should be Degree Engineer with CCNA | 5 years’ experience in role of NMS Management on any NMS tool. | 1. Degree Certificate 2. Valid CCNA Certification 3. Experience Certificates",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Manpower Eligibility (A)3 (NMS Engineer)",
+    "page": 11,
+    "text": "NMS Engineer (5 numbers) | Should be Degree/Diploma Engineer with CCNA | 3 years’ experience in Network Management Services. Should have exposure to WAN environment and network monitoring tools. Expert in handling network devices like routers. THREE will be dedicated Engineers in Mumbai, and one each at Bangalore and Delhi location. | 1. Degree/Diploma Certificate 2. Valid CCNA Certification 3. Experience Certificates",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Manpower Eligibility (A)4",
+    "page": 11,
+    "text": "Technician (Cabling) (1 number) | Minimum Graduate / Technical Diploma Holder in related field with minimum 05 years of experience in Data Centre Non-IT Infrastructure | Experience in Data Center Structured cabling, designing, installation and maintenance | 1. Degree/Diploma Certificate 2. Experience Certificates",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Manpower Eligibility (B)1",
+    "page": 11,
+    "text": "Proposed resources must be on the Payroll of bidder (out-sourcing staff not allowed) | Last 3 Months Payslips / Appointment letter of present organization Resume of the resources proposed",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Bids Preparation and Submission",
+    "page": 12,
+    "text": "The online bids will have to be submitted within the time specified on website https://gem.gov.in/ . Bidders must familiarize (if not already) with the Portal and check/ fulfil the pre-requisites to access and submit the bid there.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Submission of Bids 1(a)",
+    "page": 12,
+    "text": "The required documents for Eligibility Criteria, Commercial Bid must be submitted (uploaded) online on GeM portal. Eligibility Criteria and Commercial Bid should be complete in all respects and contain all information asked for in this RFP document",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Submission of Bids 1(b)",
+    "page": 12,
+    "text": "The offer should be valid for a period of at least 90 days from the date of submission of bid.",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Submission of Bids 1(c)",
+    "page": 12,
+    "text": "The Bidder shall fulfil all statutory requirements as described by the law and Government notices. The Bidder shall be solely responsible for any failure to fulfil the statutory obligations and shall indemnify StockHolding against all such liabilities, which are likely to arise out of the agency’s failure to fulfil such statutory obligations.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Submission of Bids 1(d)",
+    "page": 12,
+    "text": "The bidders are expected to examine all instructions, forms, terms, project requirements and other information in the RFP document(s). Failure to furnish all information required as mentioned in the RFP document(s) or submission of a proposal not substantially responsive to the RFP document(s) in every respect will be at the bidder's risk and may result in rejection of the proposal.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Submission of Bids 1(e)",
+    "page": 12,
+    "text": "Delayed and/or incomplete bid shall not be considered.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Evaluation of Bids 2 (compliance)",
+    "page": 12,
+    "text": "The Bidder needs to comply with all the eligibility criteria mentioned in the RFP to be evaluated for evaluation. Noncompliance to any of the mentioned criteria would result in outright rejection of the bidder's proposal.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Evaluation of Bids 2 (RFP requirements)",
+    "page": 12,
+    "text": "The bidder is required to comply with the requirement mentioned in the RFP. Non-compliance to this may lead to disqualification of a bidder, which would be at the discretion of StockHolding.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Evaluation of Bids 2(a)",
+    "page": 12,
+    "text": "Please note that all the information desired needs to be provided. Incomplete information may lead to non-consideration of the proposal.",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Eligibility Criteria Evaluation",
+    "page": 13,
+    "text": "Any credential/supporting detail mentioned in “Annexure 2 – Eligibility Criteria” and not accompanied by relevant proof documents will not be considered for evaluation. All credential letters should be appropriately bound, labelled and segregated in the respective areas.",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "Technical Bid Evaluation (clarifications)",
+    "page": 13,
+    "text": "In case a clarification is not received within the stipulated time, the respective technical parameter would be treated as non-compliant and decision to qualify the bidder shall be accordingly taken by the StockHolding.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Technical Evaluation 1",
+    "page": 13,
+    "text": "The number of projects executed by the Bidder of managing Network Operations Center (NOC) for their clients for managing and monitoring the network consisting of at least 900 remote network devices (such as routers, switches, etc.) per project for minimum 03 (three) corporate customers in India during last 05 years from the RFP date. The minimum maintenance period shall be 01 year. | a) 3 project – 12 Marks b) 4-7 projects – 16 Marks c) More than 7 projects – 20 Marks | 16 | 20",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Evaluation 2",
+    "page": 13,
+    "text": "The Bidders experience in providing remote Network Management Service such as installation, configuration & management of WAN links, L3 & L2 network devices of atleast 200 branches for minimum 03 (three) corporate customers in India during last 05 years from the RFP date | a) 200-400 branches - 12 Marks b) 401-700 branches – 16 Marks c) More than 700 branches – 20 marks | 16 | 20",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Evaluation 3",
+    "page": 14,
+    "text": "Bidder should have an exposure of managing atleast 500 links (Branch Links, Extranet links,) WiMAX/CDMA/ISDN Backup Link) from multiple service providers for minimum 03 (three) corporate customers in India during last 05 years from the RFP date | a) 500 - 700 Links : 8 Marks b) 701 - 1000 Links : 10 Marks c) More than 1200 Links : 15 Marks | 10 | 15",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Evaluation 4",
+    "page": 14,
+    "text": "No. of Trained and Certified Employees with valid certifications, having 2 years’ relevant experience (post certification), out of which 1- year experience is with the bidder. [Based on No. of CCNAs, CCNPs, CCIEs, PMPs] | Self-declaration on bidder’s letter head, confirming each of the mentioned criteria a) CCNA: More than 20, but less than 30; CCNP: More than 3 but less than 5; CCIE: More than 2 but less than 4; PMP: More than 2 but less than 4 (10 Marks) b) CCNA: Equal to 30 , but less than 50; CCNP: Equal to 5, but less than 7; CCIE: Equal to 4, but less than 6; PMP: Equal to 4, but less than 6 (12 Marks) c) CCNA: 50 or More CCNP: 10 or More CCIE: 6 or More PMP: 6 or More (15 Marks) | 10 | 15",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Evaluation 5",
+    "page": 14,
+    "text": "Bidder is a company/firm incorporated in India having average annual Turnover of at least Rs. 10 Crores in previous 03 (Three) financial years i.e. 2020-21, 2021-22, and 2022-23. This must be individual company turnover and not group of companies. | a) 10 Crores = 6 Marks b) >10 Crores <= 50 Crores = 8 Marks c) More than 50 Crores = 10 Marks | 6 | 10",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Presentation 1",
+    "page": 14,
+    "text": "Technical proposal submitted by the bidder covering below aspects – a) Bidders past experience and capability to manage similar projects in India b) Understanding of the Project and it’s Scope of Work c) Approach & Methodology for proposed support mechanism for meeting SLA parameters d) Detailed Project Plan during support period | Based on Bid documents submitted and clarifications received (if any) | 12 | 20",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Evaluation Note 3",
+    "page": 15,
+    "text": "The bidder is required to provide documentary evidence for each of the above criteria.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Technical Evaluation Note 5",
+    "page": 15,
+    "text": "The bidder to submit appropriate credentials [other than self- certification] in respect of each of the item.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Commercial Bid Evaluation (selection)",
+    "page": 15,
+    "text": "Selection of bidders for commercial evaluation stage - 1. Only bidders who achieve the specified minimum qualifying marks across each evaluation parameters/credentials for Technical Evaluation, and 2. Cumulative score of 70 marks in the Technical evaluation",
+    "mandatory": true,
+    "category": "eligibility"
+  },
+  {
+    "clause": "1(a)",
+    "page": 16,
+    "text": "The selected bidder will manage and monitor the entire network infrastructure from the NOC situated at the StockHolding’s primary data centre at Mahape in a hybrid mode.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(b)",
+    "page": 16,
+    "text": "The selected bidder is required to prepare/modify/enhance referring the current diagrams/documentations maintained at StockHolding in terms of the network architecture diagrams for primary Data Centre (DC), Disaster Recovery (DR), Extranet DR, Near DR, HO, Branch connectivity or New Network connectivity, Application connectivity, Compliances audit requirements etc. as per the requirement of the StockHolding and the same will be submitted to the StockHolding team on quarterly basis / as on need basis along with version control for review.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1(c)",
+    "page": 16,
+    "text": "The bidder is required to modify/redesign the existing Network architecture (functionality and security) wherever required. In case of such requirements, bidder will provide detailed documentation on the modifications to be made thereof to StockHolding team for final approval. The bidder is also required to conduct POC/s for the network infrastructure related equipment / softwares / appliances / services / solutions etc. as and when requested by StockHolding team.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "Requirement (contract scope)",
+    "page": 16,
+    "text": "Stockholding inviting bids from firm/company/organization to avail Managed Network Services for Network Operation Centre, Network Infrastructure Management and Network Link Management Services for all offices of StockHolding across India for the period of 02 (two) years with one year as extension from 01st April 2024 to 31st March 2027 as per link list mentioned in Annexure-8.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "1(d)",
+    "page": 17,
+    "text": "The selected bidder will ensure appropriate Network Infrastructure architecture (functionality and security) is put in place, and conduct methodical reviews/assessments network audits as per CIS / NIST Benchmarks on a yearly basis (to identify any gaps/loopholes OR areas for concern OR Improvement/optimize the required functionality and security in the existing network architecture design) and mitigate the same, with particular emphasis to existing compliance requirements (ISO27001:2013, ISO27001:2021 etc.) and thorough documentation.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1(e)",
+    "page": 17,
+    "text": "Bidder shall provide the current infra documentation & information to the StockHolding selected System Integrator who will work for design and implement new technology to modernize the network infrastructure and tools listed in the network environment. The Bidder shall-",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.e.1",
+    "page": 17,
+    "text": "Analyze the functionality, performance, reliability and security posture of the components in the network environment and provide recommendations on changes and improvements to meet business requirements;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.e.2",
+    "page": 17,
+    "text": "Create network reference designs to standardize wired and wireless networks at area sites and data centers;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.e.3",
+    "page": 17,
+    "text": "Perform proof-of-concept testing to validate design assumptions and vendor claims on functionality and interoperability;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.e.4",
+    "page": 17,
+    "text": "Create implementation and test plans and;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.e.5",
+    "page": 17,
+    "text": "Incorporate new network technology into 24x7 support and monitoring processes.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(f)",
+    "page": 17,
+    "text": "Network Event and Monitoring: Bidder shall monitor the network infrastructure to detect conditions which impact network connectivity to proactively detect deviations from normal operating levels. The monitoring must be capable of detecting both hard down failure conditions and proactively detect degraded response times to applications and services. The monitoring shall be implemented and maintained in DC and DR and not depended upon a single location & device. The Contractor shall:",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.f.1",
+    "page": 17,
+    "text": "Configure, support and enhance the network management tools listed in System Environment. Proactively identify areas for improvements;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.f.2",
+    "page": 17,
+    "text": "Monitor the network infrastructure to detect circuit, equipment and security issues that would impact functionality or degrades performance;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.f.3",
+    "page": 17,
+    "text": "Initiate corrective actions with third party vendors such as circuit providers or hardware manufactures;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.f.4",
+    "page": 17,
+    "text": "Manage the progress of third party vendors in their efforts to implement corrective action and escalate based on vendor service level agreements;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.f.5",
+    "page": 17,
+    "text": "Proactively communicate status and expected resolution times to Stockholding staff impacted by network connectivity failures and;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.f.6",
+    "page": 17,
+    "text": "Measure and report network availability statistics for each location connected to the Stockholding’s Wide Area Network.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(g)",
+    "page": 17,
+    "text": "The bidder shall manage telecommunication data circuit additions, moves, changes and disconnections which may be the result of a change in requirements or transfer between telecommunication vendors due to contract changes. The bidder shall:",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.1",
+    "page": 17,
+    "text": "Collect and report circuit utilization statistics that can be used for troubleshooting and capacity planning purposes;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.2",
+    "page": 17,
+    "text": "Work with telecommunication providers to obtain cost estimates for telecommunication service upgrades;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.3",
+    "page": 17,
+    "text": "Enter draft service orders in provider ordering systems for telecommunication services upgrades, changes and inside wiring requests;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.4",
+    "page": 18,
+    "text": "Coordinate all circuit installation activities with providers and Stockholding site staff. This include site surveys, inside wiring and equipment specifications;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.5",
+    "page": 18,
+    "text": "Staff all service activations and changes to implement the required configuration on network equipment and support acceptance testing;",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.6",
+    "page": 18,
+    "text": "Maintain a database of site and circuit information which can be used for incident management, circuit inventory management and reporting on overall Wide Area Network bandwidth capacity;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.7",
+    "page": 18,
+    "text": "Report circuit issues to telecommunication providers and escalate based on telecommunication provider Service Level Agreements (SLA);",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.8",
+    "page": 18,
+    "text": "Monitor the telecommunication provider’s performance to meet service level agreements for service restoration and assist Stockholding in obtaining credits when service level agreements are not met;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.9",
+    "page": 18,
+    "text": "Measure uptime for each circuit and for the network as a whole to provide overall network availability metrics;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.10",
+    "page": 18,
+    "text": "Collect network traffic statistics for capacity planning purposes, to forecast future bandwidth needs and to report networks readiness to support new services;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.11",
+    "page": 18,
+    "text": "Proactively notify Stockholding sites about scheduled circuit maintenance;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.g.12",
+    "page": 18,
+    "text": "Proactively identify circuits which are no longer in use;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(h)",
+    "page": 18,
+    "text": "Resource Management and Staffing: Bidder shall have a staffing plan and management structure to consistently provide the required services, manage projects, produce deliverables and complete contract administrative tasks. The bidder shall:",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.h.1",
+    "page": 18,
+    "text": "Staff the resources with the relevant skillsets, experience and team structure to manage and perform the tasks specified in the “Resource Management” section for the duration of the contract;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.h.2",
+    "page": 18,
+    "text": "Provide a working environment and remuneration package to retain and motivate staff performance for the duration of the contact;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.h.3",
+    "page": 18,
+    "text": "Update and enhance staff knowledge and skillsets as network technology, design methodologies, security threats and cloud network services evolve during the life of the contract;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.h.4",
+    "page": 18,
+    "text": "Incorporate Information Technology Infrastructure Library (ITIL) Service Management principles in all aspects of service management and improve service maturity;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.h.5",
+    "page": 18,
+    "text": "Plan, monitor and report on all projects and major activities;",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.h.6",
+    "page": 18,
+    "text": "Use a Quality Control Plan (QCP) to measure quality and timeliness in executing the tasks specified in the Scope and provide the contract deliverables on schedule.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(i)",
+    "page": 18,
+    "text": "The selected bidder is required to provide all assistance to StockHolding’s official for successfully conducting the DR Drills &BCP (Business Continuity Planning) Drills as per the StockHolding’s IT & BCP policy.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1(j)",
+    "page": 18,
+    "text": "The bidder has to liaison with the (Internet, WAN, Broadband, Video Conferencing, LifeSize, WebEx, Wi- Fi, etc.) service providers in case of any issue in the (Internet, WAN, Broadband, Video Conferencing, LifeSize, WebEx, Wi-Fi etc.) connectivity links at DC, DR, Extranet DR, NR DR, HO, StockHolding’s SSL and SDMS network connectivity, Branches etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(k)",
+    "page": 18,
+    "text": "The bidder has to manage, maintain, configure/reconfigure , add, remove, modify, log calls for repair, update and upgrade all installed network infrastructure equipment’s, at DC, DR, Extranet DR, NR DR, HO, Branches etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(l)",
+    "page": 19,
+    "text": "The bidder has to perform warranty, inventory, AMC & Vendor Management to enable coordination with internal & external agencies including Internet SPs, WAN SPs for replacement or relocation of any hardware/software/service components.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(n)",
+    "page": 19,
+    "text": "The bidder will perform monitoring/management/Integration/configuration/reconfiguration/migration/desig n/redesign of Intranet consisting of Leased Lines, Wirless/ WiMax, Broadband, RFs, and other Technologies, multiple LAN, VPN and Extranet consisting of links of NSDL / CDSL / NSE / NCDEX / BSE / RBI / MCX and Internet services or any other new business entities, as per the requirements of the StockHolding team.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(o)",
+    "page": 19,
+    "text": "The bidder will perform Management, Configuration and troubleshooting of Routers, Switches, WLAN controllers, WLAN APs, WLAN monitoring systems, NMS/EMS systems, Load Balancers, Modems, Hubs and other Networking devices/servers (used by networking), including passive components (structured cabling) used in the network infrastructure.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(p)",
+    "page": 19,
+    "text": "The bidder will perform IP Management, Internet Services Management, DDoS Service Management, Vendor Management, Asset Movement and Management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(q)",
+    "page": 19,
+    "text": "The bidder will supply the necessary expertise and templates to implement the service delivery processes and procedures as per ITIL/ITSM/ISO 27001:2013/Basel II guidelines / framework, required for the smooth functioning of the said managed services, from time to time during the period of this contract.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1(r)",
+    "page": 19,
+    "text": "The bidder will deploy and make available Qualified Shadow resources for NMS, L2 engineer, Network Project Manager and NMS Project Manager and same has to be identified well in advance and trained in StockHolding environment and reviewed and confirmed by Networking team, same resource only will be deployed in case of onsite engineer goes on planned or emergency leave.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(s)",
+    "page": 19,
+    "text": "Qualified Shadow resource/s, having equivalent or more skillsets, qualifications, experience and immediately deployed onsite without any delay. On the unavailability of the resident onsite resource/s. Deviation of such arrangement from bidder’s side will apply a penalty of Rs. 5000/- per instance per day basis as per the penalty criteria for resource management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(t)",
+    "page": 19,
+    "text": "The bidder will ensure 24X7 network service availability through onsite network infrastructure monitoring and management. (7:00AM to 23:00PM Onsite and 23:00PM to 7:00AM on need basis) It will be the responsibility of the bidder to take immediate actions to ensure 24x7 network services availability.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(u)",
+    "page": 19,
+    "text": "The bidder will perform Management of Routers, L2- L3 Switches (Data Centre and connected access switches on floors), Passive network components (structured cabling) in the Data Centre and Hub rooms, LIUs, Modems, Hubs, other Networking devices and Data center cabling (UTP and Fiber) used in the core network including configuration and troubleshooting.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(v)",
+    "page": 19,
+    "text": "The bidder will do monitoring and management of NMS/EMS tools (NMS/EMS) available with StockHolding in remote/hybrid mode. Bidder’s onsite support team will provide necessary support to pin-point problem areas for early rectifications, Performance monitoring, tuning, Capacity Planning, Trending, Analyzing & Reporting, Monitoring of WAN traffic, flow analytics, bandwidth utilization and generation of reports, Incident management, change management, problem management, and SLA management. Bidder will provide necessary support incase StockHolding migrates existing tool or adopt any other cloud base services during the entire tenure.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(w)",
+    "page": 20,
+    "text": "The bidder will evaluate, troubleshoot, reconfigure and rectify system performance under normal and degraded conditions and perform periodic fine tuning to ensure maximum network availability.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(x)",
+    "page": 20,
+    "text": "The bidder will ensure regular comprehensive reporting on health of Network Infrastructure, Network Equipment’s, LAN/WAN/WLAN and any other network assets deployed.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(y)",
+    "page": 20,
+    "text": "The bidder will ensure the deployed resources for network management will look into end to end business application availability, reachability and user experience from the network perspective.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(z)",
+    "page": 20,
+    "text": "The bidder will ensure to maintain a comprehensive professional documentation of the network infrastructure under this contract.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1(aa)",
+    "page": 20,
+    "text": "The bidder will ensure a robust log collection mechanism for the network infrastructure in scope of this RFP.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.2 bullet 1",
+    "page": 21,
+    "text": "The bidder is required to maintain the syslog of critical network devices installed at DC, NDR, DR and critical locations for a period of three months. The logs should be onsite for three months as well as integrated with SIEM services opted by organization and can be stored on tapes and submitted to the StockHolding.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.2 bullet 2",
+    "page": 21,
+    "text": "The bidder has to ensure that the logs from WAN router are being stored in the syslog servers on regular basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.2 bullet 3",
+    "page": 21,
+    "text": "The periodicity for the retention of the log will be reviewed by StockHolding officials on monthly / quarterly basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.1 (EOS/EOL migration support)",
+    "page": 21,
+    "text": "However, StockHolding is and will be in the process of the changing and migrating the end of support (EOS) and End of Life (EOL) network devices, servers, equipment’s and appliances with equivalent one and /or higher specification / configuration model decided by the StockHolding by coordinating with respective / New OEMs from time to time. So number of devices may modify (Add / Delete) as per the requirement of organization. Considering this StockHolding expects that bidder will support to all such old and new network devices during migrations, new implementations, new technology upgrades like SDWAN, NAC implementations across all StockHolding branch locations as and when decided by the organization during entire support period of 3 years with no additional cost of maintenance during such upgrades and migrations adopted by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.2 bullet 4",
+    "page": 22,
+    "text": "Bidder will design and implement all simple scripts that may be needed to analyze logs and produce reports as required by the StockHolding officials.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "1.3 bullet 1",
+    "page": 22,
+    "text": "The bidder has to provide guidelines for Back-to-Back SLAs with service providers and maintain a daily record of SLA pertaining to the incidents reported.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.3 bullet 2",
+    "page": 22,
+    "text": "The bidder will provide Branch Feed Back Reports regarding the services mentioned in this RFP from all StockHolding branches duly signed by relevant branch in-charge on Quarterly basis in format decided by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 bullet 1",
+    "page": 22,
+    "text": "A holistic solution to quickly identify service impacting issues in the network with drill down capability.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 bullet 2",
+    "page": 22,
+    "text": "Ability to monitor Data Network and services providing insight to performance of StockHolding data network, better management of services to maintain service levels.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 bullet 3",
+    "page": 22,
+    "text": "Collective capacity and Inventory view of the network.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 bullet 4",
+    "page": 22,
+    "text": "To effectively, efficiently & centrally perform all the configuration and administrative tasks",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 bullet 5",
+    "page": 22,
+    "text": "Focus on resiliency backed up with strong process to ensure adherence to Service Levels.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 bullet 6",
+    "page": 22,
+    "text": "Right focus on service improvement plan with objective of achieving higher service targets.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "1.3 Log Archival",
+    "page": 22,
+    "text": "Logs collected from all the devices should be stored in a non-tamper able format on the archival device in the compressed form. Collection of Logs and storage should comply with the Regulatory requirement and should maintain a chain of custody to provide the same in a court of law, in case the need arises. For correlation and report generation purpose, past - 3- months log data should be available online. Logs prior to 3-months period should be stored on removable media as per the defined & audited process by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 (backup link support)",
+    "page": 22,
+    "text": "Selected bidder has to provide support for integration, troubleshooting and follow-ups for backup link connectivity across all the locations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(a)",
+    "page": 23,
+    "text": "Receive the request for a new link from the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(b)",
+    "page": 23,
+    "text": "Coordinate for the feasibility with the respective service providers.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(c)",
+    "page": 23,
+    "text": "Collate the feasibility response and consolidate for the analysis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(d)",
+    "page": 23,
+    "text": "Provide Confirmation to the StockHolding member on the feasibility for application of the link.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(e)",
+    "page": 23,
+    "text": "Documentation process for the link application / link shifting / links surrendered and review the same on periodical basis as per the yearly calendar prepared by networking team.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(f)",
+    "page": 23,
+    "text": "Ensure proper and timely order and documentation from the member.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(g)",
+    "page": 23,
+    "text": "Coordinate with StockHolding for the release of order to the service provider.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(h)",
+    "page": 23,
+    "text": "Coordinate with the service provider for timely order acknowledgement.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(i)",
+    "page": 23,
+    "text": "Coordinate with the service provider for timely payments towards new link commissioning and shifting of link and quarterly payments made to service provider.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(j)",
+    "page": 23,
+    "text": "Follow-up for link down issues with respective service provider and ensure that SLA has met as agreed with StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(k)",
+    "page": 23,
+    "text": "Proactive updates to StockHolding in case service provider has not meeting the SLAs as agreed or providing necessary guidelines to StockHolding for defining stringent SLAs with service provider.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(l)",
+    "page": 23,
+    "text": "As Majority of StockHolding links are with BSNL service provider, bidder has to ensure that these links will be up as per the agreed SLA provided to bidder as complete ownership and accountability of link management is with bidder.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.1(m)",
+    "page": 23,
+    "text": "In Link management end to end responsibility of network cables management from nearest ISP DP Box till customer’s network equipment’s lies between service provider and/or bidder (System Integrator). Any issues with respect to network cables laying, removal and replacement of network cables lies with bidder. Service provider and bidder has to ensure that for cable related issues Stockholding should get end to end support till Modem placed within the premises. Any consumables would be billed separately.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.2(a)",
+    "page": 23,
+    "text": "Creation of Project plan for the network implementation in line with service provider project plan.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.2(b)",
+    "page": 23,
+    "text": "Communicate plan with member and Co-ordinate for site readiness as per plan timelines",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.2(c)",
+    "page": 23,
+    "text": "Track delivery schedule as per plan with the service provider",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.2(d)",
+    "page": 23,
+    "text": "Ensure delivery updates on a pre-defined frequency",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(a)",
+    "page": 23,
+    "text": "Testing the new link in co-ordination with the service provider",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2 (team and onsite engineer)",
+    "page": 23,
+    "text": "The bidder will set up a team for monitoring NOC Operations to manage proactive & reactive network monitoring, event management, incident management, problem management, change management and other in scope activities. Bidder will leverage its expertise in handling the in scope services by deploying a team of certified professionals with hands on experience in delivering these services. Bidder should also provide an onsite engineer to take up the onsite support and local vendor coordination from the StockHolding premise.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(b)",
+    "page": 24,
+    "text": "Configuration of the network CPE as per the policy of StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(c)",
+    "page": 24,
+    "text": "Needs to keep a proper tracking details of service provider MUX, ports detail along with network diagram and document the same. This needs to be review on quarterly basis and / or as per the requirements from StockHolding by aligning an engineer from bidder side.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(d)",
+    "page": 24,
+    "text": "Test the end to network connectivity in coordination with StockHolding and link service providers and do link related parameters testing as followed in Industry.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(e)",
+    "page": 24,
+    "text": "Updating the system with routing policies, IP address inventory and the requisite configuration details",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(f)",
+    "page": 24,
+    "text": "Take handover of the link from respective service provider and initiate monitoring and maintenance of the link.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.3(g)",
+    "page": 24,
+    "text": "As StockHolding’s near DR and DR Site has been hosted with different service provider, bidder has to ensure a visit at these IDC locations from bidder’s field engineers on monthly basis, during DR Drill activities and in case of any support requirement from StockHolding site. Bidder has to keep a track of such visits and send a monthly reports to StockHolding for verification purposed. Bidder has to ensure that local engineer’s will be available from their team in case of any urgent requirements arises to visit IDC.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.4 (link restoration and escalation)",
+    "page": 24,
+    "text": "As StockHolding’s major service provider is BSNL, MTNL and TCL for MPLS links, bidder has to ensure that all the In-scope and future links managed by bidder pertains to these service providers should be UP within a maximum service duration of 1-day post which bidder has to provide us an email justification of escalations to regional SDE, DE, AGM, DGM and GM level for respective locations for which link was down for more than a day. Bidder has an ownership of getting all such links UP for more than a day beyond which a strict penalty of link downtime, link fluctuations has to be bear by the bidder for which proper email justification has not received by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.4 (BSNL copper-to-fiber accessories)",
+    "page": 24,
+    "text": "As BSNL has migrating their links from copper to fiber and for such migration BSNL requires an additional MLLN modem, Media converter etc. to be purchased. Bidder will ensure that all such accessories will be procure locally by bidder with the make and model suggested and / or recommended by BSNL and same can be connected to respective branch with additional commercial to StockHolding. This process needs to be completed after taking prior approval from Stockholding and within the stipulated time period provided by respective service providers.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 Billing and Service Closures (billing)",
+    "page": 24,
+    "text": "Bidder has to ensure that billing of such service providers has manage centrally as per the billing frequencies of Monthly, Quarterly, half-yearly, yearly etc. accepted by StockHolding. Bidder has to follow-up with service providers to ensure all such invoices are received promptly by StockHolding and same has been verified as per maker- checker arrangement to be created with NMS engineer.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 1",
+    "page": 25,
+    "text": "The bidder will conduct branch visit every quarter in each branch where the bidder personnel will conduct a satisfaction survey of end user services with the branch manager and also conduct a detailed preventive maintenance of all the network infrastructure components in the branch and provide a report of the same in the branch and file the same with the head office. Any findings in the branch visit will be actioned and concluded by the Bidder within one week. These feedback reports will need to be filed with StockHolding with the branch manager’s signature and will be considered as part of the bidder’s assessment.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 2",
+    "page": 25,
+    "text": "Bidder will also collect details of spares available during the preventative maintenance check.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 3",
+    "page": 25,
+    "text": "The bidder will be responsible for checking, verifying, submitting of various documents/financial instruments/filing of the various telecom related bills with proper documentation and also liasioning with service providers for technical and commercial (billing related) issues.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 4",
+    "page": 25,
+    "text": "The bidder will ensure the administration of network infrastructure servers and adhere to the ISMS policies in force from time to time.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 5",
+    "page": 25,
+    "text": "Regular reporting on health, performance of network infrastructure assets deployed.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 6",
+    "page": 25,
+    "text": "End to end Patch Management (IOS, firmware upgrades etc.) on all the network infrastructure and network servers, appliances and devices in scope.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 7",
+    "page": 25,
+    "text": "Migration of IPv4 to IPv6 (As and when required)",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 8",
+    "page": 25,
+    "text": "Internet/WAN/LAN Bandwidth Optimization with the help of tools provided by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 9",
+    "page": 25,
+    "text": "Ensure availability and optimum utilization of all network infrastructure components, servers and devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 10",
+    "page": 25,
+    "text": "As StockHolding conducts VA / PT exercises on monthly / quarterly basis, bidder has to ensure that onsite / back office NOC team of respective bidder will closed the points for which vulnerabilities has been observed during such exercises by coordinating with OEMs of respective in-scope network devices, appliances, servers, NMS tool and / or services etc. Bidder has to ensure that all such vulnerabilities (High / Medium / Low / Informational) points should be closed as per the definite time frame provided by StockHolding. Failure to close such points will attract penalty as mentioned in SLA tracking as per compliance management terminology.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 bullet 11",
+    "page": 25,
+    "text": "The bidder will conduct a configuration and ACL review on the network infrastructure every quarter, and submit the relevant analysis and findings in a report.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "2.5 Billing and Service Closures (link closure)",
+    "page": 25,
+    "text": "Upon link closure bidder has to ensure that all the site equipment’s pertains to StockHolding should be collected and included in centralized assets and proper tracking mechanism has been followed for finalised billing and collected advances from service provider if any. StockHolding expects a continuous follow-up with billing department of service provider and email evidences can be provided to us for verification / audit compliance.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.0 NOC Operations (SOPs)",
+    "page": 25,
+    "text": "The bidder will develop the work flow process Standard Operating Procedure (SOP) documents for attending to the various functions of the NOC including the work flow for attending to the incidents/changes/new requests generated within the scope of network infrastructure management and same will be review on continual basis as per the laid down calendar activities performed by the Organization. The Bidder will develop documents such as user manual, systems manual for smooth functioning of the NOC.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.0(a)",
+    "page": 26,
+    "text": "Network integration/Network Monitoring and Complete end to end Management",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.0(b)",
+    "page": 26,
+    "text": "Trouble-shooting problems related to Networking",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.0(c)",
+    "page": 26,
+    "text": "Monitoring of StockHolding's network infrastructure and regular checking of network health",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.0(d)",
+    "page": 26,
+    "text": "Carrying our surveys of new offices and suggesting the architecture and providing detailed BoM.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(a)",
+    "page": 26,
+    "text": "Proactive fault identification",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(b)",
+    "page": 26,
+    "text": "Fault diagnosis and escalation",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(c)",
+    "page": 26,
+    "text": "Multidimensional notification",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(d)",
+    "page": 26,
+    "text": "Fault resolution Management",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(e)",
+    "page": 26,
+    "text": "Escalation Management",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(f)",
+    "page": 26,
+    "text": "OEM TAC Case Tracker Report should be shared with StockHolding on Monthly Basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(g)",
+    "page": 26,
+    "text": "Identification and troubleshooting of network problems within the pre-defined time frame.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(h)",
+    "page": 26,
+    "text": "Identification of network device hardware problem and escalate and coordinate with appropriate agency for resolution within the pre-defined time frame.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(i)",
+    "page": 26,
+    "text": "Identification & trouble shooting of physical layer problem with specified SLA",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(j)",
+    "page": 26,
+    "text": "Trouble shooting of switching, routed & routing protocol (IP, IPX, RIP, IGRP, EIGRP, OSPF, BGP, IS-IS etc.). Resolve all routing problems within SLA.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.1(k)",
+    "page": 26,
+    "text": "Identification & troubleshooting of L1, L2 and L3 level problem within SLA. Also troubleshoot all types of hardware & software problems.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.2(a)",
+    "page": 26,
+    "text": "Configuration Change Management to be done onsite.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.2(b)",
+    "page": 26,
+    "text": "Configuration backup & restoration.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.2(c)",
+    "page": 26,
+    "text": "IP Address Management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.0 NOC Operations (NMS/EMS tool)",
+    "page": 26,
+    "text": "The bidder will provide support to onsite NMS/EMS tool / Cloud based service as a full- fledged NOC monitoring service, for management and monitoring purposes. The in house tool should comprise of Network monitoring, management and Application analytics, Incident Response and management, Change management, Problem management, Performance, SLA Management, Asset Management, IP Address Management, Quality and Optimization reporting (read: as per provided NOC services), Patch Management, Backup and Storage, Log management, Threat Analysis, Policy Management etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(a)",
+    "page": 27,
+    "text": "Maintain consistent uptime of network devices by monitoring CPU, memory usage & preventive maintenance of routers and switches on continuous basis across all locations of StockHolding for in-scope network devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(b)",
+    "page": 27,
+    "text": "Periodic testing of backup connectivity in case of primary link failure on monthly basis. This should be carried out for all the branches on monthly basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(c)",
+    "page": 27,
+    "text": "Logs, power status, module status for core devices, diagnostic result, failover status, routing protocol status.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(d)",
+    "page": 27,
+    "text": "Earthling related issues as and when observed in any branch needs to be sorted out in co-ordinating with branch heads and follow-ups needs to be done till resolution.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(e)",
+    "page": 27,
+    "text": "Branch level WAN / LAN support, Coordination and supervision for renovation, relocation, rack redressing, Network hardware troubleshooting, and installations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(f)",
+    "page": 27,
+    "text": "Half-yearly Preventive Maintenance (2nd and 4th quarter) activity should be conducted at Branch/ Regional Offices (ROs) / Department level of network devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3(g)",
+    "page": 27,
+    "text": "During preventive maintenance activity StockHolding expects that field engineer visiting the branch carry out minimum cable dressing activity and sort out the network cable related issues by coordinating with branch head.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3 (Problem Management)(a)",
+    "page": 27,
+    "text": "Carry out comprehensive problem analysis and provide root cause reports for major incidents.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.3 (Problem Management)(b)",
+    "page": 27,
+    "text": "Implement changes in the system to resolve the cause of incidents",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.4(a)",
+    "page": 27,
+    "text": "Identify record, classify and implement changes on the network devices on need basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.4(b)",
+    "page": 27,
+    "text": "Implementation of all changes based on approval from the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.5(a)",
+    "page": 27,
+    "text": "Network Device Asset Management including Device / Links available in StockHolding Networks from All SP’s.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.5(b)",
+    "page": 27,
+    "text": "EOL / EOS Details to me maintained and review the same on quarterly basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.5(c)",
+    "page": 27,
+    "text": "Monitoring to be done based on tools access to which a view of StockHolding’s devices is to be extended to StockHolding",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.5(d)",
+    "page": 27,
+    "text": "All the third party hardware failure call should be logged and follow up with them by successor Bidder till the replacement of devices, and to maintain StockHolding uptime as per their SLA.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.5(e)",
+    "page": 27,
+    "text": "Field resource to be arranged by bidder for new device / new services integration to be done at StockHolding and branch locations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.6(a)",
+    "page": 27,
+    "text": "Prepare & update network documents as per StockHolding / industry standards whenever required. Documents to be updated on regular basis with proper version controls.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.6(b)",
+    "page": 27,
+    "text": "Prepare & maintain change management documentation with version controls as per Stockholding standards on regular basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.6(c)",
+    "page": 28,
+    "text": "Maintaining inventory of in-scope network devices, servers, appliances across all locations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 1",
+    "page": 28,
+    "text": "Work/ Liaison with the existing System Integrator(s) and various application vendors of the StockHolding for integration the services/ solutions with existing application platforms, servers, storage environments, enterprise network, and security solutions, etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 2",
+    "page": 28,
+    "text": "Development of operating procedures in adherence with the StockHolding’s policies.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 3",
+    "page": 28,
+    "text": "Adherence to agreed Service Level Agreements (SLA) and periodic monitoring and reporting of the same to designated team and official of the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 4",
+    "page": 28,
+    "text": "Continual improvement of the Network Operations Services as defined in the SLA",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 5",
+    "page": 28,
+    "text": "The raw log collection should be stored at Stock Holding’s premise only as per the compliances standards followed by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 6",
+    "page": 28,
+    "text": "Workflow Automation.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 7",
+    "page": 28,
+    "text": "Selected bidder will define the work flow automation for the tool so that applications are integrated and manual intervention is minimal.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 8",
+    "page": 28,
+    "text": "Network Infrastructure devices and links to be monitored by NOC monitoring tool to include but are not limited to the following as per Table-A.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 Reports (Table C)",
+    "page": 28,
+    "text": "Events | Total number of availability events generated during reporting period, categorized by event type (warnings, exceptions, and informational). Data is presented in both table and graph format. | Incidents | Total number of incidents logged that were initiated because of an availability event. | Root cause | All incidents logged through availability events and their root cause as captured at the time of closing the incident | Availability by device | % availability by configuration item for the reporting period and previous reporting period in both table and graphic format",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 (NMS tool support)",
+    "page": 28,
+    "text": "Onsite team should provide support for existing NMS tool used for NOC monitoring, management and integration with other services by coordinating with respective OEM of tool.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 (security devices integration)",
+    "page": 28,
+    "text": "However, Stockholding may go ahead and include network security devices like firewalls, intrusion prevention System, Web application firewalls, active directory servers, mail servers, application and database servers etc. for capacity monitoring in network monitoring tool / service used by Stockholding. Bidder’s onsite team has to provide necessary support for integration of these devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 9",
+    "page": 29,
+    "text": "The bidder is required to maintain basic configuration template for all network devices i.e. L2 Switches, L3 Switches, WAN routers, Wi-Fi Controllers and access points, Access Control Server etc. as per the StockHolding’s IT security policy and implement the same across the network to maintain the uniformity of the configuration.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 10",
+    "page": 29,
+    "text": "The bidder shall implement security policy, QOS policy and traffic reengineering policy that will be decided by the StockHolding. StockHolding may change policies as per the requirement of the StockHolding from time to time. The bidder shall coordinate with the service provider for its implementation and take complete ownership of the configuration.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 11",
+    "page": 29,
+    "text": "Bidder to configure QOS on WAN routers as required to maintain the optimal quality of the application.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 12",
+    "page": 29,
+    "text": "The bidder is required to maintain the configuration on Wi-Fi Controllers and access points, WAN routers and L2 and L3 switches and required to do the changes in routing table, access-list, etc. as & when required to maintain the business function.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 13",
+    "page": 29,
+    "text": "The bidder is required to implement End-to-End Router based IPSec encryption (IPSEC /3 DES/AES) if required.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.7 bullet 14",
+    "page": 29,
+    "text": "The bidder is required to conduct network drills at regular intervals (to be decided by the StockHolding) for all devices configured in high availability mode by passing traffic through the devices which were in passive mode.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.8 bullet 1",
+    "page": 29,
+    "text": "To examine the health of the network devices by verifying the parameters such as utilization during peak hours, version control of Wi-Fi Controllers and access points, routers and switches, Operating Systems of managed servers and other network parameters/ applications/devices, Access Control Server etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.8 bullet 2",
+    "page": 29,
+    "text": "To identify the performance bottlenecks and to take suitable rectification steps, in consultation with the StockHolding and suggest measures for improvement.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.8 bullet 3",
+    "page": 29,
+    "text": "The bidder will be responsible for configuration of the network devices as per the StockHolding’s IT security policy. StockHolding can conduct the audit of the network as per SEBI / RBI / PFRDA etc. regulatory bodies guidelines, if any or as per StockHolding’s requirement through a third party or by StockHolding’s Internal / External audit team on quarterly, half yearly and yearly basis. Bidder has to close the findings as per the deadlines provided by the internal / external auditors to meet the compliance. Any deviations in meeting such compliance will attract penalty as per compliance management terminology.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.8 bullet 4",
+    "page": 29,
+    "text": "Bidder will be responsible for complying with closing all the Internal / External audit observations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.8 bullet 5",
+    "page": 29,
+    "text": "The bidder has to ensure re-validation checks and post fix of the audit is performed, after the relevant configuration changes are made in the network, without any additional cost to the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.9 bullet 1",
+    "page": 30,
+    "text": "The bidder is required to take periodic backup (Daily, Weekly, Monthly, Yearly etc.) of all network infrastructure devices as per StockHolding’s IT policy and keep record of the same.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.9 bullet 2",
+    "page": 30,
+    "text": "The bidder is required to occasionally test the authenticity of the backup taken by restoring the same in the router.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.9 bullet 3",
+    "page": 30,
+    "text": "The bidder is required to take configuration backup before & after each change management activity as the same can be used for restoration in case of any issue post change management.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "3.9 bullet 4",
+    "page": 30,
+    "text": "The bidder is required to inform the StockHolding in case of any requirement of IOS up gradation required in any of the network infrastructure servers and devices and perform the same post approval from the StockHolding.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 1",
+    "page": 30,
+    "text": "Integrate all the network infrastructure devices and links supplied with the Incident Management, Change Management, Problem Management, and SLA Management with Dashboard viewing system.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 2",
+    "page": 30,
+    "text": "Monitor and take remedial action on network incidents on 24X7X365 basis of StockHolding and track the resolution of the same and close the incidents.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 3",
+    "page": 30,
+    "text": "Escalate the open incidents, as per the escalation matrix till resolution of the same.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 4",
+    "page": 30,
+    "text": "Continuously fine tune the NOC operations and services provided with the NMS/ EMS tool.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 5",
+    "page": 30,
+    "text": "Continuously improve the NOC operations to maximize the usage of tools.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 6",
+    "page": 30,
+    "text": "Manage archival of logs as per the Archival and retention policy of the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 7",
+    "page": 30,
+    "text": "Provide 24X7X365 comprehensive maintenance support (all parts inclusive) at DC and DR to resolve any technical problem/issues.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 8",
+    "page": 30,
+    "text": "Action taken on internal and external Vulnerability Scanning / Penetration testing as per the defined frequency.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 9",
+    "page": 30,
+    "text": "Remediation plan of deficiency observed in the Vulnerability assessment and penetration testing has to be prepared by the onsite resource personnel.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 10",
+    "page": 30,
+    "text": "Providing reports with in house / Cloud based NMS/EMS tools and reports should be compliant with ISO 27001:2013 and ITIL/ITSM standards e.g.: Incident management, Change Management, SLA Management etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "3.8 (quarterly configuration review)",
+    "page": 30,
+    "text": "The bidder has to ensure quarterly review and rectification of the entire network infrastructure devices configuration in scope during contract period.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 Deliverables",
+    "page": 30,
+    "text": "Bidder has to manage the NOC on 24X7X365 basis and deliver the services and provide the reports to the StockHolding on periodic basis throughout the contract period for each of the services mentioned under project scope, in addition to providing other critical observations / methods/ improvements as deemed fit based on bidder’s professional experience for each of the services mentioned above.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 11",
+    "page": 31,
+    "text": "Provide the complete set of Operation and System Manuals in -3- sets of Hardcopies as well as in Softcopies of all the systems, components, network infrastructure servers and devices managed and maintained as part of the NOC Operations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 12",
+    "page": 31,
+    "text": "The successful bidder will work closely with Information Security team / Security Operations Centre Team for finalizing the robust and secure network design or any other work related to StockHolding’s LAN/ WAN / PERIMETER NETWORK as per regulatory guidelines.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.0 bullet 13",
+    "page": 31,
+    "text": "Define the NOC process manual.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1(A)",
+    "page": 31,
+    "text": "It is the responsibility of the successful bidder to rollout the Project within stipulated timelines from award of Purchase order. The bidder shall ensure and extend full support for continuity of operations during the migration and contract period.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1(B)",
+    "page": 31,
+    "text": "The successful bidder has to present the detailed process for completing the transition to the StockHolding. At every stage, a signoff needs to be taken from the StockHolding’s respective administrative offices for DC/DR- Head Office-IT Networking Department).",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1(C)",
+    "page": 31,
+    "text": "The successful bidder shall inform contact details of SPOC/Project Incharge identified promptly after receipt of purchase order for smooth roll out under the Project with in stipulated timelines.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1(D)",
+    "page": 31,
+    "text": "The successful bidder shall deploy and also share the profile of its support staff and technical personnel at DC Site, along with Escalation Matrix within 4 weeks from date of receipt of purchase order with consent from StockHolding's team.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1(E)",
+    "page": 31,
+    "text": "The successful bidder has to submit a daily Roster of resources, status report, Tracker of down calls, dashboard of links to the IT-Networking team regarding number of branches whose transition has been completed.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1(F)",
+    "page": 31,
+    "text": "The delay in transition beyond 3 months will be liable for liquidated damages recovered from the successful bidder provided delay is happening due to reasons contributed by the Bidder.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1 (smooth transfer and transition plan)",
+    "page": 31,
+    "text": "The bidder should ensure the smooth transfer of the services so as to continue to meet StockHolding’s business requirements in a way that minimizes unplanned business interruptions. The bidder will be responsible for planning, preparing and submitting a Transition Plan to StockHolding. Bidder will fully cooperate and work with any and all StockHolding’s Third Party Contractors/Vendors/Consultant in a manner that will result in a seamless transfer of Services, and such transfer of Services shall be in accordance with the Transition / Due diligence plan.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1 (governance model)",
+    "page": 32,
+    "text": "During the Transition / Due diligence period, bidder will be responsible for implementation of the Governance Model. Bidder will identify the suitable personnel for the roles defined under the governance structure for implementation. Bidder will also be responsible for appointing its back end team representative members to the newly / ongoing established governance forums.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1 (delivery organization structure)",
+    "page": 32,
+    "text": "Bidder will have the sole responsibility for implementation of the new Bidder’s delivery organization structure. All preparation and planning for such implementation must be completed during the Transition / Due diligence period.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1 (transition project plan)",
+    "page": 32,
+    "text": "The bidder will explain how and when it will implement the transition activities, describe how it will transition Services from StockHolding’s current environment. The Bidder will include a project plan (“Transition / Due Diligence Project Plan”) indicating the tasks, timeframes, resources, and responsibilities associated with the transition / due diligence activities.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1 (transition plan key areas)",
+    "page": 32,
+    "text": "Bidder has to develop a detailed transition plan covering at least the following key areas: | Transition / Due Diligence Schedules, Tasks and Activities | Operations and Support | Maintenance | Resource Requirements | Software Resources | Hardware Resources | Facilities | Personnel | Other Resources | Relationships to StockHolding’s other Teams / Projects | Management Controls | Reporting Procedures | Risks and Contingencies- Key Risks, issues, dependencies and mitigation plans. | Transition / Due Diligence Team Information | Transition / Due Diligence Impact Statement and assessment | Review Process | Configuration Control | Plan Approval | Describe tools, methodologies and capabilities of the teams deployed for transition / Due Diligence. | Complete Documentation.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.1 (transition framework, Table D)",
+    "page": 33,
+    "text": "All Bidders are required to ensure that their framework for transition / Due Diligence of proposed services from StockHoldin’s IT team/current Service Provider, at a minimum should include the following phases and allied activities: | Initiation | Kick off the transition based on the agreed transition plan | Planning | This phase takes care of all the planning activities required for successful transition of services | Execution | Execute the transition of services while ensuring near zero risk and no disruption to business. | Closure | Create all the transition documents and submit to the client for review and sign off and start off with MIS & SLA reporting.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.2 Table E item 9",
+    "page": 33,
+    "text": "9 | Define processes; develop SOPs, checklists, escalation matrix and flow charts. (Bidder has to obtain StockHolding’s sign off on documentation prior to completion of transition phase)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.2 bullet 1",
+    "page": 34,
+    "text": "Bidder to ensure proper documentation during each phase of transition and get them approved by StockHolding’s Network team.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.2 bullet 2",
+    "page": 34,
+    "text": "Maintain steady operation of Transition period will have to be done within 30 days from the date of the order from the existing service provider.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.2 bullet 3",
+    "page": 34,
+    "text": "Bidder has to provide sufficient staff during the transition period however the payment for services shall start after the transition period and formal handover of service to the bidder.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.2 bullet 4",
+    "page": 34,
+    "text": "Finalize the reporting mechanism in consultation with the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 bullet 1",
+    "page": 34,
+    "text": "All team resources included in NOC Operations and device management should be on the payroll of bidder. At least 10 resources should be allocated for StockHolding for the full project contract duration as a Network Consultants (Mahape, Delhi and Bangalore). They should have professional qualifications as per their roles (L1, L2, Project Manager etc.) as mentioned like updated versions of CCNA / CCNP / CCIE / PMP/ ITIL / ITSM along with OEM Certified for the product / solution. Resume/ CV for each of these members should be provided to the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 bullet 2",
+    "page": 34,
+    "text": "Minimum on-site resource deployment will be as shown below. Bidder make sure that at any given instance minimum resource count of one engineer within shift window as per the expertise level must always be available on site to meet the desired SLA as per the requirement.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 bullet 3",
+    "page": 34,
+    "text": "Minimum 8 resources must be available at any given day at Navi Mumbai Mahape Site, and single resource at Delhi and Bangalore Site as per the shift schedule. SI must factor number of shadow resources required to managed the NOC operations and accordingly include the same.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.2 Table E item 21",
+    "page": 34,
+    "text": "21 | The scope of work mentioned is illustrative and not exhaustive. The bidder needs to comply with StockHolding's requirements and any statutory or regulatory guidelines",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 On-Site Personnel (A)(1)",
+    "page": 35,
+    "text": "Project Manager cum L3 Engineer (One Number): Should be Degree qualified Engineer with CCNP having at least 5 years of experience post CCNP certification and Project Management skills plus exposure on WLAN, Voice and Video Conferencing with hands on experience on OEM like Cisco, Arista, Juniper, Extreme etc. network devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 On-Site Personnel (A)(2)",
+    "page": 35,
+    "text": "Core Network Engineer (Two Numbers): Should be Degree Engineer with CCNP having atleast 3 years’ experience post CCNP certification in similar environment in terms of Management of the MPLS network / SDWAN architecture kind of topology, SDWAN, Network Access Control (NAC) architecture rollout / routing protocol deployed at StockHolding. Should have expertise on router / switches configurations, Voice, WLAN, Video conferencing, Policy based routing, Access Control List management, IPSLA, performance routing, troubleshooting and excellent documentation skills with hands on experience on OEM like Cisco, Arista, Juniper, Extreme etc. network devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 1",
+    "page": 35,
+    "text": "Bangalore | NMS engineer L1 | 1 | Business Hours 9:00am to 18:00pm",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 2",
+    "page": 35,
+    "text": "Delhi | NMS engineer L1 | 1 | Business Hours 9:00am to 18:00pm",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 3",
+    "page": 35,
+    "text": "Mumbai | NMS engineer (L1) | 2 | 7:00am to 15:00pm and 14:00pm to 23:00pm",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 4",
+    "page": 35,
+    "text": "Mumbai | Core Network Engineer (L2) | 2 | 7:00am to 15:00pm and 14:00pm to 23:00pm",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 5",
+    "page": 35,
+    "text": "Mumbai | Additional NMS + Core Network engineer (L1 cum L2) | 1 | Business Hours 9:00am to 18:00pm.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 6",
+    "page": 35,
+    "text": "Mumbai | Network Cabling Engineer | 1 | Business Hours 9:00am to 18:00pm",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Table F row 7",
+    "page": 35,
+    "text": "Mumbai | Project Manager [Network (1) + NMS (1)] | 2 | Business Hours 9:00am to 18:00pm",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (Table F working hours)",
+    "page": 35,
+    "text": "The timings however may change depending on the work requirements, the personnel deputed should be prepared to work long hours in case of emergencies and even on holidays and Sundays.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Service Window (A) bullet 1",
+    "page": 36,
+    "text": "Project Manager: 09:00 AM to 06:00 PM",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Service Window (A) bullet 2",
+    "page": 36,
+    "text": "Core Network Engineer: 07:00 AM to 11:00 PM (One Engineer per Shift – As per shift timings) However, timings may change depending on the work requirements, the personnel deputed should be prepared to work long (extended) hours and on Sundays/Holidays in case of emergencies.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 1",
+    "page": 36,
+    "text": "Ensure 24*7 connectivity of existing network systems to have stable operation of the organization’s IT network.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 2",
+    "page": 36,
+    "text": "Overall in charge of account",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 3",
+    "page": 36,
+    "text": "Conducting periodic service reviews with StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 4",
+    "page": 36,
+    "text": "Configuration Management, Maintenance, Support & Optimization of new and existing Network devices and communication links",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 5",
+    "page": 36,
+    "text": "Manage the data communications needs of StockHolding LAN and WAN, WLAN, Voice and Video Conferencing and Meeting requests.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 6",
+    "page": 36,
+    "text": "Manage the physical network infrastructure, in the StockHolding Data Centre, Access Wiring Closet-Uplinks (Fiber and UTP) and remote locations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 7",
+    "page": 36,
+    "text": "Participate in network planning, design, development, deployment, and modification.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 8",
+    "page": 36,
+    "text": "Monitor and control service levels of network suppliers.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 9",
+    "page": 36,
+    "text": "Liaise with StockHolding officials to establish and implement a list of monitored network activities.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 10",
+    "page": 36,
+    "text": "Ensure that data communication within StockHolding is reliable and of sufficient capacity to meet StockHolding’s business needs.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 11",
+    "page": 36,
+    "text": "Hands on experience and working knowledge on network devices of multiple OEMs like Cisco, Juniper, Arista, Extreme, HP (Aruba) etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 12",
+    "page": 36,
+    "text": "Hands on experience and working knowledge on SDWAN, VDI platforms, Virtual LANs and upgraded technologies.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 13",
+    "page": 36,
+    "text": "Provide physical connections to the corporate LAN as required.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 14",
+    "page": 36,
+    "text": "Ensure that data communications packets are routed efficiently both in the corporate LAN & WAN.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 15",
+    "page": 36,
+    "text": "Provides regular feedback on network performance, both in general & against specific service levels.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 16",
+    "page": 36,
+    "text": "Monitor bandwidth use, analyze traffic patterns and volumes, and determines impact/implications of the above mentioned issues on StockHolding LAN / WAN / Extranet network.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 17",
+    "page": 36,
+    "text": "Ensure network security standards are upheld.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 18",
+    "page": 36,
+    "text": "Backup Link testing Broadband / WiMAX/ etc.)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 19",
+    "page": 36,
+    "text": "Backup Management of all network devices and tools used for network management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 20",
+    "page": 36,
+    "text": "Providing network performance statistics & reports.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 21",
+    "page": 37,
+    "text": "Manage and ensure optimal operation of all network hardware & equipment.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 22",
+    "page": 37,
+    "text": "Establish best practices and policies for installing, configuring, maintaining and troubleshooting network hardware devices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 23",
+    "page": 37,
+    "text": "Establish and maintain regular written communications for smooth functioning with StockHolding officials across branches",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 24",
+    "page": 37,
+    "text": "Maintain network asset management, including maintenance of N/W equipment inventory and related documentation with proper Network Diagram.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 25",
+    "page": 37,
+    "text": "Maintain Daily record of SLA and the incidence reporting jointly with StockHolding Coordinator",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 26",
+    "page": 37,
+    "text": "Resource attendance and Rostering, report on the same to StockHolding officials.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Project Manager bullet 27",
+    "page": 37,
+    "text": "Maintain the processes and procedures as per ISO 27001:2013 guidelines and requirements.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 1",
+    "page": 37,
+    "text": "Identify problems & Incidence in LAN & WAN, WLAN, Voice and Video network, and ensure quick resolution of problems and ensure maximum uptime of Leased Line, MPLS, WiMAX and Broadband links.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 2",
+    "page": 37,
+    "text": "Change Router Configurations (Access Lists, Static Routes etc.), L2, L-3, WLAN, Voice systems and devices (DC and connected access switches on floors), Passive network components in the datacenter, & cabling (UTP and Fiber), UTP & Fiber Uplink Cabling to the wiring closet (Access) and document the changes properly as per change management procedures.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 3",
+    "page": 37,
+    "text": "Manage Asset movement across StockHolding branches and maintain the Inventory List up-to-date.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 4",
+    "page": 37,
+    "text": "Coordinating with various vendors and problem escalation as per need.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 5",
+    "page": 37,
+    "text": "Taking daily, weekly backups of all routers and manageable switches, WLAN, Voice and Video Conferencing systems,",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 6",
+    "page": 37,
+    "text": "Link Health checking and accordingly provide capacity planning inputs and reports",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 7",
+    "page": 37,
+    "text": "Management of VOIP, IP Telephony (e.g. QOS, VOIP Configurations, VOIP Nos. List for all VOIP enabled branches)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 8",
+    "page": 37,
+    "text": "Monitor and control service levels of network suppliers.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 9",
+    "page": 37,
+    "text": "Ensure detection of alerts from the network infrastructure.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 10",
+    "page": 37,
+    "text": "Provide physical connections to the corporate LAN, WLAN and Voice systems as required.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 11",
+    "page": 37,
+    "text": "Ensure that data communications packets are routed efficiently.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 12",
+    "page": 37,
+    "text": "Provide regular feedback on network performance, both in general and against specific service levels.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 13",
+    "page": 37,
+    "text": "Monitor bandwidth use, analyzes traffic patterns and volumes, and determines impact/implications of issues of the above mentioned issues on StockHolding LAN / WAN / Extranet / WLAN / Voice and Video Conferencing networks.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 14",
+    "page": 37,
+    "text": "Ensure security standards are upheld.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 15",
+    "page": 37,
+    "text": "Hands on experience and working knowledge on network devices of multiple OEMs like Cisco, Juniper, Arista, Extreme, HP (Aruba) etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 16",
+    "page": 37,
+    "text": "Hands on experience and working knowledge on SDWAN, VDI platforms, Virtual LANs and upgraded technologies.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 17",
+    "page": 37,
+    "text": "Handle service requests.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 18",
+    "page": 37,
+    "text": "Monitor incident details, including the configuration items affected.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 19",
+    "page": 37,
+    "text": "Investigate and diagnose incidents and problems (including resolution)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 20",
+    "page": 38,
+    "text": "Detect possible problems and notifies problem management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 21",
+    "page": 38,
+    "text": "Document the resolution and recovery of assigned incidents.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 22",
+    "page": 38,
+    "text": "Acts as a restoration team member, if required, during major incidents.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 23",
+    "page": 38,
+    "text": "Carry out actions in order to correct known errors.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (A) - Core N/W Engineer bullet 24",
+    "page": 38,
+    "text": "Engineer should visit Stockholding Mumbai and Navi Mumbai branches as per the requirement to resolve branch connectivity related issues if any.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (A) bullet 1",
+    "page": 38,
+    "text": "Background verification checks for all personnel deployed at StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (A) bullet 2",
+    "page": 38,
+    "text": "All the members of the on-site team should be provided with mobile phones by selected bidder.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (A) bullet 3",
+    "page": 38,
+    "text": "The on-site team shall maintain attendance register Soft copy and Hard copies with StockHolding officials",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (A) bullet 4",
+    "page": 38,
+    "text": "The on-site team shall not be changed without adequate notice (minimum ONE month for NMS/NIS personnel and 2 months for L2 Engineer and PM with proper handover to the new resource and in concurrence with StockHolding officials) to StockHolding. Any resigned resource of on-site team should not be relieved before giving suitable replacement and handover to the new resource.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (A) bullet 5",
+    "page": 38,
+    "text": "Selected bidder should ensure that all deputed personnel are present on all StockHolding working days.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 On-Site Personnel (B)(1)",
+    "page": 38,
+    "text": "Project Manager (1 No.): Should be qualified Degree Engineer with NMS tool having experience of Five years in similar role of NMS Management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 On-Site Personnel (B)(2)",
+    "page": 38,
+    "text": "NMS Engineer (5 Nos.): Should be Degree/Diploma Engineer with CCNA having minimum experience of 3 years in similar environment. Should have exposure to WAN environment and network monitoring tools. NMS Engineer should be qualified Degree Engineer with CCNA having minimum experience of 3 years in similar environment. Expert in handling network devices like routers and Switches Off above, THREE will be dedicated Engineers in Mumbai, and one each at Bangalore and Delhi location.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Service Window (B) bullet 1",
+    "page": 38,
+    "text": "Project Manager: 09:00 AM to 06:00 PM",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Service Window (B) bullet 5",
+    "page": 38,
+    "text": "Network Cabling Engineer: 09:00 AM to 06:00 PM However, timings may change depending on the work requirements, the personnel deputed should be prepared to work long (extended) hours or on Sundays/Holidays in case of emergencies.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (Screening - interview, A)",
+    "page": 38,
+    "text": "StockHolding will conduct a formal interview of the project team members to judge the process and technical skills, suitability for the project and prior experience before granting sanction to be a part of the project team.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Service Window (B) - NMS Engineer",
+    "page": 38,
+    "text": "NMS Engineer: 07:00 AM to 11:00 PM (One Engineer per shift in Mahape) 09:00 AM to 06:00 PM (General Shift at Delhi and Bangalore location)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 1",
+    "page": 39,
+    "text": "Managing & Maintenance of MPLS / P2P billing in quarterly / yearly billing cycles",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 2",
+    "page": 39,
+    "text": "Installation and Maintenance of NMS Tools",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 3",
+    "page": 39,
+    "text": "Develop and maintain technical documentation and operational procedures, Preparation of Standard Operating procedures (SOPs), Checklists for link commissioning and link maintenance.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 4",
+    "page": 39,
+    "text": "Provide day-to-day support in maintaining the communication network, including responsibility for ensuring processes and outputs are complete and error-free.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 5",
+    "page": 39,
+    "text": "Identification, analysis and resolution of problems regarding link management and link commissioning",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 6",
+    "page": 39,
+    "text": "Plan, schedule and coordinate activities related to link management projects",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 7",
+    "page": 39,
+    "text": "Perform planning / scheduling / prioritizing / coordination of activities related to network monitoring for team members",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 8",
+    "page": 39,
+    "text": "Work with vendors and StockHolding official to integrate new technologies into the end- user environment if any",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 9",
+    "page": 39,
+    "text": "Management of Asset Inventory of network equipment",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 10",
+    "page": 39,
+    "text": "Maintaining Digital Logic Carrier (DLC) and MUX documentation",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 11",
+    "page": 39,
+    "text": "Providing Daily, weekly, monthly consolidated reports from NMS Engineers",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 12",
+    "page": 39,
+    "text": "Prepare, Review. And follow-up of customer feedback from across branches as per the organisation standards",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 13",
+    "page": 39,
+    "text": "Roster management.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - Project Manager bullet 14",
+    "page": 39,
+    "text": "Project Manager should visit Service providers’ offices and exchanges as per the requirement for resolution of link and branch connectivity related issues.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 1",
+    "page": 39,
+    "text": "Identify problems and incidents in the WAN network and ensure quick resolution of problems",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 2",
+    "page": 39,
+    "text": "Installation and maintenance of NMS software.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 3",
+    "page": 39,
+    "text": "Responsible to take on escalation by helpdesks / Network monitoring centers & provide trouble-shooting, support on WAN related issues (link outages & equipment failures)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 4",
+    "page": 39,
+    "text": "Proper and thorough documentation of all WAN related changes to enable seamless backup support",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 5",
+    "page": 39,
+    "text": "Practice and maintain good vendor relationship to ensure delivery of quality services as per Service agreements.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 6",
+    "page": 39,
+    "text": "Proper handover to personnel in next shift",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 7",
+    "page": 39,
+    "text": "Coordinating in case of problems with branch office of StockHolding",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 8",
+    "page": 39,
+    "text": "Daily Infra check list (Mux, modem, fiber/copper cable, IP PBX)-morn and evening, status report to be submitted.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 9",
+    "page": 39,
+    "text": "Campus Survey monthly report (ducts, pathways with in the StockHolding premises and leading to the StockHolding premises) should be submitted",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 10",
+    "page": 40,
+    "text": "Provide front-end support for all WAN projects like upgrades & new installation by working with local Telecom companies and carriers like BSNL, MTNL, TCL, TTML, Bharti Airtel etc. to ensure timely testing / termination of WAN links & configuration of related equipment (e.g. DLC, MUX, MDFs, pumps etc.)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 11",
+    "page": 40,
+    "text": "Ensure minimum uptime of 99% for MPLS & Backbone & P2P links, 98% for all other links as per the defined SLA by StockHolding on monthly basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 12",
+    "page": 40,
+    "text": "Sending / replacing routers, switches and modems to remote branch locations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 13",
+    "page": 40,
+    "text": "Maintain leased line, MPLS, WiMAX/RF billing for all locations in proper manner and tool provided by StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 14",
+    "page": 40,
+    "text": "Co-ordinate with MTNL, BSNL, TCL, TTML, Bharti Airtel etc. for any billing related issues.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 15",
+    "page": 40,
+    "text": "Movement of Assets as per StockHolding requirement and maintain Asset movement details.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 16",
+    "page": 40,
+    "text": "Engineer should visit BSNL / MTNL exchanges and Service provider’s offices as per the requirement to resolve link related issues.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Responsibilities (B) - NMS Engineer bullet 17",
+    "page": 40,
+    "text": "Engineer should visit Stockholding branches as per the requirement to resolve branch connectivity related issues if any.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (B) bullet 2",
+    "page": 40,
+    "text": "All the members of the team should be provided with mobile phones by the bidder",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (B) bullet 3",
+    "page": 40,
+    "text": "The on-site team shall maintain attendance register with StockHolding officials",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (B) bullet 4",
+    "page": 40,
+    "text": "The on-site team shall not be changed without adequate notice (minimum ONE month) to StockHolding. Any resigned resource of on-site team should not be relieved before giving suitable replacement.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Screening (B) bullet 5",
+    "page": 40,
+    "text": "Selected bidder should ensure that all deputed personnel are present on all StockHolding working days.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 1",
+    "page": 40,
+    "text": "One number of cabling engineer Site Ops (Resource) for StockHolding Data Center cabling to be available on-site.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 2",
+    "page": 40,
+    "text": "Graduate with 5 years of hands-on experience in Datacentre cabling, designing, installation and maintaining structured cabling systems.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 3",
+    "page": 40,
+    "text": "Proficiency in reading and interpreting network diagrams, floor plans, and blueprints.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 4",
+    "page": 40,
+    "text": "Experience with network infrastructure components, including copper and fiber optic cables, connectors, patch panels, and racks.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 5",
+    "page": 40,
+    "text": "Excellent troubleshooting skills to diagnose and resolve network connectivity issues efficiently.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 6",
+    "page": 40,
+    "text": "Ability to work independently or as part of a team, with good communication and interpersonal skills.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 7",
+    "page": 41,
+    "text": "Attention to detail, organization, and time management skills.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 8",
+    "page": 41,
+    "text": "Knowledge and practical handholding and experience in the latest cabling infrastructure installation standards and practices.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 9",
+    "page": 41,
+    "text": "Stay updated with emerging technologies, trends, and advancements in structured cabling systems and provide suggestions for improvement.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 10",
+    "page": 41,
+    "text": "Conduct regular inspections to ensure compliance with safety regulations and standards.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Network Cabling Engineer bullet 11",
+    "page": 41,
+    "text": "Apply his knowledge of industry best practices and quality standards to ensure the highest level of installation and testing.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Designing and Planning bullet 1",
+    "page": 41,
+    "text": "Collaborate with onsite NOC and SOC team members, architects, and network designers to understand network requirements and objectives.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Designing and Planning bullet 2",
+    "page": 41,
+    "text": "Apply his knowledge and experience to create detailed structured cabling plans, including cable pathways, equipment layout, and network configurations.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Installation and Implementation bullet 1",
+    "page": 41,
+    "text": "Independently perform installation, termination, and testing of copper and fiber optic cables, connectors, and related network equipment.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Installation and Implementation bullet 2",
+    "page": 41,
+    "text": "Efficiently mount and configure network racks, cabinets, and patch panels.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Installation and Implementation bullet 3",
+    "page": 41,
+    "text": "Conduct cable pulling, dressing, labelling, and cable management to ensure a clean and organized installation.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Installation and Implementation bullet 4",
+    "page": 41,
+    "text": "Utilize troubleshooting skills to identify and resolve any issues during the installation process.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Documentation and Reporting bullet 1",
+    "page": 41,
+    "text": "Create accurate as-built documentation of the installed cabling system, including drawings, diagrams, and test results.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Documentation and Reporting bullet 2",
+    "page": 41,
+    "text": "Use your experience to maintain comprehensive records of cable routes, labelling, and connectivity information.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Documentation and Reporting bullet 3",
+    "page": 41,
+    "text": "Generate reports on project progress, issues encountered, and recommendations for improvement.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Soft Skills bullet 1",
+    "page": 41,
+    "text": "Should understand the 24×7 support nature of our work.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Soft Skills bullet 2",
+    "page": 41,
+    "text": "Should understand start-up kind of role where we would expect him to learn new technologies frequently.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Soft Skills bullet 3",
+    "page": 41,
+    "text": "Must be willing to travel in and around in Mumbai based locations and Bangalore.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(1)",
+    "page": 41,
+    "text": "Daily monitoring of intelligent solution components (Master & slave Analyzers, intelligent patch panels and cables to straight panels and cables, power cords) to keep network live 100% uptime.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(2)",
+    "page": 42,
+    "text": "Monitoring of passive intelligent solution software for proper functions ex. Alerts/ mail is getting generated in case of any interruption in network ports.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(3)",
+    "page": 42,
+    "text": "Continues updating of data in intelligent software for like Add/ moves/changes etc.in the network on day to day basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(4)",
+    "page": 42,
+    "text": "Managing Break Down/ Shut down activities (Server and Network device replacement/ upgradation / Movement from one rack to another rack) related to the passive network.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(5)",
+    "page": 42,
+    "text": "Addressing on daily calls relates to passive network issues like Data, Voice, IP related, leased lines/Wireless lines. (9 AM to 6 PM – Mon to Sat) and extend an access as on need basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(6)",
+    "page": 42,
+    "text": "Coordination with Internal (StockHolding team) & external agencies (Airtel, Tata, MTNL, BSNL, Reliance etc.) to address the leased/ Wireless lines for quick resolutions.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(7)",
+    "page": 42,
+    "text": "Maintenance, Management and Monitoring of Back office fiber/copper connectivity from Data Centre to all the Hub rooms.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(8)",
+    "page": 42,
+    "text": "Monitoring of All hub room’s fiber/copper connectivity which is connected to server room.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(9)",
+    "page": 42,
+    "text": "DC to hub rooms Network cables additions, moves, changes, patch cable (Copper & Fiber cable dressings, redressing re-labelling etc.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(10)",
+    "page": 42,
+    "text": "Documentation of existing cabling of entire Data centre, Hub rooms, DLC rooms, User work area etc. and updation of documentation on day to day basis for the Addition / Movement / Removal / Shifting of cables carried out during the day.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(11)",
+    "page": 42,
+    "text": "Providing the required support for any temporary setups for testing purpose with respect to the network and make necessary modifications in the existing document.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(12)",
+    "page": 42,
+    "text": "Replacement / Cable laying of fiber, copper cables, copper patch cords, fiber patch cords.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(13)",
+    "page": 42,
+    "text": "Providing off line support non office hours, emergencies, Preventive maintenances and/or as required by Stockholding.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(14)",
+    "page": 42,
+    "text": "Engineer will be provided to close the calls within the agreed timelines.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(15)",
+    "page": 42,
+    "text": "LIU testing from Network room racks to server rooms racks and all the hub rooms in which LIU is connected with SC and LC Connectors.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(16)",
+    "page": 42,
+    "text": "Providing Adequate and Trained backup resource in case existing resource is on Leave / not available for more than 1 day.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(17)",
+    "page": 42,
+    "text": "Require network cabling related support like IOs, Cable laying, Cable termination etc. changed at Stockholding’s Mumbai branches, Near DR and DR Site for all passive work related issues.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(18)",
+    "page": 42,
+    "text": "Laying of cat6, cat6A and Fiber cable or re pulling of any old cable. Adding new points with proper cable laying, termination, testing, labelling and dressing. Understanding the new requirement of cabling material for any new or old work.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(19)",
+    "page": 42,
+    "text": "Perform all patching, un-patching, cutover works including but not limited to UTP (data, voice and Fiber), multi-mode fibre and single mode fibre cables, within the site location accordance with Patching Process.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(20)",
+    "page": 42,
+    "text": "Emergency Services to be provided on 24 x 7 basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(21)",
+    "page": 42,
+    "text": "Technical resource support is expected to arrive on-site within two hours from notification.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 Cabling - Day to Day Monitoring & Management(22)",
+    "page": 42,
+    "text": "Cabling Engineer should visit Stockholding Mumbai and Navi Mumbai branches as per the requirement to resolve branch connectivity related issues if any.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (Confidentiality & Replacement) bullet 1",
+    "page": 43,
+    "text": "Bidder shall maintain confidentiality of the StockHolding’s information accessed by them.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (Confidentiality & Replacement) bullet 2",
+    "page": 43,
+    "text": "Bidder shall sign Confidentiality cum Non-Disclosure Agreement with StockHolding.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (Confidentiality & Replacement) bullet 3",
+    "page": 43,
+    "text": "Once Bidders’ personnel are removed from the project, whether on termination / resignation etc. the same should be immediately informed to the StockHolding and preclude any further access to all information to such person. Prior approval should be obtained from the StockHolding before granting access to StockHolding’s information either at Bidder’s site or at StockHolding’s sites.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (disciplinary action)",
+    "page": 43,
+    "text": "The bidder has to ensure strict penal action is initiated, monetary OR suspension/dismissal, against onsite/shared resources deployed at the StockHolding for any type of misconduct, misbehaviour, misdemeanour, in-subordination, moral turpitude exhibited while dealing with the officials/employees/contractors/vendors of the StockHolding, in the course of discharging their duties at the StockHolding n, the bidder on receipt of such an adverse remark, in writing OR during reviews conducted by the StockHolding, should ensure compliance and submit an detailed action taken report (ATR) on their letter head to the StockHolding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (standby manpower)",
+    "page": 43,
+    "text": "In case of absence of any of the resource person, standby manpower should be provided by the bidder. If StockHolding is not satisfied with the performance of the standby personnel, StockHolding may not accept such standby manpower and in such cases, charges on actual basis of manpower support will be charged to the bidder, in subject to adherence of SLA conditions. The above details are only indicative figures and may undergo changes as per the requirement of StockHolding from time to time.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (interview and Technical Program Manager)",
+    "page": 43,
+    "text": "StockHolding may conduct interview of each of the bidder’s selected resource before deployment in the project. A Technical Program Manager shall be appointed & be responsible for execution and compliance of entire Scope of Work. Although the Technical Program Manager for the project would not be stationed at the StockHolding, but he or she shall be required to visit the StockHolding for attending the meetings, taking feedback, review of policies, consultation etc. and giving recommendations there of as and when required by the StockHolding as well as to meet the project requirement.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (Technical Project Manager visits)",
+    "page": 43,
+    "text": "The Technical Project Manager shall visit the StockHolding at least 2 times per month or as directed by the StockHolding officials to review the project. The number of visits may increase during important activities or as and when required.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (security requirements)",
+    "page": 43,
+    "text": "Bidder and the personnel’s deployed for NOC Operations having access to information on StockHolding’s security programs and systems received or generated under this contract shall ensure that they meet StockHolding’s requirements.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (background checks)",
+    "page": 43,
+    "text": "Bidder shall conduct adequate background checks of the personnel who will be deputed at positions handling StockHolding’s sensitive information. The background check report for each personal deputed at the StockHolding’s site has to be submitted to the StockHolding before on-boarding of the resource/s.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (immediate replacement)",
+    "page": 44,
+    "text": "The selected bidder must ensure immediate replacement of resource with similar skillset in case existing resource fails to report to StockHolding office / Going for a leave (more than two days) / resign from organization etc. Shadow resource has to be on site during absence of primary resource. Same skills set resource shall be provided in case of replacement of resource due to discipline or any other performance issues. StockHolding will impose a penalty at a rate of 10% of its total monthly payable for each case of such violation.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.3 (notice period)",
+    "page": 44,
+    "text": "Notice Period: All the deputed man-power should have a notice period of 30 days after formally accepted by Stockholding.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 (execute SLA)",
+    "page": 44,
+    "text": "The bidder needs to execute a Service Level Agreement with the StockHolding covering all terms and conditions of this tender. Bidder need to strictly adhere to Service Level Agreements (SLA). Services delivered by bidder should comply with the SLA mentioned in the table below.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 (SLA reports)",
+    "page": 44,
+    "text": "The bidder should generate SLA reports for tracking the delivery of services. SLA will be reviewed on a monthly basis and based on the review payments for the services will be done. The SLA reports should be integrated with the dashboards. Thus enabling StockHolding to continuously track the SLA.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 SLA(1)",
+    "page": 44,
+    "text": "SLA deviation calculation to be considered on monthly basis.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "4.4 SLA(2)",
+    "page": 44,
+    "text": "The penalty will be calculated on monthly contract value.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "4.4 SLA(3)",
+    "page": 44,
+    "text": "The total cap on monthly penalty is 10% of the monthly contract value and the overall cap on penalty is as follows:",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "4.4 A (business hours window)",
+    "page": 44,
+    "text": "Business Hours Window: (Monday to Saturday = 7:00AM to 11:00PM = 16 hours in a day * 26 days)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 A (uptime commitment)",
+    "page": 45,
+    "text": "Vendor should provide network devices & link uptime of 99.5% for the offices with dual link and 98% for the offices with single link for all the links provided in Annexure as per “Network link uptime” table as shown below on monthly basis.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 A (uptime formula)",
+    "page": 45,
+    "text": "Uptime: {(Actual Uptime + Excusable Down Time) / Schedule Hrs} x 100",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 System Downtime Calculation (A)",
+    "page": 45,
+    "text": "The recording of downtime shall commence from the time of registering the call with the vendor.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table G row 1",
+    "page": 46,
+    "text": "Uptime | Critical Links as per Annexure | SLA | Total no. of hours the link is down | Percentage | Monthly per link basis. | Critical > = 99.5%,",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table G row 2",
+    "page": 46,
+    "text": "Uptime | Offices with Dual Link as per Annexure. | SLA | Total no. of hours the link is down | Percentage | Monthly per link basis. | Normal > = 98%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table G row 3",
+    "page": 46,
+    "text": "Uptime | Offices with Single Link as per Annexure. | SLA | Total no. of hours the link is down | Percentage | Monthly per link basis. | Normal > = 99%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 SLA penalty note (Tables G, H, I, J, N, O, P)",
+    "page": 46,
+    "text": "Deviation of every 1% from the benchmark will attract a penalty of 2% of the monthly PO value. Penalty will be calculated on a monthly basis post verification of monthly report.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table H row 1",
+    "page": 46,
+    "text": "Create, modify and delete configurations in network devices after obtaining approval from the StockHolding Team. | Medium | Response Time: 30 min | Resolution time: 2 hour | For each instance of breach, penalty will be 0.5% of monthly invoice value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table H row 2",
+    "page": 46,
+    "text": "Review of capacity planning of network devices & links. Details of underutilized and over utilized network devices & links. Recommend plan to procure/upgrade the over utilized Network devices & links. | Medium | Response: starting on the 1st day of the first month of the Start of every Quarter. | Resolution: within 5th day of the first month of the start of every Quarter. | For every 1 week of delay or part thereof, the penalty will be 0.5% of monthly invoice value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table H row 3",
+    "page": 46,
+    "text": "Loss of any network assets, under the control of the service providers' onsite team, due to omission or negligence or failure, to follow the due process in handling and updating the network inventory. | High | Immediate. | For each instance of breach, penalty will be 1% of monthly invoice value. In addition, the purchase value of the lost asset at that period of time will be Recovered.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table I (Response Time)",
+    "page": 47,
+    "text": "Response Time | %of Tickets responded within the SLA | SLA | Total number of Tickets responded within SLA by total number of Tickets handled by the resolver group. | Percentage | Monthly | Critical > = 99% within 15 Minutes, High > = 99% within 15 Minutes, Medium > = 99% within 30 Minutes. Low > = 99% within 30 Minutes.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table I (Resolution Time)",
+    "page": 48,
+    "text": "Resolution Time | %of Tickets resolved within the SLA | SLA | Total number of Tickets resolved within SLA by total number of Tickets handled by the resolver group. | Percentage | Monthly | Critical > = 99% within 30 minutes. High > = 98% within 1 Hour. Medium > = 97% within 4 Hours, Low > = 95% within 8 Hours.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table J row 1",
+    "page": 48,
+    "text": "Call / Ticket logging with link provider for link failure / low reliability / flapping. | High | Response time- 15 min | For each instance of breach, penalty will be 0.5% of monthly invoice value per day delay in call logging.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table J row 2",
+    "page": 48,
+    "text": "Remote Support - (DR, NDR, Extranet (Fort) and Branches ) | Medium | Response: within 15 min via email/phone call etc., if not resolved should visit the site within 2 hours and start restoration process. | Resolution- resolve the issue max. within 8 hours by the next day. | For each instance of breach, penalty will be 0.5% of monthly invoice value per day delay in call logging.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table J row 3",
+    "page": 48,
+    "text": "/Call/Ticket logging to OEM/SI/Vendor for device malfunctioning (call should not be rejected by OEM/SI/Vendor citing configuration issue) | Medium | Response time - 30 min | For each instance of breach, penalty will be 0.5% of monthly invoice value per day delay in call logging.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table J row 4",
+    "page": 49,
+    "text": "Ensure call logged to OEM/SI/Vendor/ Link Provider are resolved within their signed / non-signed SLA with OEM /SI / Vendor/ Service Provider. For BSNL and MTNL call logged within 15 minutes. | Medium | Within vendor SLA | 90% | For each instance of breach, penalty will be 0.25% of monthly invoice value per day. Bidder to ensure that calls are constantly followed-up & closed. If required, should be escalated to StockHolding network team promptly as per escalation matrix for immediate action.",
+    "mandatory": true,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table J row 5",
+    "page": 49,
+    "text": "Reporting of License/AMC/ATS expiry of in scope devices to StockHolding team for renewal. | High | 90 day prior to expiry | For each instance of breach, penalty will be 0.25% of monthly invoice value per day.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 1",
+    "page": 49,
+    "text": "Unavailability of agreed resources on site (DC, DR and Delhi) (For 1 resource) for a day. | Low | For each instance of breach, penalty will be 0.5% of monthly invoice value. i.e. (A)",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 2",
+    "page": 49,
+    "text": "Unavailability of agreed resources on site. (For 2 resources) for a day. | Medium | Additional 1% of monthly invoice value. i.e. B = (A) + 1%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 3",
+    "page": 49,
+    "text": "Unavailability of agreed resources on site. (For More than 2) for a day. | High | Additional 2% of monthly invoice value. i.e. C = (B) + 2% for subsequent instances and increase in unavailability of resources.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 4",
+    "page": 50,
+    "text": "Late Coming/Early departures (for more than one hour late per day for more than 3 instances in a month). | High | For each instance of breach/resource, penalty will be 0.25% of monthly invoice value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 5",
+    "page": 50,
+    "text": "Transfer of onsite resources without providing an adequate 30 days’ notice to StockHolding. | High | For each instance of breach/resource, penalty will be 3% of monthly invoice value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 6",
+    "page": 50,
+    "text": "Removal of NMS and Network Project Manager before Project expiration period. | High | Less than 2 Years = 5% of Yearly invoice value for per instance.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 7",
+    "page": 50,
+    "text": "Separation of duties (i.e. use of email ids and login ids across roles) | Medium | For each instance of breach/ resource, penalty will be 0.25% of monthly invoice value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table K row 8",
+    "page": 50,
+    "text": "Any/All, trainings aligned for the onsite resources of the service provider, should be intimated by the backend team (program manager or equivalent and above) in advance of at least 2 weeks in writing for approvals from the StockHolding team, along with the necessary provisioning plan for a shadow/backup resource -in line with the Purchase Order OR having equal/greater expertise/knowledge/skillsets and qualification / OEM Certification- to be deployed onsite in the event of the original resources being not available for the said training period. | High | If successful bidder fails to provide notice, StockHolding reserves the right to deduct penalty of INR 5000/-day for the period of un-availability of the replacement from the payment payable to bidder.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table L row 1",
+    "page": 50,
+    "text": "Unavailability of conducting preventive maintenance at branches on Half-yearly basis. | High | For each instance of breach, penalty will be 10% of monthly invoice value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table M row 1",
+    "page": 51,
+    "text": "Proper functioning, Monitoring & Reporting of NMS Tool | High | Response Time: 15 min Resolution time: 2 hour | 99.5% | Deviation of every 1% from the benchmark will attract a penalty of 0.5% of the monthly PO value. Penalty will be calculated on a monthly basis post verification of monthly report.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table M row 2",
+    "page": 51,
+    "text": "The bidder should have a documented NOC (process, procedure, standard operating procedures (SOP) and MIS etc.) in-line with the standards followed by StockHolding, and customized to StockHolding environment before starting the NOC operations. These processes, procedures and SOP documents are to be considered as Standing documents and hence should be reviewed and updated regularly. | Medium | A) Response time: Start of the Month (Time of Service Initiation) B) Resolution time: End of the Month (As per service requirement) | 99.5% | Deviation of every 1% from the benchmark will attract a penalty of 1% of the monthly PO value. Penalty will be calculated on a monthly basis post verification of monthly report.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table M row 3",
+    "page": 51,
+    "text": "The bidder should share the complete documentation templates (process, procedure, standard operating procedures (SOP) and MIS etc.) in- line with the standards followed at StockHolding, with the StockHolding team, for approvals, after initiating the NOC services and to be completed within 2 months. | Medium | Response time: Start of the Services (Time of Service Initiation) | (before initiation of NOC operations) 100% | Non-compliance will attract a penalty of 0.5% per day till resolution is made, capped at 10% of Monthly purchase order value.",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table N row 1",
+    "page": 52,
+    "text": "Root Cause | % of RCA report submitted (Critical) | SLA | Total number of RCAs submitted within 48 Hrs / Total number of RCAs | Percentage | Monthly | >95%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table O row 1",
+    "page": 53,
+    "text": "Schedule Adherence | Schedule Adherence – Change | SLA | Total number of Changes Implemented by total number of changes planned for the month | Percentage | Monthly | >=95%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table O row 2",
+    "page": 53,
+    "text": "Change Management Efficiency | Successful Changes | SLA | Total number of Changes implemented successfully by total number of changes implemented | Percentage | Monthly | >=95%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table O row 3",
+    "page": 53,
+    "text": "Failed Changes | % changes rolled back | SLA | Total number of changed rolled back due to failure by total number of changes implemented successfully | Percentage | Monthly | <=5%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table P row 1",
+    "page": 53,
+    "text": "Schedule Adherence | Schedule Adherence – Change | SLA | Total number of Changes Implemented by total number of changes planned for the month | Percentage | Monthly | >=95%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "4.4 Table P row 2",
+    "page": 53,
+    "text": "Change Management Efficiency | Successful Changes | SLA | Total number of Changes implemented successfully by total number of changes implemented | Percentage | Monthly | >=95%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "Contract Duration(a)",
+    "page": 54,
+    "text": "Successful bidder shall enter into contract for the period of 02 (two) years with one year as extension with StockHolding.",
+    "mandatory": true,
+    "category": "commercial"
+  },
+  {
+    "clause": "Contract Duration(b)",
+    "page": 54,
+    "text": "Year 2 price will have maximum escalation upto 10% on Year 1 Price.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "Contract Duration(c)",
+    "page": 54,
+    "text": "StockHolding may choose to extend the contract period for another 1 year with the maximum escalation upto 10% on Year 2 Price for the selected bidder.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "T&C A (Payment)(a)",
+    "page": 54,
+    "text": "Monthly payment on submission of Invoice duly certified by StockHolding Networking official(s). Details of the payroll/offer letter/joining letter needs to be submitted once a year for all the resources on Company Letterhead (signed by Authorised Signatory) for payment initiation.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "T&C A (Payment)(b)",
+    "page": 54,
+    "text": "However, Half-yearly vendor has to provide Preventive Maintenance completion report along with SLA reports and invoices for release of payment for the respective month.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "4.4 Table P row 3",
+    "page": 54,
+    "text": "Failed Changes | % changes rolled back | SLA | Total number of changed rolled back due to failure by total number of changes implemented successfully | Percentage | Monthly | <=5%",
+    "mandatory": false,
+    "category": "technical"
+  },
+  {
+    "clause": "T&C A (Payment)(e)",
+    "page": 55,
+    "text": "Payments will be released only after submission and verification of the required Bank Guarantee (BG). No payment will be made to successful bidder, until the BG verification is done.",
+    "mandatory": true,
+    "category": "commercial"
+  },
+  {
+    "clause": "T&C B (Taxes & levies)(b)",
+    "page": 55,
+    "text": "In case of tax exemption or lower TDS; Bidder has to submit letter from Government Authority for tax exemption or lower TDS (to be submitted along with each of the invoice(s) (c) Applicable TDS will be deducted from payment(s).",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "T&C C (Contract Period)(a)",
+    "page": 55,
+    "text": "Renewal period : 01st April 2024 to 31st March 2026 (2 years)",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "T&C C (Contract Period)(b)",
+    "page": 55,
+    "text": "Extension period : 01st April 2026 to 31st March 2027 (1 year)",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "T&C D (Location Details)",
+    "page": 55,
+    "text": "Location Details: Mahape, Bangalore and Delhi.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "T&C E (Labour laws)",
+    "page": 55,
+    "text": "Bidder to abide by labour laws, human rights and regulations in their regions of business. Bidder to adhere to laws addressing child, forced or trafficked labour.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Refund of EMD(a)",
+    "page": 55,
+    "text": "EMD will be refunded through NEFT to the successful bidder on providing (a) an acceptance confirmation against the PO issued by StockHolding and (b) submission of Performance Bank Guarantee wherever applicable and should be valid for 30 days beyond the contract period.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "Performance Bank Guarantee (PBG)",
+    "page": 55,
+    "text": "Successful Bidder shall, at own expense, deposit with the StockHolding, within seven (7) days on issuance of PO, a Bank Guarantee (BG) for the value of 5% of the Contract Value from scheduled commercial banks as per Annexure - 8. This Bank Guarantee shall be valid up to 60 days beyond the completion of the contract period. No payment will be due to the successful bidder based on performance, until the BG verification is pending.",
+    "mandatory": true,
+    "category": "commercial"
+  },
+  {
+    "clause": "Dispute Resolution",
+    "page": 56,
+    "text": "In the event of any dispute arising out of or in connection with this Order, the parties shall use their best endeavour to resolve the same amicably AND if the dispute could not be settled amicably, the matter shall be settled in the court under Mumbai jurisdiction only. The final payment will be released only after the Bidder complies with above-mentioned clause",
+    "mandatory": true,
+    "category": "other"
+  },
+  {
+    "clause": "Integrity Pact",
+    "page": 56,
+    "text": "The Bidder will have to enter in to an Integrity Pact with StockHolding. The format (text) for the Integrity Pact is provided as Annexure-5. The successful Bidder will have to submit a signed and stamped copy of the Integrity Pact by the authorized signatory of the successful Bidder.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Non-Disclosure Agreement (NDA)",
+    "page": 56,
+    "text": "The successful Bidder will sign a Non-Disclosure Agreement (NDA) with StockHolding for the contract period. The draft text of the NDA will have to be approved by legal department of StockHolding.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Indemnify",
+    "page": 56,
+    "text": "The Bidder should hereby indemnify, protect and save StockHolding against all claims, losses, costs, damages, expenses, action suits and other proceedings, resulting from infringement of any patent, trademarks, copyrights etc. or such other statutory infringements in respect of all the equipment offered by the Bidder. Any publicity by Bidder in which name of StockHolding is used should be done only with the explicit permission of StockHolding.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Termination Clause(a)",
+    "page": 57,
+    "text": "If Half-yearly Preventive Maintenance not done by the successful bidder in a year;",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Termination Clause(b)",
+    "page": 57,
+    "text": "If penalty amount is equal to or more than 10% of monthly invoice value for 3 months in a particular year;",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Termination Clause(c)",
+    "page": 57,
+    "text": "If at any point of time, the services of bidders are found to be non-satisfactory;",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Termination Clause(d)",
+    "page": 57,
+    "text": "If at any point of time, StockHolding finds out deviation to sub-contracting clause; After termination of contract with L1 bidder due to above reasons or any deemed to be fit for cancellation, StockHolding reserves the right to award the contract to L2 Bidder at same applicable L1 price and at the same terms and conditions for the remaining term of the contract to ensure business continuity.",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Subcontracting",
+    "page": 57,
+    "text": "As per scope of this RFP, sub-contracting is not permitted. The bidder shall not assign or sub- contract the assignment or any part thereof to any other person/firm.",
+    "mandatory": true,
+    "category": "other"
+  },
+  {
+    "clause": "Termination Clause (notice)",
+    "page": 57,
+    "text": "StockHolding reserves right to terminate the contract by giving 30 days prior written notice in advance –",
+    "mandatory": false,
+    "category": "other"
+  },
+  {
+    "clause": "Annexure 1 (submission)",
+    "page": 59,
+    "text": "(To be submitted along with technical bid on Company letter head)",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 1 (documentary evidence)",
+    "page": 59,
+    "text": "Details filled in this form must be accompanied by sufficient documentary evidence, in order to verify the correctness of the information.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 1 (balance sheet)",
+    "page": 59,
+    "text": "N.B. Enclose copies of Audited Balance Sheet along with enclosures",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 2 (submission)",
+    "page": 60,
+    "text": "To be submitted as part of Technical Bid",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 2 Note (a)",
+    "page": 63,
+    "text": "Letter of Authorization shall be issued by either Managing Director having related Power of Attorney issued in his favour or a Director of the Board for submission of Response to RFP",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 2 Note (b)",
+    "page": 63,
+    "text": "All self-certificates shall be duly signed and Stamped by Authorized signatory of the Bidder Firm unless specified otherwise.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 2 Note (c)",
+    "page": 63,
+    "text": "Bidder response should be complete, Yes/No answer is not acceptable.",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 2 Note (d)",
+    "page": 64,
+    "text": "Details of clients and relevant contact details are mandatory. Bidders may take necessary approval of the clients in advance before submission of related information. StockHolding will not make any separate request for submission of such information.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 4 Note (a)",
+    "page": 67,
+    "text": "Price to be quoted is for initial contract period of 02 (two) years including GST while uploading financial bids on GeM portal.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "Annexure 4 Note (d)",
+    "page": 67,
+    "text": "As and when any links are removed/added/shifted, the payment will be made on unit rate as mentioned in above table (for point 2) on pro-rata basis.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "Annexure 4 Note (e)",
+    "page": 67,
+    "text": "Bidder must take care in filling price information in the Commercial Offer, to ensure that there are no typographical or arithmetic errors. All fields must be filled in correctly. Please note that any Commercial Offer, which is conditional and / or qualified or subjected to suggestions, will also be summarily rejected. This offer shall not contain any deviation in terms & conditions or any specifications, if so such an offer will also be summarily rejected.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 4 Note (f)",
+    "page": 67,
+    "text": "All payments will be made in INR.",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "Annexure 4 (price bid line items)",
+    "page": 67,
+    "text": "1 | Core Network Management Services | 1 | 2 | Link and WAN Management Services (Branch Links, Extranet links) | 261",
+    "mandatory": false,
+    "category": "commercial"
+  },
+  {
+    "clause": "Annexure 7 (submission)",
+    "page": 76,
+    "text": "(To be submitted on Company Letter Head)",
+    "mandatory": false,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 7 Declaration",
+    "page": 76,
+    "text": "We understand that any deviations mentioned elsewhere in the bid will not be considered and evaluated by the StockHolding. We also agree that the StockHolding reserves its right to reject the bid, if the bid is not submitted in proper format as per subject RFP.",
+    "mandatory": true,
+    "category": "format"
+  },
+  {
+    "clause": "Annexure 7 Compliance Statement items",
+    "page": 76,
+    "text": "Objective of the RFP | Scope of Work | Eligibility Criteria | Service Level Agreement (SLA) / Scope of Work | Non-Disclosure Agreement | Payment Terms | Bid Validity | Integrity Pact | All General & Other Terms & Conditions in the RFP | Requirement",
+    "mandatory": false,
+    "category": "format"
+  }
+]

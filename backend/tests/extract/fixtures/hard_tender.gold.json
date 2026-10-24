@@ -1,0 +1,224 @@
+{
+ "clauses": [
+  {
+   "num": "1.1",
+   "text": "Bids must be uploaded on the e-procurement portal no later than 14 December 2026, 15:00 IST.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "1.2",
+   "text": "The technical bid shall not exceed 60 pages. Annexures are excluded from the page count.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "1.3",
+   "text": "The bidder shall submit the following with the technical bid:",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "(a)",
+   "text": "a signed covering letter in the format of Annexure 1;",
+   "page": 1,
+   "end_page": 1,
+   "parent": "1.3"
+  },
+  {
+   "num": "(b)",
+   "text": "a power of attorney for the authorised signatory; and",
+   "page": 1,
+   "end_page": 1,
+   "parent": "1.3"
+  },
+  {
+   "num": "(c)",
+   "text": "the integrity pact, signed on every page.",
+   "page": 1,
+   "end_page": 1,
+   "parent": "1.3"
+  },
+  {
+   "num": "2.1",
+   "text": "The selected bidder shall operate the primary data centre on a 24x7x365 basis with an uptime of at least 99.982 percent measured monthly.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.1.1",
+   "text": "Planned maintenance windows shall be agreed with the Purchaser at least 72 hours in advance.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.1.2",
+   "text": "The bidder shall provide consolidated monthly reports on capacity, incidents and changes.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.2",
+   "text": "The bidder shall provide office space for five resident engineers at the DR site.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.3",
+   "text": "The bidder shall maintain register number 1 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.4",
+   "text": "The bidder shall maintain register number 2 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.5",
+   "text": "The bidder shall maintain register number 3 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.6",
+   "text": "The bidder shall maintain register number 4 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.7",
+   "text": "The bidder shall maintain register number 5 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.8",
+   "text": "The bidder shall maintain register number 6 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.9",
+   "text": "The bidder shall maintain register number 7 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.10",
+   "text": "The bidder shall maintain register number 8 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.11",
+   "text": "The bidder shall maintain register number 9 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.12",
+   "text": "The bidder shall maintain register number 10 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.13",
+   "text": "The bidder shall maintain register number 11 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.14",
+   "text": "The bidder shall maintain register number 12 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.15",
+   "text": "The bidder shall maintain register number 13 for asset tracking as per the asset policy.",
+   "page": 1,
+   "end_page": 1
+  },
+  {
+   "num": "2.16",
+   "text": "The bidder shall ensure that all backup media are encrypted with AES-256 and stored in a fire-proof safe at a location at least 50 km from the primary data centre.",
+   "page": 1,
+   "end_page": 2
+  },
+  {
+   "num": "2.17",
+   "text": "Security operations shall include:",
+   "page": 2,
+   "end_page": 2
+  },
+  {
+   "num": "(i)",
+   "text": "24x7 monitoring through a SIEM;",
+   "page": 2,
+   "end_page": 2,
+   "parent": "2.17"
+  },
+  {
+   "num": "(ii)",
+   "text": "quarterly vulnerability assessment and penetration testing;",
+   "page": 2,
+   "end_page": 2,
+   "parent": "2.17"
+  },
+  {
+   "num": "(iii)",
+   "text": "incident response within 30 minutes for severity 1 incidents.",
+   "page": 2,
+   "end_page": 2,
+   "parent": "2.17"
+  },
+  {
+   "num": "3.1",
+   "text": "Bids not meeting any pre-qualification criterion will be rejected without further evaluation.",
+   "page": 3,
+   "end_page": 3
+  },
+  {
+   "num": "5.1",
+   "text": "All data shall reside within India at all times.",
+   "page": 5,
+   "end_page": 5
+  },
+  {
+   "num": "5.2",
+   "text": "The Purchaser reserves the right to cancel the tender at any stage.",
+   "page": 5,
+   "end_page": 5
+  }
+ ],
+ "table_rows": [
+  {
+   "sno": "1",
+   "criteria": "The bidder must hold a valid ISO/IEC 27001:2022 certificate.",
+   "documents": "Copy of certificate",
+   "page": 3
+  },
+  {
+   "sno": "2",
+   "criteria": "The bidder must have an average annual turnover of at least INR 50 crore in the last three financial years.",
+   "documents": "Audited balance sheets, CA certificate",
+   "page": 3
+  },
+  {
+   "sno": "3",
+   "criteria": "The bidder must have operated at least one Tier III data centre for a government client.",
+   "documents": "Work order and completion certificate",
+   "page": 3
+  }
+ ],
+ "scanned_pages": [
+  4
+ ],
+ "hidden_text_pages": [
+  2
+ ],
+ "header": "RFP No. EX/DC/2026/07 - Managed Data Centre Services",
+ "footer_pattern": "Page N of 6"
+}

@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+# Run outputs and uploads (may contain tender content)
+runs/
+# Old prototype, kept locally only
+archive/
+# OS
+.DS_Store
