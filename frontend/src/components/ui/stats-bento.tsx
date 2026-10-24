@@ -24,6 +24,7 @@ export function StatsBento({ primary, secondary, small, wide, accent = "oklch(0.
             backgroundImage: "repeating-linear-gradient(45deg, #808080 0px 1px, transparent 1px 10px)",
             maskImage: "radial-gradient(ellipse 80% 50% at 100% 0%, #000 70%, transparent 110%)",
             WebkitMaskImage: "radial-gradient(ellipse 80% 50% at 100% 0%, #000 70%, transparent 110%)",
+            contain: "paint",
           }}
         />
         <div className="relative">

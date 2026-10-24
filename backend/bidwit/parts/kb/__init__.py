@@ -124,7 +124,12 @@ def run(req: RetrieveRequest) -> RetrieveResult:
         not_expired = qm.Filter(must=[qm.FieldCondition(key="expires", range=qm.Range(gte=_ymd(req.today))),
                                       qm.FieldCondition(key="confidentiality", match=qm.MatchAny(any=["public", "internal"]))])
         step("kb", f"searching {len(req.queries)} requirements")
-        qvecs = emb.embed([q.text for q in req.queries], "RETRIEVAL_QUERY") if (dense and req.queries) else []
+        qvecs = []
+        if dense and req.queries:
+            try:
+                qvecs = emb.embed([q.text for q in req.queries], "RETRIEVAL_QUERY")
+            except EmbedError as e:                      # quota died mid-run: finish on keyword search
+                mode, reason, dense = "keyword", f"meaning search unavailable: {e}", None
         results = []
         for qi, q in enumerate(req.queries):
             terms = required_terms(q.text)

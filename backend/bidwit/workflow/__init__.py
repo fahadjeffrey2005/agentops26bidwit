@@ -56,13 +56,14 @@ class Runner:
     def new_run_id(self) -> str:
         return RUN_ID.format(datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S"), secrets.token_hex(3))
 
-    def start(self, tender_path: str | Path, run_id: str | None = None, today: date | None = None) -> dict:
+    def start(self, tender_path: str | Path, run_id: str | None = None, today: date | None = None, company: str = "northwind") -> dict:
         run_id = run_id or self.new_run_id()
         with self._lock(run_id):
             if self.graph.get_state(self._cfg(run_id)).values:
                 raise RunNotWaiting(f"{run_id} already exists")
-            self._invoke(run_id, {"run_id": run_id, "tender_path": str(tender_path), "today": today or date.today(),
-                                  "out_dir": str(self.runs_dir / run_id), "errors": [], "audit": []})
+            self._invoke(run_id, {"run_id": run_id, "tender_path": str(tender_path), "company": company,
+                                  "today": today or date.today(), "out_dir": str(self.runs_dir / run_id),
+                                  "errors": [], "audit": []})
         return self.view(run_id)
 
     def resume(self, run_id: str, answer: dict[str, Any]) -> dict:

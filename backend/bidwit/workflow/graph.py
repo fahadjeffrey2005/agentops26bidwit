@@ -28,6 +28,7 @@ from bidwit.core.progress import step
 from bidwit.parts import checker, classify, extract, judge, kb, writer
 from bidwit.parts.classify.rules import wording_signal
 
+from .companies import evidence_file
 from .package import write_outputs
 
 MAX_REWRITES = 2
@@ -41,6 +42,7 @@ STAGES = {"extract": "stage 1/7: reading the tender", "classify": "stage 2/7: cl
 class RunState(TypedDict, total=False):
     run_id: str
     tender_path: str
+    company: str                                         # which bidder's evidence library to search
     out_dir: str
     today: date
     started: float
@@ -141,7 +143,7 @@ def n_gate_a(s: RunState):
 def n_retrieve(s: RunState):
     st = load_settings()
     asked = [r for r in s["requirements"] if is_criterion(r.text) and r.category in ("eligibility", "technical")]
-    rq = kb.RetrieveRequest(evidence_path=str(st.data_dir / "kb" / "evidence.json"), today=s["today"],
+    rq = kb.RetrieveRequest(evidence_path=evidence_file(st.data_dir, s.get("company")), today=s["today"],
                             queries=tuple(kb.Query(clause_id=r.id, text=r.text) for r in asked),
                             meaning=st.llm == "on", cache_dir=str(st.runs_dir / "cache"))
     res, ev = run_part("kb", kb.run, rq, RetrieveResult)

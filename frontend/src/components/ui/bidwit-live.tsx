@@ -34,7 +34,7 @@ function Err({ msg }: { msg: string }) {
 }
 
 /* ------------------------------------------------------------------ start */
-export function StartTile({ health, runs, onStarted, onOpen }: { health: Health | null; runs: RunRow[]; onStarted: (id: string) => void; onOpen: (id: string) => void }) {
+export function StartTile({ health, runs, company, companyName, onStarted, onOpen, onBack }: { health: Health | null; runs: RunRow[]; company?: string; companyName?: string; onStarted: (id: string) => void; onOpen: (id: string) => void; onBack?: () => void }) {
   const [busy, setBusy] = React.useState(false);
   const [err, setErr] = React.useState("");
   const [over, setOver] = React.useState(false);
@@ -51,10 +51,11 @@ export function StartTile({ health, runs, onStarted, onOpen }: { health: Health 
       setBusy(false);
     }
   };
-  const pick = (f: File | undefined) => f && go(api.upload(f));
+  const pick = (f: File | undefined) => f && go(api.upload(f, company));
 
   return (
-    <Tile title="Start a run" action={health && <AiBadge health={health} />}>
+    <Tile title={companyName ? `Give ${companyName} a tender` : "Start a run"}
+      action={<span className="flex items-center gap-2">{onBack && <button type="button" onClick={onBack} className="rounded-full border border-border px-3 py-1 font-mono text-[11px] hover:bg-muted">change company</button>}{health && <AiBadge health={health} />}</span>}>
       <div className="grid gap-3 md:grid-cols-[1.3fr_1fr]">
         <div
           role="button"
@@ -74,8 +75,8 @@ export function StartTile({ health, runs, onStarted, onOpen }: { health: Health 
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-[12px] font-medium text-muted-foreground">Or a bundled public tender</p>
-          <Btn kind="primary" disabled={busy} onClick={() => go(api.startSample("tender_main"))}>Network operations centre RFP (85 pages)</Btn>
-          <Btn disabled={busy} onClick={() => go(api.startSample("tender_backup"))}>Security operations centre RFP (backup)</Btn>
+          <Btn kind="primary" disabled={busy} onClick={() => go(api.startSample("tender_main", company))}>Network operations centre RFP (85 pages)</Btn>
+          <Btn disabled={busy} onClick={() => go(api.startSample("tender_backup", company))}>Security operations centre RFP (backup)</Btn>
           {runs.length > 0 && (
             <>
               <p className="mt-2 text-[12px] font-medium text-muted-foreground">Previous runs</p>
@@ -109,23 +110,84 @@ function AiBadge({ health }: { health: Health }) {
 }
 
 /* ------------------------------------------------------------------ live progress */
+const RUN_STAGES = [
+  ["extract", "Reading the tender", "PDF opened in a sandboxed process: text, tables, hidden text, scanned pages."],
+  ["classify", "Classifying requirements", "What each unit is, and whether it is a must-meet rule."],
+  ["gate_a", "Gate A", "You confirm the checklist."],
+  ["kb", "Searching company evidence", "Restricted and expired records removed before the search."],
+  ["judge", "Bid / no-bid", "Counts must-meet criteria with no evidence. Code only."],
+  ["writer", "Drafting answers", "Only where the evidence is strong. Cites ids, quotes the evidence."],
+  ["checker", "Checking every answer", "Citation, quote, numbers, overclaim, blocked source, coverage."],
+  ["gate_b", "Gate B", "You review, riskiest first."],
+  ["package", "Writing the outputs", "Bid draft, compliance matrix, report, audit trail."],
+] as const;
+
 export function LiveTile({ view }: { view: RunView }) {
-  const trail = (view.progress ?? []).slice(-9);
+  const trail = view.progress ?? [];
+  const seen = new Set(trail.map((t) => t.part));
+  const stageMsg = (k: string) => [...trail].reverse().find((t) => t.part === k)?.message ?? "";
+  const lastWorkflow = [...trail].reverse().find((t) => t.part === "workflow")?.message ?? "";
+  const m = lastWorkflow.match(/stage (\d)\/7/);
+  const byStep: Record<string, number> = { "1": 0, "2": 1, "3": 3, "4": 4, "5": 5, "6": 6, "7": 8 };
+  const at = m ? byStep[m[1]] ?? 0 : 0;
+  const bottom = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => { bottom.current?.scrollIntoView({ block: "nearest" }); }, [trail.length]);
+
   return (
     <Tile
+      className="min-h-[calc(100vh-7rem)]"
       title={<span className="flex items-center gap-2"><Loader2 className="size-3.5 animate-spin" /> Running</span>}
       action={<span className="font-mono text-[11px] text-muted-foreground">{view.run_id}</span>}
     >
-      <p className="text-[18px] font-semibold tracking-[-0.02em]">{view.doing || "starting"}</p>
-      <ol className="mt-3 space-y-1 font-mono text-[12px]" aria-live="polite">
-        {trail.map((p, i) => (
-          <li key={i} className={cx("flex gap-3", i === trail.length - 1 ? "" : "text-muted-foreground")}>
-            <span className="shrink-0 tabular-nums opacity-60">{new Date(p.t).toLocaleTimeString([], { hour12: false })}</span>
-            <span className="shrink-0 w-[72px]" style={{ color: p.part === "workflow" ? ACCENT : p.part === "ai" ? VIOLET : undefined }}>{p.part}</span>
-            <span className="min-w-0">{p.message}</span>
-          </li>
-        ))}
-      </ol>
+      <p className="text-[22px] font-semibold tracking-[-0.02em]">{view.doing || "starting"}</p>
+      <p className="mt-1 text-[13px] text-muted-foreground">Every stage reports as it works. You can leave this open; the run keeps going.</p>
+
+      <div className="mt-6 grid flex-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <ol className="space-y-0">
+          {RUN_STAGES.map(([key, label, what], i) => {
+            const done = i < at || (seen.has(key) && i !== at);
+            const cur = i === at;
+            const gate = key.startsWith("gate");
+            return (
+              <li key={key} className="flex gap-3">
+                <div className="flex w-5 shrink-0 flex-col items-center">
+                  <span className="mt-[7px] block rounded-full" style={{
+                    width: gate ? 13 : 9, height: gate ? 13 : 9,
+                    border: gate ? `2px solid ${cur ? ACCENT : done ? "var(--foreground)" : "var(--muted-foreground)"}` : "none",
+                    background: gate ? "var(--card)" : cur ? ACCENT : done ? "var(--foreground)" : "var(--muted-foreground)",
+                    opacity: done || cur ? 1 : 0.3,
+                    animation: cur ? "bw-pulse 1.8s ease-in-out infinite" : undefined,
+                  }} />
+                  {i < RUN_STAGES.length - 1 && <span className="w-px flex-1 bg-border" style={{ minHeight: 22 }} />}
+                </div>
+                <div className="min-w-0 pb-3">
+                  <p className="text-[14px] font-medium" style={{ opacity: done || cur ? 1 : 0.45 }}>
+                    {label}{gate && <span className="ml-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">you</span>}
+                  </p>
+                  <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground" style={{ opacity: done || cur ? 1 : 0.5 }}>
+                    {(cur && stageMsg(key)) || what}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+
+        <div className="flex min-h-[320px] flex-col rounded-2xl border border-border bg-muted/40 p-4">
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Live log</p>
+          <ol className="flex-1 space-y-1 overflow-y-auto font-mono text-[12px]" style={{ maxHeight: "min(52vh, 560px)" }} aria-live="polite">
+            {trail.map((t, i) => (
+              <li key={i} className={cx("flex gap-3", i === trail.length - 1 ? "" : "text-muted-foreground")}>
+                <span className="shrink-0 tabular-nums opacity-60">{new Date(t.t).toLocaleTimeString([], { hour12: false })}</span>
+                <span className="w-[66px] shrink-0" style={{ color: t.part === "workflow" ? ACCENT : t.part === "ai" ? VIOLET : undefined }}>{t.part}</span>
+                <span className="min-w-0">{t.message}</span>
+              </li>
+            ))}
+            {trail.length === 0 && <li className="text-muted-foreground">waiting for the first checkpoint…</li>}
+            <div ref={bottom} />
+          </ol>
+        </div>
+      </div>
     </Tile>
   );
 }

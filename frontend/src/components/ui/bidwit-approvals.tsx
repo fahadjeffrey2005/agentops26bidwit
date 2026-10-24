@@ -72,7 +72,7 @@ function Ref({ id, page }: { id: string; page?: number | null }) {
 
 function Footer({ children }: { children: React.ReactNode }) {
   return (
-    <div className="sticky bottom-3 z-10 mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-lg backdrop-blur">
+    <div className="sticky bottom-3 z-10 mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
       {children}
     </div>
   );
@@ -124,7 +124,6 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
   const set = (id: string, d: MustMeet) => setDec((m) => { const n = { ...m }; if (n[id] === d) delete n[id]; else n[id] = d; return n; });
   const n = (d: MustMeet) => Object.values(dec).filter((x) => x === d).length;
   const open = items.filter((r) => !dec[r.id]).length;
-  const kept = items.length - n("no") - n("drop");
   const cats = ["eligibility", "technical", "commercial", "format"];
   const shown = items.filter((r) => (filter === "To review" ? !dec[r.id] : filter === "Eligibility" ? r.category === "eligibility" : true));
   const confirmRest = () => setDec((m) => { const x = { ...m }; for (const r of items) if (!x[r.id]) x[r.id] = "yes"; return x; });
@@ -141,13 +140,13 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
   };
 
   return (
-    <Tile title="Gate A · confirm the must-meet rules" action={<Pills label="filter" value={filter} options={["All", "To review", "Eligibility"]} onChange={setFilter} />}>
+    <Tile title="Gate A · confirm the tender\u2019s must-meet rules" action={<Pills label="filter" value={filter} options={["All", "To review", "Eligibility"]} onChange={setFilter} />}>
       <StatsBento
-        primary={{ label: "Must-meet rules", value: `${kept}/${items.length}`,
-          caption: "A must-meet rule is a condition the buyer uses to reject a bid outright, before any scoring. Confirm each one, or mark it as not must-meet." }}
-        secondary={{ label: "By category", value: <span className="font-mono">{gate.requirement_count} <span className="text-[13px] text-muted-foreground">requirements read</span></span>,
+        primary={{ label: "Must-meet rules found", value: items.length,
+          caption: `Conditions the buyer sets in this tender: miss one and the bid is rejected outright, before any scoring. Confirm each one. So far: ${n("yes")} confirmed, ${n("no")} not must-meet, ${n("drop")} removed.` }}
+        secondary={{ label: "By category", value: <span className="font-mono">{gate.requirement_count} <span className="text-[13px] text-muted-foreground">requirements read in the tender</span></span>,
           bars: cats.map((c, i) => ({ label: c, value: items.filter((r) => r.category === c).length, color: [ACCENT, VIOLET, WARN, MUTED][i] })) }}
-        small={{ value: open, label: "to review" }}
+        small={{ value: open ? open : <Check className="mx-auto size-6" />, label: open ? "left to review" : "all reviewed" }}
         wide={{ icon: gate.classify_mode === "ai" ? <Bot className="size-4" /> : <ListChecks className="size-4" />, value: gate.classify_mode === "ai" ? "Found by AI + rules" : "Found by rules", label: `Reviewer: ${reviewer}` }}
       />
 
@@ -214,7 +213,10 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
           <span><b className="text-foreground">{n("yes")}</b> confirmed · <b className="text-foreground">{n("no")}</b> not must-meet · <b className="text-foreground">{n("drop")}</b> removed · <b className="text-foreground">{open}</b> to review</span>
           {open > 0 && <button type="button" onClick={confirmRest} className="rounded-full border border-border px-3 py-1.5 text-[12px] font-medium text-foreground hover:bg-muted">Confirm the {open} remaining</button>}
         </div>
-        <Primary disabled={busy || open > 0} onClick={send}><Check className="size-4" /> {open > 0 ? `Review ${open} more` : "Approve checklist"}</Primary>
+        <span className="flex items-center gap-2">
+          {open > 0 && <span className="text-[12px] text-muted-foreground">{open} left to review</span>}
+          <Primary disabled={busy || open > 0} onClick={send}><Check className="size-4" /> Approve checklist</Primary>
+        </span>
       </Footer>
       {err && <p className="mt-2 text-[13px]" style={{ color: WARN }}>{err}</p>}
     </Tile>

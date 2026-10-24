@@ -172,3 +172,36 @@ def test_query_with_no_known_words_returns_no_hits_not_an_error():
 
 def test_same_input_same_output():
     assert run(req(*[g["text"] for g in GOLD[:5]])) == run(req(*[g["text"] for g in GOLD[:5]]))
+
+
+def test_quota_dying_between_indexing_and_searching_still_returns_evidence(monkeypatch):
+    """The real failure: documents embed fine, then the free quota runs out on the query call.
+    Before the fix the error escaped, the whole part crashed, and every requirement became a gap."""
+    class DiesOnQuery(FakeEmbedder):
+        def embed(self, texts, task):
+            if task == "RETRIEVAL_QUERY":
+                raise EmbedError("Gemini embedding call failed (ResourceExhausted: quota)")
+            return super().embed(texts, task)
+    monkeypatch.setattr(kb, "make_embedder", lambda cache_dir: DiesOnQuery())
+    res = run(req("Bidder should not be blacklisted by any Government, PSU or Bank", meaning=True))
+    assert res.mode == "keyword" and "quota" in res.mode_reason
+    assert res.results[0].hits and res.results[0].hits[0].evidence.id == "E-029"   # answered, not a gap
+
+
+def test_quota_dying_mid_search_through_run_part():
+    """End to end: a dead query-side embedder must not turn into a failed part."""
+    class DiesOnQuery(FakeEmbedder):
+        def embed(self, texts, task):
+            if task == "RETRIEVAL_QUERY":
+                raise EmbedError("ResourceExhausted")
+            return super().embed(texts, task)
+    import bidwit.parts.kb as kbmod
+    from bidwit.core.contracts import RetrieveResult
+    from bidwit.core.isolation import run_part
+    old = kbmod.make_embedder
+    kbmod.make_embedder = lambda cache_dir: DiesOnQuery()
+    try:
+        res, _ = run_part("kb", run, req("average annual turnover of at least Rs. 10 Crores", meaning=True), RetrieveResult)
+    finally:
+        kbmod.make_embedder = old
+    assert res.ok and res.value.mode == "keyword" and res.value.results[0].hits

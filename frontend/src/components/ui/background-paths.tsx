@@ -16,7 +16,7 @@ function FloatingPaths({ position }: { position: number }) {
     [position],
   );
   return (
-    <div className="pointer-events-none absolute inset-0">
+    <div className="pointer-events-none absolute inset-0" style={{ contain: "strict" }}>
       <svg className="h-full w-full text-white" viewBox="0 0 696 316" fill="none" aria-hidden>
         {paths.map((p) => (
           <path
@@ -41,10 +41,10 @@ export function BackgroundPaths({ title, subtitle, cta, onCta, children }: { tit
       <style>{`
         .bw-path { stroke-dasharray: 600 900; animation: bw-flow linear infinite; }
         @keyframes bw-flow { 0% { stroke-dashoffset: 0; opacity: .3 } 50% { opacity: .6 } 100% { stroke-dashoffset: -3000; opacity: .3 } }
-        .bw-letter { display: inline-block; opacity: 0; transform: translateY(100px); animation: bw-rise .9s cubic-bezier(.2,.9,.25,1.15) forwards; }
-        @keyframes bw-rise { to { opacity: 1; transform: none } }
-        .bw-fade { animation: bw-in 2s ease forwards; opacity: 0 }
-        @keyframes bw-in { to { opacity: 1 } }
+        .bw-letter { display: inline-block; animation: bw-rise .9s cubic-bezier(.2,.9,.25,1.15) backwards; }
+        @keyframes bw-rise { from { opacity: 0; transform: translateY(100px) } to { opacity: 1; transform: none } }
+        .bw-fade { animation: bw-in 1.2s ease backwards }
+        @keyframes bw-in { from { opacity: 0 } to { opacity: 1 } }
         @media (prefers-reduced-motion: reduce) { .bw-letter, .bw-fade { animation: none; opacity: 1; transform: none } }
       `}</style>
       <div className="absolute inset-0">
@@ -66,11 +66,11 @@ export function BackgroundPaths({ title, subtitle, cta, onCta, children }: { tit
         </h1>
         {subtitle && <p className="mx-auto mb-10 max-w-2xl text-lg text-white/60">{subtitle}</p>}
 
-        <div className="group relative inline-block overflow-hidden rounded-2xl bg-gradient-to-b from-white/10 to-black/10 p-px shadow-lg backdrop-blur-lg transition-shadow duration-300 hover:shadow-xl">
+        <div className="group relative inline-block overflow-hidden rounded-2xl bg-gradient-to-b from-white/10 to-black/10 p-px shadow-lg transition-shadow duration-300 hover:shadow-xl">
           <button
             type="button"
             onClick={onCta}
-            className="inline-flex items-center rounded-[1.15rem] border border-white/10 bg-black/95 px-8 py-4 text-lg font-semibold text-white backdrop-blur-md transition-all duration-300 group-hover:-translate-y-0.5 hover:bg-black hover:shadow-md hover:shadow-neutral-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            className="inline-flex items-center rounded-[1.15rem] border border-white/10 bg-black/95 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 group-hover:-translate-y-0.5 hover:bg-black hover:shadow-md hover:shadow-neutral-800/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
           >
             <span className="opacity-90 transition-opacity group-hover:opacity-100">{cta}</span>
             <span className="ml-3 opacity-70 transition-all duration-300 group-hover:translate-x-1.5 group-hover:opacity-100">→</span>

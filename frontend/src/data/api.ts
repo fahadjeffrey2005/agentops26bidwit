@@ -109,6 +109,40 @@ export interface EvidenceRow {
   blocked_reason: "" | "restricted" | "expired";
 }
 
+export interface Fact {
+  label: string;
+  value: string;
+  note: string;
+  source: string;
+}
+
+export interface Company {
+  id: string;
+  name: string;
+  city: string;
+  founded: number;
+  blurb: string;
+  facts?: Fact[];
+}
+
+export interface ProfileDoc {
+  id: string;
+  title: string;
+  client: string | null;
+  confidentiality: string;
+  date: string;
+  expires_on: string | null;
+  text: string | null;
+  kind: string;
+  usable: boolean;
+  blocked_reason: "" | "restricted" | "expired";
+}
+
+export interface CompanyProfile extends Company {
+  documents: ProfileDoc[];
+  counts: Record<string, number>;
+}
+
 export interface Health {
   ok: boolean;
   version: string;
@@ -138,17 +172,21 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
 
 export const api = {
   health: () => call<Health>("/api/health"),
-  evidence: () => call<EvidenceRow[]>("/api/evidence"),
+  evidence: (company?: string) => call<EvidenceRow[]>(`/api/evidence${company ? `?company=${encodeURIComponent(company)}` : ""}`),
+  companies: () => call<Company[]>("/api/companies"),
+  company: (id: string) => call<CompanyProfile>(`/api/companies/${encodeURIComponent(id)}`),
   runs: () => call<RunRow[]>("/api/runs"),
   run: (id: string) => call<RunView>(`/api/runs/${encodeURIComponent(id)}`),
-  startSample: (sample: string) => {
+  startSample: (sample: string, company?: string) => {
     const f = new FormData();
     f.append("sample", sample);
+    if (company) f.append("company", company);
     return call<{ run_id: string }>("/api/runs", { method: "POST", body: f });
   },
-  upload: (file: File) => {
+  upload: (file: File, company?: string) => {
     const f = new FormData();
     f.append("file", file);
+    if (company) f.append("company", company);
     return call<{ run_id: string }>("/api/runs", { method: "POST", body: f });
   },
   answer: (id: string, gate: "A" | "no_go" | "B", body: object) =>

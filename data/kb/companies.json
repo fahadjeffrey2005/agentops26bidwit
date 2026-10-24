@@ -1,0 +1,70 @@
+[
+  {
+    "id": "northwind",
+    "name": "Northwind IT Infrastructure Services",
+    "city": "Bengaluru",
+    "founded": 2012,
+    "blurb": "Mid-size managed network services provider with its own 24x7 NOC. The stronger of the two mock bidders.",
+    "evidence": "northwind/evidence.json",
+    "facts": [
+      {
+        "label": "Average turnover",
+        "value": "Rs 36.9 Cr",
+        "note": "FY21 to FY23",
+        "source": "E-001"
+      },
+      {
+        "label": "People on payroll",
+        "value": "640",
+        "note": "as of 31 Jan 2024",
+        "source": "E-001"
+      },
+      {
+        "label": "Network operations",
+        "value": "24x7",
+        "note": "own NOC in Bengaluru since 2014",
+        "source": "E-001"
+      },
+      {
+        "label": "Certified engineers",
+        "value": "48",
+        "note": "34 CCNA, 7 CCNP, 3 CCIE, 4 PMP",
+        "source": "E-021"
+      }
+    ]
+  },
+  {
+    "id": "meridian",
+    "name": "Meridian Netserve",
+    "city": "Pune",
+    "founded": 2019,
+    "blurb": "Younger, smaller provider with a 12x6 monitoring desk. Use it to see what a weak bid looks like.",
+    "evidence": "meridian/evidence.json",
+    "facts": [
+      {
+        "label": "Average turnover",
+        "value": "Rs 8.8 Cr",
+        "note": "FY22 to FY24",
+        "source": "E-001"
+      },
+      {
+        "label": "People on payroll",
+        "value": "95",
+        "note": "as of 31 Dec 2024",
+        "source": "E-001"
+      },
+      {
+        "label": "Monitoring desk",
+        "value": "12x6",
+        "note": "08:00-20:00, Mon to Sat, Pune",
+        "source": "E-001"
+      },
+      {
+        "label": "Certified engineers",
+        "value": "12",
+        "note": "11 CCNA, 1 CCNP",
+        "source": "E-010"
+      }
+    ]
+  }
+]

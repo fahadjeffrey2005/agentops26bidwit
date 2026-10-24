@@ -30,12 +30,14 @@ from pydantic import BaseModel, ConfigDict, Field
 from bidwit.core.config import load_settings
 from bidwit.core.contracts import SCHEMA_VERSION, ClauseId
 from bidwit.workflow import Runner, RunNotFound, RunNotWaiting
+from bidwit.workflow.companies import companies as list_companies, find as find_company, profile as company_profile
 
 from .security import Hardening
 
 RUN_ID = re.compile(r"^run-\d{8}-\d{6}-[0-9a-f]{6}$")
 OUTPUTS = {"report.json": "application/json", "compliance.csv": "text/csv", "bid_draft.md": "text/markdown",
            "audit.jsonl": "application/x-ndjson"}
+DEFAULT_COMPANY = "northwind"
 SAMPLES = {"tender_main": "tender_main.pdf", "tender_backup": "tender_backup.pdf"}
 CHUNK = 1 << 20
 MAX_ACTIVE = 3                                   # runs working at the same time (each may use the AI)
@@ -145,10 +147,22 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
                 "keys": {"groq": bool(os.environ.get("GROQ_API_KEY")), "gemini": bool(os.environ.get("GEMINI_API_KEY"))},
                 "max_upload_mb": st.max_upload_mb, "ai_budget": st.llm_max_calls}
 
+    @app.get("/api/companies")
+    def companies():
+        return [{k: c.get(k) for k in ("id", "name", "city", "founded", "blurb", "facts")} for c in list_companies(settings.data_dir)]
+
+    @app.get("/api/companies/{company}")
+    def company(company: str):
+        prof = company_profile(settings.data_dir, company, date.today())
+        if prof is None:
+            raise HTTPException(404, "no such company")
+        return prof
+
     @app.get("/api/evidence")
-    def evidence():
+    def evidence(company: str = DEFAULT_COMPANY):
+        from bidwit.workflow.companies import evidence_file
         try:
-            rows = json.loads((settings.data_dir / "kb" / "evidence.json").read_text(encoding="utf-8"))
+            rows = json.loads(Path(evidence_file(settings.data_dir, company)).read_text(encoding="utf-8"))
         except (OSError, ValueError) as e:
             raise HTTPException(503, f"evidence library unreadable: {type(e).__name__}")
         today = date.today().isoformat()
@@ -164,11 +178,14 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
         return out
 
     @app.post("/api/runs", status_code=202)
-    def create_run(file: UploadFile | None = File(default=None), sample: str | None = Form(default=None)):
+    def create_run(file: UploadFile | None = File(default=None), sample: str | None = Form(default=None),
+                   company: str = Form(default=DEFAULT_COMPANY)):
         if (file is None) == (sample is None):
             raise HTTPException(422, "send exactly one of: a PDF file, or a sample name")
         if sample is not None and sample not in SAMPLES:
             raise HTTPException(422, f"unknown sample; choose one of {sorted(SAMPLES)}")
+        if find_company(settings.data_dir, company) is None:
+            raise HTTPException(422, "unknown company")
         with busy_lock:
             if len(busy) >= MAX_ACTIVE:              # checked before anything is written to disk
                 raise HTTPException(429, f"{MAX_ACTIVE} runs are already working; try again when one pauses or finishes")
@@ -195,7 +212,7 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
                 path.unlink(missing_ok=True)
                 folder.rmdir()
                 raise HTTPException(*problem)
-        background(run_id, "reading the tender", runner.start, path, run_id)
+        background(run_id, "reading the tender", runner.start, path, run_id, None, company)
         return {"run_id": run_id, "status": "running"}
 
     @app.get("/api/runs")

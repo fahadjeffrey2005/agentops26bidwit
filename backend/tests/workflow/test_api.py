@@ -114,3 +114,24 @@ def test_outputs_are_safe_to_open(runner, tmp_path):  # noqa: F811
     from bidwit.workflow.package import csv_safe, md_safe
     assert csv_safe("=HYPERLINK(\"http://x\")").startswith("'=") and csv_safe("+1") == "'+1" and csv_safe("ok") == "ok"
     assert md_safe("<script>alert(1)</script>") == "&lt;script&gt;alert(1)&lt;/script&gt;"
+
+
+def test_companies_and_profiles(api):
+    cos = api.get("/api/companies").json()
+    assert {c["id"] for c in cos} == {"northwind", "meridian"}
+    p = api.get("/api/companies/meridian").json()
+    assert p["name"] == "Meridian Netserve" and p["counts"]["blocked"] == 3
+    restricted = next(d for d in p["documents"] if d["blocked_reason"] == "restricted")
+    assert restricted["text"] is None                                  # never leaves the server
+    assert api.get("/api/companies/../../etc").status_code in (404, 422)
+    assert api.get("/api/companies/nope").status_code == 404
+
+
+def test_run_uses_the_chosen_company(api, runner):  # noqa: F811
+    started = {}
+    real = runner.start
+    runner.start = lambda path, rid=None, today=None, company="northwind": (started.update(company=company), real(path, rid, today, company))[1]
+    assert api.post("/api/runs", data={"sample": "tender_main", "company": "meridian"}).status_code == 202
+    wait(api, api.get("/api/runs").json()[0]["run_id"])
+    assert started["company"] == "meridian"
+    assert api.post("/api/runs", data={"sample": "tender_main", "company": "ghost"}).status_code == 422

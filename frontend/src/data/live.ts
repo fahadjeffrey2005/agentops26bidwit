@@ -46,7 +46,7 @@ function status(i: RunView["report"] extends infer R ? (R extends { items: (infe
   if (i.status === "skipped") return null;
   if (i.status === "not_drafted") return "pending";                 // not searched / drafted yet
   if (i.status === "answered") return i.checks_passed === false ? "flagged" : "cited";
-  if (i.status === "complied") return "needs_input";
+  if (i.status === "complied") return "complied";
   if (i.status === "gap" && i.gap_reason === "human_decides") return "human";
   return "flagged";
 }
@@ -74,7 +74,7 @@ export function requirements(v: RunView): ReqRow[] {
       status: s,
       evidence: i.evidence_ids,
       score: i.status === "answered" ? 1 : 0,
-      note: i.status === "gap" ? REASON[i.gap_reason] ?? i.gap_reason : i.status === "complied" ? "compliance statement" : i.evidence_ids.join(", "),
+      note: i.status === "gap" ? REASON[i.gap_reason] ?? i.gap_reason : i.status === "complied" ? "standard compliance statement" : i.evidence_ids.join(", "),
     });
   }
   return out;
@@ -86,7 +86,15 @@ export function verdict(v: RunView) {
   return {
     decision: vd.decision,
     summary: vd.summary,
-    reasons: vd.blocking.map((b) => ({ requirement_id: b.requirement_id, reason: b.detail || REASON[b.reason] || b.reason })),
+    total: vd.pass_fail_total,
+    covered: vd.pass_fail_covered,
+    reasons: vd.blocking.map((b) => ({
+      requirement_id: b.requirement_id,
+      reason: b.detail || REASON[b.reason] || b.reason,
+      fix: b.reason === "missing_terms" ? "Add a document to the evidence library that names the standard, or answer it by hand."
+        : b.reason === "no_evidence" ? "No company evidence covers this. Add one, or withdraw from this criterion."
+        : "A person decides this one.",
+    })),
   };
 }
 
@@ -105,6 +113,16 @@ const LOOK = {
 export function vault(v: RunView, ev: EvidenceRow[]): VaultDoc[] {
   const uses = new Map<string, string[]>();
   for (const i of v.report?.items ?? []) for (const e of i.evidence_ids) uses.set(e, [...(uses.get(e) ?? []), i.requirement_id]);
+  const quotes = new Map<string, string>();
+  for (const q of v.gate?.gate === "B" ? v.gate.queue : []) for (const e of q.evidence ?? []) if (q.quote) quotes.set(`${e.id}|${q.requirement_id}`, q.quote);
+  const reqText = new Map((v.report?.items ?? []).map((i) => [i.requirement_id, i.requirement]));
+  const full = (id: string, rs: string[]) => {
+    const e = ev.find((x) => x.id === id);
+    return e && {
+      title: e.title, text: e.text, client: e.client, confidentiality: e.confidentiality, date: e.date, expires_on: e.expires_on,
+      usedFor: rs.map((r) => ({ id: r, requirement: reqText.get(r) ?? "", quote: quotes.get(`${id}|${r}`) ?? "" })),
+    };
+  };
   const blocked = ev.filter((e) => e.blocked_reason).map<VaultDoc>((e) => ({
     id: e.id,
     title: e.title.replace(/ - .*/, ""),
@@ -112,6 +130,7 @@ export function vault(v: RunView, ev: EvidenceRow[]): VaultDoc[] {
     state: "blocked",
     why: e.blocked_reason === "restricted" ? "Restricted. Never indexed, never sent to any model." : "Expired. Filtered out of every search, so it can't be cited.",
     ...LOOK[e.blocked_reason as "restricted" | "expired"],
+    full: full(e.id, uses.get(e.id) ?? []),
   }));
   const cited = [...uses.entries()]
     .sort((a, b) => b[1].length - a[1].length)
@@ -125,6 +144,7 @@ export function vault(v: RunView, ev: EvidenceRow[]): VaultDoc[] {
         state: "cited",
         why: `Cited for ${reqs.slice(0, 3).join(", ")}${reqs.length > 3 ? ` +${reqs.length - 3}` : ""}. Quote checked in code.`,
         ...LOOK.cited,
+        full: full(id, reqs),
       };
     });
   return [...blocked, ...cited];

@@ -1,5 +1,5 @@
 /* Shapes the bento dashboard renders. */
-export type ReqStatus = "cited" | "needs_input" | "flagged" | "human" | "pending";
+export type ReqStatus = "cited" | "complied" | "needs_input" | "flagged" | "human" | "pending";
 
 export interface ReqRow {
   id: string;
@@ -22,6 +22,15 @@ export interface VaultDoc {
   color: string;
   color2: string;
   ink: string;
+  full?: {
+    title: string;
+    text: string | null;
+    client: string | null;
+    confidentiality: string;
+    date: string;
+    expires_on: string | null;
+    usedFor: { id: string; requirement: string; quote: string }[];
+  };
 }
 
 export interface AuditItem {

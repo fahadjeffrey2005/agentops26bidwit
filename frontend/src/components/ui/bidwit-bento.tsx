@@ -14,6 +14,7 @@
 
 import * as React from "react";
 import { Ban, Check, Flag, RefreshCw, ShieldAlert, Scale } from "lucide-react";
+import { Field, Modal, Quote } from "./bidwit-modal";
 import type { AuditItem, ReqRow, ReqStatus, VaultDoc } from "@/data/adapter-types";
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -109,6 +110,7 @@ export interface Palette {
 
 const STATUS_LABEL: Record<ReqStatus, string> = {
   cited: "Cited",
+  complied: "Standard reply",
   needs_input: "Needs input",
   human: "You decide",
   flagged: "Flagged",
@@ -116,80 +118,67 @@ const STATUS_LABEL: Record<ReqStatus, string> = {
 };
 
 function statusColor(s: ReqStatus, p: Palette) {
-  return s === "cited" ? p.accent : s === "needs_input" ? p.accent2 : s === "flagged" ? p.warn : p.muted;
+  return s === "cited" ? p.accent : s === "complied" ? p.accent2 : s === "needs_input" ? p.accent2 : s === "flagged" ? p.warn : p.muted;
 }
 
 /* ------------------------------------------------------------------ */
 /*  Hero: greeting, requirements accounted for, one bar per requirement */
 /* ------------------------------------------------------------------ */
 
-function HeroTile({ user, tender, reqs, silentMisses, p, reduced }: { user: string; tender: { title: string; issuer: string; number: string }; reqs: ReqRow[]; silentMisses: number; p: Palette; reduced: boolean }) {
+function HeroTile({ tender, reqs, silentMisses, p, reduced }: { tender: { title: string; issuer: string; number: string }; reqs: ReqRow[]; silentMisses: number; p: Palette; reduced: boolean }) {
   const mounted = useMounted();
   const accounted = reqs.length - silentMisses;
   const shown = useCountUp(accounted, !reduced, 1100);
   const cited = reqs.filter((r) => r.status === "cited").length;
-  const maxScore = Math.max(...reqs.map((r) => r.score), 1);
-  const [hover, setHover] = React.useState<number | null>(null);
+  const counts = {
+    complied: reqs.filter((r) => r.status === "complied").length,
+    human: reqs.filter((r) => r.status === "human").length,
+    flagged: reqs.filter((r) => r.status === "flagged" || r.status === "needs_input").length,
+  };
 
   return (
     <Tile className="sm:col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-1">
       <div className="flex flex-wrap items-start justify-between gap-6">
         <div className="min-w-0">
-          <p className="text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] sm:text-[34px]">
-            Hi, <span style={{ color: p.accent }}>{user}</span>
-          </p>
-          <p className="mt-1 text-sm text-muted-foreground">{tender.title}</p>
-          <p className="font-mono text-[11px] text-muted-foreground">
-            {tender.issuer} · {tender.number}
-          </p>
+          <p className="truncate text-[22px] font-semibold leading-[1.15] tracking-[-0.02em] sm:text-[26px]">{tender.title}</p>
+          <p className="mt-1 font-mono text-[11px] text-muted-foreground">{tender.issuer}</p>
+          <p className="font-mono text-[11px] text-muted-foreground">{tender.number}</p>
         </div>
-        <div>
-          <p className="text-[12px] text-muted-foreground">Requirements accounted for</p>
+        <div className="text-right">
+          <p className="text-[12px] text-muted-foreground">Criteria accounted for</p>
           <p className="font-mono text-[34px] font-semibold leading-none tracking-[-0.04em] tabular-nums sm:text-[40px]">
             {Math.round(shown)}
             <span className="text-muted-foreground">/{reqs.length}</span>
           </p>
-          <p className="mt-1.5 font-mono text-[12px] tabular-nums">
-            <span style={{ color: p.accent }}>{cited} cited</span>
-            <span className="text-muted-foreground"> · {reqs.length - cited} flagged to you · </span>
-            <span style={{ color: silentMisses === 0 ? p.accent : p.warn }}>{silentMisses} silent misses</span>
+          <p className="mt-1 font-mono text-[11px] tabular-nums" style={{ color: silentMisses === 0 ? p.accent : p.warn }}>
+            {silentMisses} silent misses
           </p>
         </div>
       </div>
 
-      {/* one bar per requirement: height = evidence strength, colour = status */}
-      <div className="mt-6 flex flex-1 flex-col">
-        <div className="flex flex-1 items-end gap-[5px]" style={{ minHeight: 64 }} onPointerLeave={() => setHover(null)}>
-          {reqs.map((r, i) => {
-            const h = r.status === "cited" ? 30 + (r.score / maxScore) * 70 : 22;
-            return (
-              <button
-                key={r.id}
-                type="button"
-                onPointerEnter={() => setHover(i)}
-                onFocus={() => setHover(i)}
-                onBlur={() => setHover(null)}
-                aria-label={`${r.id}: ${STATUS_LABEL[r.status]}`}
-                className="relative flex-1 rounded-[5px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                style={{
-                  height: mounted ? `${h}%` : "6%",
-                  background: statusColor(r.status, p),
-                  opacity: hover === null ? (r.status === "cited" ? 0.95 : 0.75) : hover === i ? 1 : 0.25,
-                  transition: `height 900ms ${EASE} ${i * 30}ms, opacity 200ms ease`,
-                }}
-              />
-            );
-          })}
+      <dl className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {([["Cited answers", cited, p.accent], ["Standard replies", counts.complied, p.accent2],
+           ["For a person", counts.human, p.muted], ["Flagged gaps", counts.flagged, p.warn]] as [string, number, string][])
+          .map(([label, nn, color]) => (
+            <div key={label} className="rounded-2xl border border-border px-3 py-2">
+              <dt className="text-[11px] text-muted-foreground">{label}</dt>
+              <dd className="font-mono text-[20px] font-semibold tabular-nums" style={{ color }}>{nn}</dd>
+            </div>
+          ))}
+      </dl>
+      <div className="mt-5 flex flex-1 flex-col justify-end">
+        <div className="flex h-3 w-full overflow-hidden rounded-full" role="img"
+          aria-label={`${cited} cited, ${counts.complied} standard replies, ${counts.human} for a person, ${counts.flagged} flagged`}>
+          {([[cited, p.accent], [counts.complied, p.accent2], [counts.human, p.muted], [counts.flagged, p.warn]] as [number, string][])
+            .filter(([nn]) => nn > 0)
+            .map(([nn, color], i) => (
+              <span key={i} style={{ width: `${(nn / Math.max(reqs.length, 1)) * 100}%`, background: color,
+                transition: `width 900ms ${EASE} ${i * 90}ms`, opacity: mounted ? 1 : 0 }} />
+            ))}
         </div>
-        <div className="mt-2 flex items-center justify-between gap-3 font-mono text-[11px] text-muted-foreground">
-          <span>{reqs[0]?.id}</span>
-          <span className="truncate text-foreground" aria-live="polite">
-            {hover !== null
-              ? `${reqs[hover].id} · ${STATUS_LABEL[reqs[hover].status]}${reqs[hover].evidence[0] ? ` · ${reqs[hover].evidence[0]} · score ${reqs[hover].score.toFixed(1)}` : ""}`
-              : "Bar height = evidence strength"}
-          </span>
-          <span>{reqs[reqs.length - 1]?.id}</span>
-        </div>
+        <p className="mt-2 font-mono text-[11px] text-muted-foreground">
+          {reqs.length} criteria · every one ends as an answer or a flagged gap · {tender.number}
+        </p>
       </div>
     </Tile>
   );
@@ -227,7 +216,7 @@ function DocFace({ c, glare }: { c: VaultDoc; glare: number }) {
         />
       </span>
       <span className="relative flex items-center justify-between gap-3 px-4 pt-4">
-        <span className="truncate text-[13px] font-bold tracking-tight">{c.title}</span>
+        <span className="line-clamp-2 text-[13px] font-bold leading-tight tracking-tight">{c.title}</span>
         <span className="shrink-0 font-mono text-[12px] font-semibold tabular-nums">{c.id}</span>
       </span>
       <span className="relative mt-1 block px-4 font-mono text-[10px] opacity-75">{c.meta}</span>
@@ -264,6 +253,7 @@ function VaultStack({ docs, reduced, p }: { docs: VaultDoc[]; reduced: boolean; 
   const PEEK = 46;
   const depth = order.length - 1;
   const front = docs.find((c) => c.id === order[order.length - 1])!;
+  const [detail, setDetail] = React.useState<VaultDoc | null>(null);
   const dragGlare = React.useRef(false);
   const [glare, setGlare] = React.useState(30);
   React.useEffect(() => {
@@ -342,21 +332,51 @@ function VaultStack({ docs, reduced, p }: { docs: VaultDoc[]; reduced: boolean; 
           className="relative z-10 flex shrink-0 items-end justify-between gap-3 px-5 pb-4"
           style={{
             minHeight: 88,
-            background: "color-mix(in oklch, var(--card) 94%, transparent)",
-            backdropFilter: "blur(18px) saturate(1.3)",
-            WebkitBackdropFilter: "blur(18px) saturate(1.3)",
+            background: "var(--card)",
             borderTop: "1px solid color-mix(in oklch, var(--foreground) 10%, transparent)",
           }}
           aria-live="polite"
         >
-          <div className="min-w-0 pt-3">
-            <p className="truncate font-mono text-[14px] font-semibold tracking-[0.04em]">
+          <button type="button" onClick={() => setDetail(front)} className="min-w-0 pt-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            <p className="line-clamp-2 font-mono text-[14px] font-semibold tracking-[0.04em]">
               {front.id} · {front.title}
             </p>
             <p className="mt-1 text-[11px] leading-snug text-muted-foreground">{front.why}</p>
-          </div>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-widest" style={{ color: p.accent }}>Open the record →</p>
+          </button>
         </div>
       </div>
+      <Modal open={!!detail} onClose={() => setDetail(null)} kicker={`Evidence ${detail?.id}`} title={detail?.full?.title ?? detail?.title ?? ""}
+        footer={<span className="font-mono text-[11px] text-muted-foreground">{detail?.state === "blocked" ? "Blocked in code before any search" : "Quote verified in code against this text"}</span>}>
+        {detail && (
+          <>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Field label="Confidentiality">{detail.full?.confidentiality ?? "-"}</Field>
+              <Field label="Client">{detail.full?.client ?? "none named"}</Field>
+              <Field label="Dated">{detail.full?.date ?? "-"}{detail.full?.expires_on ? ` \u00b7 expires ${detail.full.expires_on}` : ""}</Field>
+            </div>
+            <Field label={detail.state === "blocked" ? "Why it is blocked" : "Why it is in the bid"}>{detail.why}</Field>
+            <Field label="Full text">
+              {detail.full?.text
+                ? <Quote source={`${detail.id} \u00b7 ${detail.full.title}`}>{detail.full.text}</Quote>
+                : <p className="text-muted-foreground">Restricted: the text is never loaded into the system, so there is nothing to show.</p>}
+            </Field>
+            {detail.full?.usedFor?.length ? (
+              <Field label={`Cited for ${detail.full.usedFor.length} requirement(s)`}>
+                <ul className="space-y-2">
+                  {detail.full.usedFor.map((u) => (
+                    <li key={u.id} className="rounded-xl border border-border p-3">
+                      <p className="font-mono text-[11px] text-muted-foreground">{u.id}</p>
+                      <p className="mt-0.5">{u.requirement}</p>
+                      {u.quote && <p className="mt-1 text-muted-foreground">Quote used: \u201c{u.quote}\u201d</p>}
+                    </li>
+                  ))}
+                </ul>
+              </Field>
+            ) : null}
+          </>
+        )}
+      </Modal>
     </Tile>
   );
 }
@@ -365,7 +385,7 @@ function VaultStack({ docs, reduced, p }: { docs: VaultDoc[]; reduced: boolean; 
 /*  Judge: semicircle gauge                                            */
 /* ------------------------------------------------------------------ */
 
-function JudgeTile({ decision, reasons, p }: { decision: "go" | "conditional" | "no_go"; reasons: { requirement_id: string; reason: string }[]; p: Palette }) {
+function JudgeTile({ decision, reasons, total = 0, covered = 0, p }: { decision: "go" | "conditional" | "no_go"; reasons: { requirement_id: string; reason: string; fix?: string }[]; total?: number; covered?: number; p: Palette }) {
   const mounted = useMounted();
   const t = { no_go: 0.14, conditional: 0.5, go: 0.86 }[decision];
   const R = 62;
@@ -374,10 +394,17 @@ function JudgeTile({ decision, reasons, p }: { decision: "go" | "conditional" | 
   const label = { no_go: "No-go", conditional: "Conditional", go: "Go" }[decision];
   const color = decision === "go" ? p.accent : decision === "conditional" ? p.accent2 : p.warn;
   const blockers = reasons; // every reason passed in is a blocking pass/fail gap
+  const [open, setOpen] = React.useState(false);
+  const [more, setMore] = React.useState(false);
+  const verdictLine = {
+    go: "Every must-meet rule is backed by company evidence. The bid can be submitted once a person signs it off.",
+    conditional: "Most must-meet rules are backed by evidence, but a few are not. The bid is worth making only if those gaps are closed before the deadline.",
+    no_go: "Too many must-meet rules have no evidence behind them. On these numbers the bid would be rejected at evaluation.",
+  }[decision];
 
   return (
     <Tile title="Judge" className="lg:col-start-4 lg:row-start-1" action={<span className="font-mono text-[11px] text-muted-foreground">you can override</span>}>
-      <div className="flex flex-1 flex-col items-center justify-center">
+      <button type="button" onClick={() => setOpen(true)} aria-label="Why this decision" className="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-2xl transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
         <div className="relative" style={{ width: 150, height: 86 }}>
           <svg width="150" height="86" viewBox="0 0 150 86" aria-hidden>
             <path d="M 13 78 A 62 62 0 0 1 137 78" fill="none" strokeWidth="10" strokeLinecap="round" style={{ stroke: "var(--muted)" }} />
@@ -399,15 +426,73 @@ function JudgeTile({ decision, reasons, p }: { decision: "go" | "conditional" | 
           {label}
         </p>
         <p className="mt-1.5 font-mono text-[11px] tabular-nums text-muted-foreground">
-          {blockers.length} mandatory gap{blockers.length === 1 ? "" : "s"}
-          {blockers.length ? `: ${blockers.map((b) => b.requirement_id).join(", ")}` : ""}
+          {blockers.length} blocking gap{blockers.length === 1 ? "" : "s"}
+          {blockers.length ? `: ${blockers.slice(0, 3).map((b) => b.requirement_id).join(", ")}` : ""}
         </p>
-      </div>
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-widest" style={{ color: p.accent }}>Why this decision →</p>
+      </button>
       <div className="mt-4 flex justify-between font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
         <span>No-go</span>
         <span>Conditional</span>
         <span>Go</span>
       </div>
+      <Modal open={open} onClose={() => { setOpen(false); setMore(false); }} kicker="Bid / no-bid decision" title={label}
+        footer={<>
+          {!more && <button type="button" onClick={() => setMore(true)} className="rounded-full border border-border px-4 py-2 text-[12px] font-semibold hover:bg-muted">More detail</button>}
+          <span className="font-mono text-[11px] text-muted-foreground">Decided in code, not by the AI. You can override it.</span>
+        </>}>
+        <p className="text-[15px]">{verdictLine}</p>
+
+        <div className="grid grid-cols-3 gap-2">
+          {([["Must-meet criteria", total, "var(--foreground)"],
+             ["Backed by evidence", covered, p.accent],
+             ["Blocking gaps", blockers.length, blockers.length ? p.warn : p.accent]] as [string, number, string][])
+            .map(([k, vv, c]) => (
+              <div key={k} className="rounded-2xl border border-border px-3 py-2">
+                <p className="text-[11px] text-muted-foreground">{k}</p>
+                <p className="font-mono text-[22px] font-semibold tabular-nums" style={{ color: c }}>{vv}</p>
+              </div>
+            ))}
+        </div>
+        <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-muted" role="img" aria-label={`${covered} of ${total} backed`}>
+          <span style={{ width: `${(covered / Math.max(total, 1)) * 100}%`, background: p.accent }} />
+          <span style={{ width: `${(blockers.length / Math.max(total, 1)) * 100}%`, background: p.warn }} />
+        </div>
+
+        <Field label={`Blocking gaps (${blockers.length})`}>
+          {blockers.length === 0 ? <p className="text-muted-foreground">None.</p> : (
+            <ul className="space-y-2">
+              {(more ? blockers : blockers.slice(0, 3)).map((b) => (
+                <li key={b.requirement_id} className="rounded-xl border border-border p-3">
+                  <p className="font-mono text-[11px] text-muted-foreground">{b.requirement_id}</p>
+                  <p className="mt-0.5">{b.reason}</p>
+                  {b.fix && <p className="mt-1 text-[13px] text-muted-foreground"><span className="text-foreground">To close it:</span> {b.fix}</p>}
+                </li>
+              ))}
+            </ul>
+          )}
+          {!more && blockers.length > 3 && <p className="mt-2 font-mono text-[11px] text-muted-foreground">+{blockers.length - 3} more</p>}
+        </Field>
+        <Field label="What happens next">
+          <p className="text-muted-foreground">
+            {decision === "no_go"
+              ? "The run stops at the no-go gate. You either confirm it and no bid is made, or override it and the system drafts anyway."
+              : decision === "conditional"
+              ? "The system drafts the answers it can. Everything above goes to Gate B for you to decide before anything leaves."
+              : "The system drafts every answer it can and sends them to Gate B for your review."}
+          </p>
+        </Field>
+        {more && (
+          <Field label="How the decision is made">
+            <ul className="list-disc space-y-1 pl-5 text-muted-foreground">
+              <li>Only must-meet eligibility and technical criteria count. Prices, forms and scope duties do not.</li>
+              <li>A criterion is backed when the evidence search finds company evidence that is strong enough and mentions every required term (a named standard, a certification, 24x7).</li>
+              <li>0 unbacked criteria: GO. Up to 3: CONDITIONAL. More than 3: NO-GO, and the run stops for a person to decide.</li>
+              <li>Restricted and expired evidence is removed before this count, so it can never prop up a decision.</li>
+            </ul>
+          </Field>
+        )}
+      </Modal>
     </Tile>
   );
 }
@@ -423,11 +508,12 @@ function MatrixTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
   const [open, setOpen] = React.useState<string | null>(null);
   const mounted = useMounted();
   const rows = reqs.filter((r) => (filter === "All" ? true : filter === "Must" ? r.mandatory : r.status !== "cited"));
+  const card = reqs.find((r) => r.id === open) ?? null;
 
   return (
     <Tile
       title="Compliance matrix"
-      className="sm:col-span-2 lg:col-span-2 lg:col-start-1 lg:row-span-2 lg:row-start-2"
+      className="sm:col-span-2 lg:col-span-2 lg:col-start-1 lg:row-span-2 lg:row-start-3"
       action={<Pills label="Filter" value={filter} options={["All", "Needs you", "Must"]} onChange={setFilter} />}
     >
       <div className="grid grid-cols-[52px_1fr_auto] gap-x-3 border-b border-border pb-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -438,13 +524,11 @@ function MatrixTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
       <ul className="-mx-2 mt-1 max-h-[560px] flex-1 overflow-y-auto">
         {rows.map((r, i) => {
           const c = statusColor(r.status, p);
-          const isOpen = open === r.id;
           return (
             <li key={r.id} style={{ opacity: mounted ? 1 : 0, transition: `opacity 400ms ease ${150 + i * 35}ms` }}>
               <button
                 type="button"
-                onClick={() => setOpen(isOpen ? null : r.id)}
-                aria-expanded={isOpen}
+                onClick={() => setOpen(r.id)}
                 className="grid w-full grid-cols-[52px_1fr_auto] items-center gap-x-3 rounded-xl px-2 py-[7px] text-left transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <span className="font-mono text-[12px] tabular-nums text-muted-foreground">{r.id}</span>
@@ -452,7 +536,7 @@ function MatrixTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
                   {r.mandatory && (
                     <span className="shrink-0 rounded-[5px] border border-border px-1 font-mono text-[9px] font-semibold text-muted-foreground">MUST</span>
                   )}
-                  <span className={cx("text-[13px]", isOpen ? "whitespace-normal" : "truncate")}>{r.text}</span>
+                  <span className="truncate text-[13px]">{r.text}</span>
                 </span>
                 <span className="flex items-center justify-end gap-2">
                   {r.evidence[0] && <span className="font-mono text-[11px] tabular-nums text-muted-foreground">{r.evidence[0]}</span>}
@@ -464,15 +548,45 @@ function MatrixTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
                   </span>
                 </span>
               </button>
-              {isOpen && (
-                <p className="mb-1 ml-[64px] mr-2 rounded-xl bg-muted/50 px-3 py-2 font-mono text-[11px] text-muted-foreground">
-                  p.{r.page ?? "?"} · {r.category} · {r.note || "no note"}
-                </p>
-              )}
             </li>
           );
         })}
       </ul>
+      <Modal open={!!card} onClose={() => setOpen(null)} kicker={`${card?.id ?? ""} \u00b7 page ${card?.page ?? "?"} \u00b7 ${card?.category ?? ""}`}
+        title={`Requirement ${card?.id ?? ""}`}
+        footer={<span className="font-mono text-[11px] text-muted-foreground">{card?.mandatory ? "Must-meet: the bid is rejected if this is not met" : "Scored or informational, not a must-meet rule"}</span>}>
+        {card && (
+          <>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Field label="Outcome"><span style={{ color: statusColor(card.status, p) }}>{STATUS_LABEL[card.status]}</span></Field>
+              <Field label="Evidence strength">
+                {card.status === "cited"
+                  ? <span className="font-mono">{card.score.toFixed(2)} <span className="text-muted-foreground">(strong enough to cite)</span></span>
+                  : <span className="text-muted-foreground">below the bar to cite</span>}
+              </Field>
+              <Field label="Category">{card.category}{card.mandatory ? " \u00b7 must-meet" : ""}</Field>
+            </div>
+            <Field label="Requirement text"><p className="leading-relaxed">{card.text}</p></Field>
+            <Field label="What happened">{card.note || "no note"}</Field>
+            {card.evidence.length > 0 && (
+              <Field label="Evidence cited">
+                <ul className="flex flex-wrap gap-2">
+                  {card.evidence.map((e) => <li key={e} className="rounded-full border border-border px-3 py-1 font-mono text-[12px]">{e}</li>)}
+                </ul>
+              </Field>
+            )}
+            <Field label="How this was decided">
+              <p className="text-muted-foreground">
+                {card.status === "cited" ? "An answer was drafted from company evidence, then checked in code for the citation, the quote, every number and any overclaim."
+                  : card.status === "complied" ? "No specific evidence was needed: this is a scope duty, answered with the standard compliance statement and confirmed as a group at Gate B."
+                  : card.status === "human" ? "A price, a form or a signature: the system never decides these, a person does."
+                  : card.status === "pending" ? "The run stopped before this one was drafted."
+                  : "No company evidence was strong enough, or a required term was missing, so it is flagged rather than answered."}
+              </p>
+            </Field>
+          </>
+        )}
+      </Modal>
     </Tile>
   );
 }
@@ -483,7 +597,7 @@ function MatrixTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
 
 function SplitTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
   const mounted = useMounted();
-  const parts: { key: ReqStatus; n: number }[] = (["cited", "needs_input", "human", "flagged", "pending"] as ReqStatus[])
+  const parts: { key: ReqStatus; n: number }[] = (["cited", "complied", "needs_input", "human", "flagged", "pending"] as ReqStatus[])
     .map((k) => ({ key: k, n: reqs.filter((r) => r.status === k).length }))
     .filter((x) => x.n > 0);
   const total = reqs.length;
@@ -674,56 +788,75 @@ function BudgetTile({ used, budget, p }: { used: number; budget: number; p: Pale
 /*  Agent pipeline                                                     */
 /* ------------------------------------------------------------------ */
 
+const STAGE_WHAT: Record<string, string> = {
+  extract: "Reads the PDF in a separate, sandboxed process: text, tables, hidden text, scanned pages. Nothing is filtered out.",
+  classify: "Decides what each unit is: eligibility, technical, commercial, format, and whether it is a must-meet rule.",
+  gate_a: "You confirm the must-meet checklist before any evidence is searched. The run waits here.",
+  kb: "Searches the company's evidence library for each criterion. Restricted and expired records are removed first.",
+  judge: "Counts must-meet criteria that have no evidence and calls it: go, conditional or no-go. Code only, no AI.",
+  writer: "Drafts an answer only where the evidence is strong, citing ids and quoting the evidence word for word.",
+  checker: "Verifies every answer in code: citation, quote, numbers, overclaim, blocked source, and coverage.",
+  gate_b: "You review everything, riskiest first, before anything leaves the system. The run waits here.",
+  package: "Writes the bid draft, the compliance matrix, the report and the audit trail.",
+};
+
 function PipelineTile({ stages, at, llmUsed, rounds, p, reduced }: { stages: readonly { key: string; label: string; detail: string }[]; at: number; llmUsed: number; rounds: { round: number; passed: number; total: number }[]; p: Palette; reduced: boolean }) {
   const mounted = useMounted();
-  const [hover, setHover] = React.useState<number | null>(null);
+  const [pick, setPick] = React.useState<number | null>(null);
   const last = rounds[rounds.length - 1];
+  const sel = pick ?? at;
   return (
     <Tile
       title="Agent pipeline"
-      className="sm:col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-4"
-      action={<span className="font-mono text-[11px]" style={{ color: p.accent }}>waiting for you at {stages[at].label}</span>}
+      className="sm:col-span-2 lg:col-span-2 lg:col-start-1 lg:row-start-2"
+      action={<span className="font-mono text-[11px]" style={{ color: p.accent }}>{at >= stages.length - 1 ? "finished" : `at ${stages[at].label}`}</span>}
     >
-      <div className="flex flex-1 items-end gap-[5px]" style={{ minHeight: 84 }} onPointerLeave={() => setHover(null)}>
+      <ol className="relative mt-1 space-y-0">
         {stages.map((s, i) => {
           const done = i < at;
           const cur = i === at;
           const gate = s.key.startsWith("gate");
-          const h = gate ? 100 : 55; // gates (human stops) stand taller than agent steps
+          const on = i === sel;
           return (
-            <button
-              key={s.key}
-              type="button"
-              aria-label={`${s.label}${s.detail ? `: ${s.detail}` : ""}`}
-              onPointerEnter={() => setHover(i)}
-              onFocus={() => setHover(i)}
-              onBlur={() => setHover(null)}
-              className="flex h-full flex-1 flex-col justify-end rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <span
-                className="block rounded-[4px]"
-                style={{
-                  height: mounted ? `${h}%` : "4%",
-                  background: cur ? p.accent : gate ? p.accent2 : "var(--muted-foreground)",
-                  opacity: hover === i ? 1 : cur ? 1 : done ? (gate ? 0.7 : 0.35) : 0.1,
-                  transition: `height 800ms ${EASE} ${i * 50}ms`,
-                  animation: cur && !reduced ? "bw-pulse 1.8s ease-in-out infinite" : undefined,
-                }}
-              />
-            </button>
+            <li key={s.key} className="relative flex gap-3">
+              <div className="flex w-5 shrink-0 flex-col items-center">
+                <span
+                  className="mt-[7px] block rounded-full transition-all"
+                  style={{
+                    width: gate ? 13 : 9, height: gate ? 13 : 9,
+                    border: gate ? `2px solid ${cur ? p.accent : done ? "var(--foreground)" : "var(--muted-foreground)"}` : "none",
+                    background: gate ? "var(--card)" : cur ? p.accent : done ? "var(--foreground)" : "var(--muted-foreground)",
+                    opacity: done || cur ? 1 : 0.35,
+                    animation: cur && !reduced ? "bw-pulse 1.8s ease-in-out infinite" : undefined,
+                  }}
+                />
+                {i < stages.length - 1 && (
+                  <span className="w-px flex-1" style={{ background: "var(--border)", minHeight: 18,
+                    backgroundImage: done ? `linear-gradient(var(--foreground), var(--foreground))` : undefined,
+                    opacity: mounted ? 1 : 0, transition: `opacity 500ms ease ${i * 60}ms` }} />
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => setPick(on ? null : i)}
+                aria-expanded={on}
+                className="mb-1 flex-1 rounded-xl px-2 py-1.5 text-left transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <span className="flex items-baseline justify-between gap-3">
+                  <span className="shrink-0 whitespace-nowrap text-[13px] font-medium" style={{ opacity: done || cur ? 1 : 0.5 }}>
+                    {s.label}{gate && <span className="ml-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">you</span>}
+                  </span>
+                  <span className="truncate font-mono text-[11px] text-muted-foreground">{s.detail}</span>
+                </span>
+                {on && <span className="mt-1 block text-[12px] leading-relaxed text-muted-foreground">{STAGE_WHAT[s.key]}</span>}
+              </button>
+            </li>
           );
         })}
-      </div>
-      <div className="mt-2 flex items-center justify-between gap-3 font-mono text-[11px] text-muted-foreground">
-        <span>{stages[0].label}</span>
-        <span className="truncate text-foreground" aria-live="polite">
-          {`${String((hover ?? at) + 1).padStart(2, "0")} · ${stages[hover ?? at].label}${stages[hover ?? at].detail ? ` · ${stages[hover ?? at].detail}` : ""}`}
-        </span>
-        <span>{stages[stages.length - 1].label}</span>
-      </div>
-      <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-border pt-3">
+      </ol>
+      <dl className="mt-3 grid grid-cols-3 gap-3 border-t border-border pt-3">
         {[
-          ["LLM calls", String(llmUsed)],
+          ["AI calls", String(llmUsed)],
           ["Rewrite rounds", String(Math.max(0, rounds.length - 1))],
           ["Checks passed", last ? `${last.passed}/${last.total}` : "-"],
         ].map(([k, v]) => (
@@ -736,10 +869,6 @@ function PipelineTile({ stages, at, llmUsed, rounds, p, reduced }: { stages: rea
     </Tile>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/*  Audit trail                                                        */
-/* ------------------------------------------------------------------ */
 
 function KindIcon({ kind }: { kind: AuditItem["kind"] }) {
   const s = { size: 16, strokeWidth: 1.9, "aria-hidden": true } as const;
@@ -755,7 +884,7 @@ function AuditTile({ items, p }: { items: AuditItem[]; p: Palette }) {
   const mounted = useMounted();
   const color = (st: string) => (st === "blocked" || st === "flagged" ? p.accent2 : st === "fixed" || st === "approved" ? p.accent : "var(--muted-foreground)");
   return (
-    <Tile title="Audit trail" className="sm:col-span-2 lg:col-span-2 lg:col-start-3 lg:row-start-4" action={<span className="font-mono text-[11px] text-muted-foreground">audit.json</span>}>
+    <Tile title="Audit trail" className="sm:col-span-2 lg:col-span-2 lg:col-start-3 lg:row-start-4" action={<span className="font-mono text-[11px] text-muted-foreground">audit.jsonl</span>}>
       <ul className="-mx-2 -my-1">
         {items.slice(0, 5).map((a, i) => (
           <li
@@ -794,7 +923,7 @@ export interface BidWitBentoProps {
   tender: { title: string; issuer: string; number: string };
   requirements: ReqRow[];
   silentMisses: number;
-  verdict: { decision: "go" | "conditional" | "no_go"; summary: string; reasons: { requirement_id: string; reason: string }[] };
+  verdict: { decision: "go" | "conditional" | "no_go"; summary: string; total?: number; covered?: number; reasons: { requirement_id: string; reason: string; fix?: string }[] };
   vault: VaultDoc[];
   queueBy: Record<string, number>;
   queueTotal: number;
@@ -845,14 +974,14 @@ export function BidWitBento(props: BidWitBentoProps) {
 
       {props.top && <div className="mb-3">{props.top}</div>}
       {!props.hideGrid && <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <HeroTile user={props.user} tender={props.tender} reqs={props.requirements} silentMisses={props.silentMisses} p={p} reduced={reduced} />
+        <HeroTile tender={props.tender} reqs={props.requirements} silentMisses={props.silentMisses} p={p} reduced={reduced} />
         <VaultTile docs={props.vault} reduced={reduced} p={p} />
         {props.verdictPending ? (
           <Tile title="Judge" className="lg:col-start-4 lg:row-start-1">
             <p className="text-[13px] text-muted-foreground">Bid / no-bid is decided in code after the evidence search.</p>
           </Tile>
         ) : (
-          <JudgeTile decision={props.verdict.decision} reasons={props.verdict.reasons} p={p} />
+          <JudgeTile decision={props.verdict.decision} reasons={props.verdict.reasons} total={props.verdict.total} covered={props.verdict.covered} p={p} />
         )}
         <MatrixTile reqs={props.requirements} p={p} />
         <SplitTile reqs={props.requirements} p={p} />

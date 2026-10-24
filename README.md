@@ -15,7 +15,7 @@ backend/   Python 3.13: parts, workflow (LangGraph), API (FastAPI)
 frontend/  React + TypeScript + Tailwind dashboard
 data/
   tenders/  two real public tenders (sources in SOURCES.md)
-  kb/       company evidence for the synthetic bidder Northwind IT
+  kb/       one folder per mock bidder (northwind, meridian) + companies.json
   gold/     498 hand-labelled items for tender_main.pdf, plus contradictions found in it
 ```
 
@@ -55,6 +55,13 @@ Known limits:
 - A merged table cell spanning several rows is attached to the first row only.
 - A word hyphenated at a line end is always joined ("e-" + "procurement" becomes "eprocurement").
 - Words the PDF itself splits inside table cells stay split ("Mediu m").
+
+### Bidding companies
+Two mock bidders share the same evidence format (`data/kb/<id>/evidence.json`, listed in `data/kb/companies.json`):
+Northwind IT (Bengaluru, own 24x7 NOC, 30 records) and Meridian Netserve (Pune, 12x6 desk, 18 records).
+A run picks one; `GET /api/companies` and `GET /api/companies/{id}` serve the picker and the profile screen
+(restricted text is never sent). On `tender_main.pdf`: Northwind is CONDITIONAL (25/27 backed, 2 blocking),
+Meridian is NO-GO (21/27, 6 blocking), so the no-go gate can be demonstrated on the same tender.
 
 ### Part 3: evidence search
 - **Vector database:** Qdrant (local mode, in memory, rebuilt from `data/kb/evidence.json` at start; no server).

@@ -1,10 +1,11 @@
 import * as React from "react";
 import { BackgroundPaths } from "@/components/ui/background-paths";
+import { CompanyPicker, CompanyProfilePage } from "@/components/ui/bidwit-company";
 import { BidWitBento } from "@/components/ui/bidwit-bento";
 import { GateATile, GateBReviewTile } from "@/components/ui/bidwit-approvals";
 import { DoneTile, LiveTile, NoGoTile, StartTile } from "@/components/ui/bidwit-live";
 import { api } from "@/data/api";
-import type { EvidenceRow, Health, RunRow, RunView } from "@/data/api";
+import type { Company, CompanyProfile, EvidenceRow, Health, RunRow, RunView } from "@/data/api";
 import * as live from "@/data/live";
 
 const USER = "Fahad";
@@ -18,7 +19,8 @@ function useHashRun(): [string, (id: string) => void] {
     window.addEventListener("hashchange", on);
     return () => window.removeEventListener("hashchange", on);
   }, []);
-  return [id, (v: string) => (window.location.hash = v)];
+  const go = React.useCallback((v: string) => { window.location.hash = v; window.scrollTo({ top: 0 }); }, []);
+  return [id, go];
 }
 
 export default function App() {
@@ -28,17 +30,35 @@ export default function App() {
   const [evidence, setEvidence] = React.useState<EvidenceRow[]>([]);
   const [runs, setRuns] = React.useState<RunRow[]>([]);
   const [err, setErr] = React.useState("");
+  const [companies, setCompanies] = React.useState<Company[]>([]);
+  const [profile, setProfile] = React.useState<CompanyProfile | null>(null);
+  const route = runId.startsWith("company/") ? runId.slice(8).split("/") : null;
+  const company = route ? route[0] : "";
+  const step: "pick" | "profile" | "tender" = !route ? "pick" : route[1] === "tender" ? "tender" : "profile";
   const [tick, setTick] = React.useState(0);
 
   React.useEffect(() => {
     api.health().then(setHealth).catch(() => setErr("Backend not reachable on 127.0.0.1:8000. Start it with: uvicorn bidwit.api:app --port 8000"));
     api.evidence().then(setEvidence).catch(() => {});
     api.runs().then(setRuns).catch(() => {});
+    api.companies().then(setCompanies).catch(() => {});
   }, [runId]);
+
+  React.useEffect(() => {
+    if (!company) {
+      setProfile(null);
+      return;
+    }
+    api.company(company).then(setProfile).catch(() => setErr("Could not load that company."));
+    api.evidence(company).then(setEvidence).catch(() => {});
+  }, [company]);
 
   // poll the run while it is working; stop when it waits for a human or is done
   React.useEffect(() => {
-    if (!runId) return;
+    if (!runId.startsWith("run-")) {
+      setView(null);
+      return;
+    }
     let stop = false;
     let timer = 0;
     const load = async () => {
@@ -49,7 +69,14 @@ export default function App() {
         setErr("");
         if (v.status === "running") timer = window.setTimeout(load, POLL_MS);
       } catch (e) {
-        if (!stop) setErr(String((e as Error).message));
+        if (stop) return;
+        const msg = String((e as Error).message);
+        if (/no such run/i.test(msg)) {                 // the server restarted: don't spin forever
+          setErr("That run is gone: the server was restarted while it was paused. Start a new run.");
+          setRunId("");
+          return;
+        }
+        setErr(msg);
       }
     };
     load();
@@ -57,10 +84,11 @@ export default function App() {
       stop = true;
       window.clearTimeout(timer);
     };
-  }, [runId, tick]);
+  }, [runId, tick, setRunId]);
 
   const resumed = () => setTick((t) => t + 1);
   const v = view && view.run_id === runId ? view : null;
+  const isRun = runId.startsWith("run-");
 
   let top: React.ReactNode;
   if (!v) top = <LiveTile view={{ run_id: runId, status: "running", doing: "opening the run", gate: null, stopped: "", report: null, audit: [], errors: [] }} />;
@@ -77,7 +105,15 @@ export default function App() {
 
   const errBox = err && <p className="mb-3 rounded-2xl border border-border px-4 py-3 text-[13px]" style={{ color: "oklch(0.68 0.15 25)" }}>{err}</p>;
 
-  if (!runId)
+  if (step === "profile" && profile)
+    return (
+      <div className="dark min-h-screen w-full bg-background text-foreground">
+        <CompanyProfilePage profile={profile} onBack={() => setRunId("")} onContinue={() => setRunId(`company/${company}/tender`)} />
+      </div>
+    );
+
+  if (!isRun) {
+    const pick = (id: string) => setRunId(`company/${id}`);
     return (
       <div className="dark min-h-screen w-full bg-background text-foreground">
         <BackgroundPaths
@@ -88,10 +124,15 @@ export default function App() {
         />
         <section id="start" className="mx-auto w-full max-w-[1120px] scroll-mt-8 px-4 pb-16 pt-8 sm:px-8">
           {errBox}
-          <StartTile health={health} runs={runs} onStarted={setRunId} onOpen={setRunId} />
+          {step !== "tender" && <CompanyPicker companies={companies} onPick={pick} onAdd={() => setErr("Adding your own organisation is not in this build: the two companies above have ready-made evidence libraries.")} />}
+          {step === "tender" && (
+            <StartTile health={health} runs={runs} company={company} companyName={profile?.name}
+              onStarted={setRunId} onOpen={setRunId} onBack={() => setRunId(`company/${company}`)} />
+          )}
         </section>
       </div>
     );
+  }
 
   return (
     <div className="dark flex min-h-screen w-full items-start justify-center bg-background p-4 text-foreground sm:p-8">
