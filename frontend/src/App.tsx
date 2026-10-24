@@ -1,4 +1,5 @@
 import * as React from "react";
+import { BackgroundPaths } from "@/components/ui/background-paths";
 import { BidWitBento } from "@/components/ui/bidwit-bento";
 import { GateATile, GateBReviewTile } from "@/components/ui/bidwit-approvals";
 import { DoneTile, LiveTile, NoGoTile, StartTile } from "@/components/ui/bidwit-live";
@@ -62,7 +63,7 @@ export default function App() {
   const v = view && view.run_id === runId ? view : null;
 
   let top: React.ReactNode;
-  if (!v) top = <StartTile health={health} runs={runs} onStarted={setRunId} onOpen={setRunId} />;
+  if (!v) top = <LiveTile view={{ run_id: runId, status: "running", doing: "opening the run", gate: null, stopped: "", report: null, audit: [], errors: [] }} />;
   else if (v.status === "running") top = <LiveTile view={v} />;
   else if (v.gate?.gate === "A") top = <GateATile key={`${v.run_id}-A`} view={v} gate={v.gate} reviewer={USER} onSent={resumed} />;
   else if (v.gate?.gate === "no_go") top = <NoGoTile view={v} gate={v.gate} reviewer={USER} onSent={resumed} />;
@@ -73,6 +74,24 @@ export default function App() {
   const pipe = v ? live.pipeline(v) : { stages: live.STAGES.map((s) => ({ ...s, detail: "" })), at: 0 };
   const q = v ? live.queue(v) : { by: {}, total: 0 };
   const tender = v?.report?.tender;
+
+  const errBox = err && <p className="mb-3 rounded-2xl border border-border px-4 py-3 text-[13px]" style={{ color: "oklch(0.68 0.15 25)" }}>{err}</p>;
+
+  if (!runId)
+    return (
+      <div className="dark min-h-screen w-full bg-background text-foreground">
+        <BackgroundPaths
+          title="BidWit"
+          subtitle="Tender PDF in, evidence-backed bid draft out. Every requirement ends as a cited answer or a gap flagged for a person."
+          cta="Start a run"
+          onCta={() => document.getElementById("start")?.scrollIntoView({ behavior: "smooth" })}
+        />
+        <section id="start" className="mx-auto w-full max-w-[1120px] scroll-mt-8 px-4 pb-16 pt-8 sm:px-8">
+          {errBox}
+          <StartTile health={health} runs={runs} onStarted={setRunId} onOpen={setRunId} />
+        </section>
+      </div>
+    );
 
   return (
     <div className="dark flex min-h-screen w-full items-start justify-center bg-background p-4 text-foreground sm:p-8">
@@ -93,12 +112,12 @@ export default function App() {
         pipeline={pipe.stages}
         pipelineAt={pipe.at}
         audit={v ? live.audit(v) : []}
-        hideGrid={!v}
+        hideGrid={!v?.report}                      // no empty dashboard: it appears once the run has real data
         verdictPending={!v || !live.verdict(v)}
         navExtra={v && <button type="button" onClick={() => setRunId("")} className="rounded-full border border-border px-3 py-1.5 text-[12px] font-medium hover:bg-muted">New run</button>}
         top={
           <>
-            {err && <p className="mb-3 rounded-2xl border border-border px-4 py-3 text-[13px]" style={{ color: "oklch(0.72 0.17 35)" }}>{err}</p>}
+            {errBox}
             {top}
           </>
         }

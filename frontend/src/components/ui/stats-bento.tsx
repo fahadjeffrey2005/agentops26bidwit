@@ -12,7 +12,7 @@ export interface StatsBentoProps {
   ink?: string;
 }
 
-export function StatsBento({ primary, secondary, small, wide, accent = "oklch(0.89 0.2 128)", ink = "oklch(0.24 0.06 135)" }: StatsBentoProps) {
+export function StatsBento({ primary, secondary, small, wide, accent = "oklch(0.97 0 0)", ink = "oklch(0.145 0 0)" }: StatsBentoProps) {
   const max = Math.max(1, ...secondary.bars.map((b) => b.value));
   return (
     <div className="grid grid-cols-1 gap-3 md:grid-cols-6 md:grid-rows-2">
@@ -27,7 +27,7 @@ export function StatsBento({ primary, secondary, small, wide, accent = "oklch(0.
           }}
         />
         <div className="relative">
-          <span className="mb-5 inline-block rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-widest" style={{ background: "oklch(0.24 0.06 135 / 0.1)", opacity: 0.75 }}>
+          <span className="mb-5 inline-block rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-widest" style={{ background: "oklch(0.145 0 0 / 0.1)", opacity: 0.75 }}>
             {primary.label}
           </span>
           <div className="font-mono text-6xl font-semibold tracking-tighter tabular-nums">{primary.value}</div>

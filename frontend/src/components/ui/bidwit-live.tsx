@@ -6,10 +6,10 @@ import { Tile, cx } from "./bidwit-bento";
 import { api } from "@/data/api";
 import type { Gate, Health, RunRow, RunView } from "@/data/api";
 
-const ACCENT = "oklch(0.89 0.2 128)";
-const INK = "oklch(0.24 0.06 135)";
-const WARN = "oklch(0.72 0.17 35)";
-const VIOLET = "oklch(0.74 0.12 300)";
+const ACCENT = "oklch(0.97 0 0)";
+const INK = "oklch(0.145 0 0)";
+const WARN = "oklch(0.68 0.15 25)";
+const VIOLET = "oklch(0.72 0 0)";
 
 function Btn({ children, onClick, kind = "ghost", disabled, title }: { children: React.ReactNode; onClick?: () => void; kind?: "primary" | "ghost" | "warn"; disabled?: boolean; title?: string }) {
   return (
@@ -22,7 +22,7 @@ function Btn({ children, onClick, kind = "ghost", disabled, title }: { children:
         "inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-semibold transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-40",
         kind === "ghost" && "border border-border hover:bg-muted",
       )}
-      style={kind === "primary" ? { background: ACCENT, color: INK } : kind === "warn" ? { background: WARN, color: "oklch(0.2 0.05 35)" } : undefined}
+      style={kind === "primary" ? { background: ACCENT, color: INK } : kind === "warn" ? { background: WARN, color: "oklch(0.18 0.04 25)" } : undefined}
     >
       {children}
     </button>

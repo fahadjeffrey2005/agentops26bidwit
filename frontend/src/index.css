@@ -18,12 +18,12 @@
 }
 
 .dark {
-  --background: oklch(0.13 0.004 285);
+  --background: oklch(0.145 0 0);        /* neutral-950, as the landing page */
   --foreground: oklch(0.97 0 0);
-  --card: oklch(0.185 0.005 285);
+  --card: oklch(0.18 0 0);
   --card-foreground: oklch(0.97 0 0);
-  --muted: oklch(0.255 0.006 285);
-  --muted-foreground: oklch(0.66 0.01 285);
+  --muted: oklch(0.235 0 0);
+  --muted-foreground: oklch(0.65 0 0);
   --border: oklch(1 0 0 / 0.08);
   --ring: oklch(0.6 0 0);
 }

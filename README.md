@@ -121,6 +121,13 @@ Uploads: PDF only, size-limited, stored as `runs/<run_id>/tender.pdf`. Gate answ
 - Checkpoints use LangGraph's msgpack serializer limited to our own types (no pickle).
 - Checked: `pip-audit` (73 pinned packages) and `npm audit`: 0 known vulnerabilities; `bandit`: no real findings.
 
+## Quick start
+```
+export GROQ_API_KEY=...      # optional: without it the AI parts fall back to rules and flagged gaps
+bash start.sh                # first run installs everything; opens http://127.0.0.1:5174; Ctrl+C stops it
+```
+Results and how they were measured: [EVAL.md](EVAL.md).
+
 ## Setup (macOS, Python 3.13)
 ```
 cd backend

@@ -8,11 +8,11 @@ import { StatsBento } from "./stats-bento";
 import { api } from "@/data/api";
 import type { Gate, PassFailReq, QueueEntry, RunView } from "@/data/api";
 
-const ACCENT = "oklch(0.89 0.2 128)";
-const INK = "oklch(0.24 0.06 135)";
-const WARN = "oklch(0.72 0.17 35)";
-const VIOLET = "oklch(0.74 0.12 300)";
-const MUTED = "oklch(0.6 0.02 285)";
+const ACCENT = "oklch(0.97 0 0)";
+const INK = "oklch(0.145 0 0)";
+const WARN = "oklch(0.68 0.15 25)";
+const VIOLET = "oklch(0.72 0 0)";
+const MUTED = "oklch(0.55 0 0)";
 
 /* ------------------------------------------------------------------ readable text */
 const SERIAL = /^(\(?[0-9ivxIVX]{1,4}(\.[0-9]{1,3})*[.)]?|[A-Za-z][.)]|S\.?\s?No\.?|Sr\.?\s?No\.?)$/;
@@ -70,27 +70,6 @@ function Ref({ id, page }: { id: string; page?: number | null }) {
   );
 }
 
-function Segmented<T extends string>({ value, options, onChange, label }: { value: T; options: { v: T; text: string }[]; onChange: (v: T) => void; label: string }) {
-  return (
-    <div role="radiogroup" aria-label={label} className="inline-flex rounded-full border border-border p-0.5">
-      {options.map((o) => (
-        <button
-          key={o.v}
-          type="button"
-          role="radio"
-          aria-checked={o.v === value}
-          onClick={() => onChange(o.v)}
-          className={cx("rounded-full px-3 py-1 text-[12px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-            o.v === value ? "" : "text-muted-foreground hover:text-foreground")}
-          style={o.v === value ? { background: ACCENT, color: INK } : undefined}
-        >
-          {o.text}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 function Footer({ children }: { children: React.ReactNode }) {
   return (
     <div className="sticky bottom-3 z-10 mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-lg backdrop-blur">
@@ -114,26 +93,46 @@ function groupBy<T>(xs: T[], key: (x: T) => string) {
 }
 
 /* ------------------------------------------------------------------ Gate A */
+/** A statement as short points: sentences, and numbered lists inside a sentence ("1.ISO ... 2.ISO ..."). */
+export function points(text: string): string[] {
+  const main = readable(text).main.replace(/\s+/g, " ").trim();
+  const parts = main
+    .split(/(?<=[.;])\s+(?=[A-Z(])|\s+(?=\d{1,2}\s?\.\s?[A-Z])|\s+(?=[o•▪]\s)/)
+    .map((p) => p.replace(/^[o•▪]\s+/, "").trim())
+    .filter((p) => p.length > 1);
+  return parts.length ? parts.slice(0, 8) : [main];
+}
+
+type MustMeet = "yes" | "no" | "drop";
+
+function Choice({ on, color, ink, onClick, children, label }: { on: boolean; color: string; ink: string; onClick: () => void; children: React.ReactNode; label: string }) {
+  return (
+    <button type="button" aria-pressed={on} aria-label={label} onClick={onClick}
+      className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-[12px] font-semibold transition-colors hover:bg-muted sm:w-[150px]"
+      style={on ? { background: color, color: ink, borderColor: color } : undefined}>
+      {children}
+    </button>
+  );
+}
+
 export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gate: Extract<Gate, { gate: "A" }>; reviewer: string; onSent: () => void }) {
-  const [drop, setDrop] = React.useState<Set<string>>(new Set());
-  const [unmark, setUnmark] = React.useState<Set<string>>(new Set());
-  const [filter, setFilter] = React.useState<"All" | "Eligibility" | "Others">("All");
+  const [dec, setDec] = React.useState<Record<string, MustMeet>>({});
+  const [filter, setFilter] = React.useState<"All" | "To review" | "Eligibility">("All");
   const [busy, setBusy] = React.useState(false);
   const [err, setErr] = React.useState("");
   const items = gate.pass_fail;
-  const toggle = (set: Set<string>, setter: (s: Set<string>) => void, id: string, on: boolean) => {
-    const n = new Set(set);
-    if (on) n.add(id);
-    else n.delete(id);
-    setter(n);
-  };
+  const set = (id: string, d: MustMeet) => setDec((m) => { const n = { ...m }; if (n[id] === d) delete n[id]; else n[id] = d; return n; });
+  const n = (d: MustMeet) => Object.values(dec).filter((x) => x === d).length;
+  const open = items.filter((r) => !dec[r.id]).length;
+  const kept = items.length - n("no") - n("drop");
   const cats = ["eligibility", "technical", "commercial", "format"];
-  const kept = items.filter((r) => !drop.has(r.id) && !unmark.has(r.id)).length;
-  const shown = items.filter((r) => (filter === "All" ? true : filter === "Eligibility" ? r.category === "eligibility" : r.category !== "eligibility"));
+  const shown = items.filter((r) => (filter === "To review" ? !dec[r.id] : filter === "Eligibility" ? r.category === "eligibility" : true));
+  const confirmRest = () => setDec((m) => { const x = { ...m }; for (const r of items) if (!x[r.id]) x[r.id] = "yes"; return x; });
   const send = async () => {
     setBusy(true);
     try {
-      await api.answer(view.run_id, "A", { reviewer, not_requirements: [...drop], pass_fail_remove: [...unmark] });
+      const ids = (d: MustMeet) => Object.entries(dec).filter(([, v]) => v === d).map(([k]) => k);
+      await api.answer(view.run_id, "A", { reviewer, not_requirements: ids("drop"), pass_fail_remove: ids("no") });
       onSent();
     } catch (e) {
       setErr(String((e as Error).message));
@@ -142,19 +141,20 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
   };
 
   return (
-    <Tile title="Gate A · approve the pass/fail checklist" action={<Pills label="filter" value={filter} options={["All", "Eligibility", "Others"]} onChange={setFilter} />}>
+    <Tile title="Gate A · confirm the must-meet rules" action={<Pills label="filter" value={filter} options={["All", "To review", "Eligibility"]} onChange={setFilter} />}>
       <StatsBento
-        primary={{ label: "Pass/fail checklist", value: `${kept}/${items.length}`, caption: "Miss any one of these and the bid is rejected at evaluation. Switch an item to “Info only” if it isn't a pass/fail rule, or remove it if it isn't a requirement at all." }}
+        primary={{ label: "Must-meet rules", value: `${kept}/${items.length}`,
+          caption: "A must-meet rule is a condition the buyer uses to reject a bid outright, before any scoring. Confirm each one, or mark it as not must-meet." }}
         secondary={{ label: "By category", value: <span className="font-mono">{gate.requirement_count} <span className="text-[13px] text-muted-foreground">requirements read</span></span>,
           bars: cats.map((c, i) => ({ label: c, value: items.filter((r) => r.category === c).length, color: [ACCENT, VIOLET, WARN, MUTED][i] })) }}
-        small={{ value: gate.notes.length, label: "page flags" }}
-        wide={{ icon: gate.classify_mode === "ai" ? <Bot className="size-4" /> : <ListChecks className="size-4" />, value: gate.classify_mode === "ai" ? "Classified by AI + rules" : "Classified by rules", label: `Reviewer: ${reviewer}` }}
+        small={{ value: open, label: "to review" }}
+        wide={{ icon: gate.classify_mode === "ai" ? <Bot className="size-4" /> : <ListChecks className="size-4" />, value: gate.classify_mode === "ai" ? "Found by AI + rules" : "Found by rules", label: `Reviewer: ${reviewer}` }}
       />
 
       {gate.notes.length > 0 && (
         <div className="mt-4 rounded-2xl border p-4" style={{ borderColor: WARN }}>
           <p className="mb-2 flex items-center gap-2 text-[13px] font-semibold" style={{ color: WARN }}><AlertTriangle className="size-4" /> Check these pages by hand</p>
-          <ul className="space-y-1 text-[13px]">{gate.notes.map((n, i) => <li key={i}><b>Page {n.page}</b> · {n.flag.replace("_", " ")}: {n.detail}</li>)}</ul>
+          <ul className="space-y-1 text-[13px]">{gate.notes.map((x, i) => <li key={i}><b>Page {x.page}</b> · {x.flag.replace("_", " ")}: {x.detail}</li>)}</ul>
         </div>
       )}
 
@@ -167,21 +167,39 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
             </h4>
             <ul className="divide-y divide-border overflow-hidden rounded-2xl border border-border">
               {rs.map((r) => {
-                const dropped = drop.has(r.id);
+                const d = dec[r.id];
+                const ps = points(r.text);
+                const meta = readable(r.text);
                 return (
-                  <li key={r.id} className={cx("flex flex-col gap-3 p-4 sm:flex-row sm:items-start", dropped && "opacity-45")}>
+                  <li key={r.id} className={cx("flex flex-col gap-4 p-4 sm:flex-row sm:items-start", d === "drop" && "opacity-45")}>
                     <Ref id={r.id} page={r.page} />
-                    <div className={cx("min-w-0 flex-1", dropped && "line-through")}><Readable text={r.text} /></div>
-                    <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end">
-                      {dropped ? (
-                        <button type="button" onClick={() => toggle(drop, setDrop, r.id, false)} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-[12px]"><Undo2 className="size-3" /> Undo</button>
+                    <div className={cx("min-w-0 flex-1", d === "drop" && "line-through")}>
+                      {ps.length > 1 ? (
+                        <ul className="space-y-1.5">
+                          {ps.map((p, i) => (
+                            <li key={i} className="flex gap-2.5 text-[15px] leading-relaxed">
+                              <span className="mt-[9px] size-1.5 shrink-0 rounded-full" style={{ background: ACCENT }} aria-hidden />
+                              <span>{p}</span>
+                            </li>
+                          ))}
+                        </ul>
                       ) : (
-                        <>
-                          <Segmented label={`${r.id} type`} value={unmark.has(r.id) ? "info" : "pf"} onChange={(v) => toggle(unmark, setUnmark, r.id, v === "info")}
-                            options={[{ v: "pf", text: "Pass/fail" }, { v: "info", text: "Info only" }]} />
-                          <button type="button" onClick={() => toggle(drop, setDrop, r.id, true)} className="text-[12px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">Not a requirement</button>
-                        </>
+                        <p className="text-[15px] leading-relaxed">{ps[0]}</p>
                       )}
+                      {(meta.proof || meta.flag || meta.extra.length > 0) && (
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          {meta.extra.map((x, i) => <Chip key={i}>{x}</Chip>)}
+                          {meta.flag && <Chip color={meta.flag === "Mandatory" ? WARN : MUTED}>Tender marks it: {meta.flag}</Chip>}
+                          {meta.proof && <Chip>Proof asked: {meta.proof}</Chip>}
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex shrink-0 flex-col gap-1.5">
+                      <Choice label={`${r.id} is must-meet`} on={d === "yes"} color={ACCENT} ink={INK} onClick={() => set(r.id, "yes")}><Check className="size-3.5" /> Must-meet</Choice>
+                      <Choice label={`${r.id} is not must-meet`} on={d === "no"} color={WARN} ink="oklch(0.18 0.04 25)" onClick={() => set(r.id, "no")}><X className="size-3.5" /> Not must-meet</Choice>
+                      <button type="button" onClick={() => set(r.id, "drop")} className="text-[11px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">
+                        {d === "drop" ? <span className="inline-flex items-center gap-1"><Undo2 className="size-3" /> Undo remove</span> : "Not a requirement at all"}
+                      </button>
                     </div>
                   </li>
                 );
@@ -192,8 +210,11 @@ export function GateATile({ view, gate, reviewer, onSent }: { view: RunView; gat
       </div>
 
       <Footer>
-        <span className="text-[13px] text-muted-foreground"><b className="text-foreground">{kept}</b> pass/fail · {unmark.size} info only · {drop.size} removed</span>
-        <Primary disabled={busy} onClick={send}><Check className="size-4" /> Approve checklist</Primary>
+        <div className="flex flex-wrap items-center gap-3 text-[13px] text-muted-foreground">
+          <span><b className="text-foreground">{n("yes")}</b> confirmed · <b className="text-foreground">{n("no")}</b> not must-meet · <b className="text-foreground">{n("drop")}</b> removed · <b className="text-foreground">{open}</b> to review</span>
+          {open > 0 && <button type="button" onClick={confirmRest} className="rounded-full border border-border px-3 py-1.5 text-[12px] font-medium text-foreground hover:bg-muted">Confirm the {open} remaining</button>}
+        </div>
+        <Primary disabled={busy || open > 0} onClick={send}><Check className="size-4" /> {open > 0 ? `Review ${open} more` : "Approve checklist"}</Primary>
       </Footer>
       {err && <p className="mt-2 text-[13px]" style={{ color: WARN }}>{err}</p>}
     </Tile>
@@ -228,7 +249,7 @@ function Decide({ id, value, set }: { id: string; value?: "approve" | "reject"; 
         style={value === "approve" ? { background: ACCENT, color: INK, borderColor: ACCENT } : undefined}><Check className="size-3" /> Approve</button>
       <button type="button" aria-label={`reject ${id}`} onClick={() => set(value === "reject" ? undefined : "reject")}
         className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-[12px] font-medium"
-        style={value === "reject" ? { background: WARN, color: "oklch(0.2 0.05 35)", borderColor: WARN } : undefined}><X className="size-3" /> Reject</button>
+        style={value === "reject" ? { background: WARN, color: "oklch(0.18 0.04 25)", borderColor: WARN } : undefined}><X className="size-3" /> Reject</button>
     </div>
   );
 }

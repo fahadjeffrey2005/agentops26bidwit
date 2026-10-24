@@ -218,7 +218,7 @@ function DocFace({ c, glare }: { c: VaultDoc; glare: number }) {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(115deg, transparent 18%, oklch(0.9 0.12 350 / 0.55) 32%, oklch(0.92 0.1 220 / 0.55) 42%, oklch(0.94 0.14 130 / 0.5) 52%, oklch(0.92 0.12 60 / 0.45) 62%, transparent 78%)",
+              "linear-gradient(115deg, transparent 18%, oklch(1 0 0 / 0.25) 32%, oklch(1 0 0 / 0.4) 45%, oklch(1 0 0 / 0.25) 58%, oklch(1 0 0 / 0.1) 66%, transparent 78%)",
             backgroundSize: "260% 100%",
             backgroundPosition: `${glare}% 0`,
             mixBlendMode: "soft-light",
@@ -530,7 +530,7 @@ function SplitTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
 /* ------------------------------------------------------------------ */
 
 function GateBTile({ queueBy, queueTotal, deadline, rounds, p }: { queueBy: Record<string, number>; queueTotal: number; deadline: string; rounds: { round: number; passed: number; total: number }[]; p: Palette }) {
-  const ink = "oklch(0.24 0.06 135)";
+  const ink = "oklch(0.145 0 0)";
   const [now, setNow] = React.useState(() => Date.now());
   React.useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 1000);
@@ -554,7 +554,7 @@ function GateBTile({ queueBy, queueTotal, deadline, rounds, p }: { queueBy: Reco
     <section className="relative flex min-w-0 flex-col overflow-hidden rounded-[26px] p-5 lg:col-start-4 lg:row-span-2 lg:row-start-2" style={{ background: p.accent, color: ink }}>
       <header className="flex items-center justify-between">
         <h3 className="text-[13px] font-semibold opacity-75">Gate B · your review</h3>
-        <span className="flex items-center gap-1.5 rounded-full px-2 py-0.5 font-mono text-[11px] font-semibold" style={{ background: "oklch(0.24 0.06 135 / 0.12)" }}>
+        <span className="flex items-center gap-1.5 rounded-full px-2 py-0.5 font-mono text-[11px] font-semibold" style={{ background: "oklch(0.145 0 0 / 0.12)" }}>
           <span className="size-1.5 animate-pulse rounded-full motion-reduce:animate-none" style={{ background: ink }} aria-hidden />
           {queueTotal ? "Paused" : "Not yet"}
         </span>
@@ -563,14 +563,14 @@ function GateBTile({ queueBy, queueTotal, deadline, rounds, p }: { queueBy: Reco
       <p className="mt-5 font-mono text-[52px] font-semibold leading-none tracking-[-0.05em] tabular-nums">{queueTotal}</p>
       <p className="mt-1 text-[12px] font-medium opacity-70">items need your decision, risk first</p>
 
-      <div className="mt-5 rounded-2xl p-3" style={{ background: "oklch(0.24 0.06 135 / 0.1)" }}>
+      <div className="mt-5 rounded-2xl p-3" style={{ background: "oklch(0.145 0 0 / 0.1)" }}>
         <div className="flex items-baseline justify-between text-[12px] font-semibold">
           <span className="opacity-70">Closes in</span>
           <span className="font-mono tabular-nums">
             {deadline ? `${d}d ${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s` : "no deadline set"}
           </span>
         </div>
-        <div className="mt-2 h-1.5 overflow-hidden rounded-full" style={{ background: "oklch(0.24 0.06 135 / 0.14)" }}>
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full" style={{ background: "oklch(0.145 0 0 / 0.14)" }}>
           <div className="h-full rounded-full" style={{ width: `${(reviewed / queueTotal) * 100 || 2}%`, background: ink }} />
         </div>
         <p className="mt-1.5 font-mono text-[10px] opacity-60">
@@ -815,10 +815,10 @@ export interface BidWitBentoProps {
 export function BidWitBento(props: BidWitBentoProps) {
   const reduced = useReducedMotion();
   const p: Palette = {
-    accent: "oklch(0.89 0.2 128)",
-    accent2: "oklch(0.74 0.12 300)",
-    muted: "oklch(0.6 0.02 285)",
-    warn: "oklch(0.72 0.17 35)",
+    accent: "oklch(0.97 0 0)",
+    accent2: "oklch(0.72 0 0)",
+    muted: "oklch(0.55 0 0)",
+    warn: "oklch(0.68 0.15 25)",
     ...props.palette,
   };
 
@@ -828,7 +828,7 @@ export function BidWitBento(props: BidWitBentoProps) {
 
       <nav className="mb-3 flex flex-wrap items-center justify-between gap-3 px-1" aria-label="Dashboard">
         <span className="flex items-center gap-2 text-[15px] font-semibold tracking-[-0.02em]">
-          <span className="grid size-6 place-items-center rounded-lg font-mono text-[12px] font-bold" style={{ background: p.accent, color: "oklch(0.24 0.06 135)" }}>
+          <span className="grid size-6 place-items-center rounded-lg font-mono text-[12px] font-bold" style={{ background: p.accent, color: "oklch(0.145 0 0)" }}>
             B
           </span>
           BidWit

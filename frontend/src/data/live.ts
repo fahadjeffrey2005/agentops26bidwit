@@ -97,9 +97,9 @@ export function queue(v: RunView) {
 }
 
 const LOOK = {
-  restricted: { color: "oklch(0.42 0.03 285)", color2: "oklch(0.3 0.02 285)", ink: "oklch(0.92 0.01 285)" },
-  expired: { color: "oklch(0.8 0.1 300)", color2: "oklch(0.64 0.15 285)", ink: "oklch(0.2 0.06 290)" },
-  cited: { color: "oklch(0.89 0.2 128)", color2: "oklch(0.74 0.17 165)", ink: "oklch(0.22 0.06 140)" },
+  restricted: { color: "oklch(0.4 0 0)", color2: "oklch(0.28 0 0)", ink: "oklch(0.92 0 0)" },
+  expired: { color: "oklch(0.8 0 0)", color2: "oklch(0.6 0 0)", ink: "oklch(0.15 0 0)" },
+  cited: { color: "oklch(0.97 0 0)", color2: "oklch(0.82 0 0)", ink: "oklch(0.145 0 0)" },
 };
 
 export function vault(v: RunView, ev: EvidenceRow[]): VaultDoc[] {
