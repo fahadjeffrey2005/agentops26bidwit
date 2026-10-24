@@ -148,7 +148,9 @@ def run(req: ClassifyRequest) -> ClassifyResult:
                                       labelled_by="template", reason=_reason(sig) or "annex form or data table"))
         elif c.id in ai:
             a = ai[c.id]
-            sig = _signals(c, a.pass_fail)
+            # the AI's pass/fail vote counts only for criteria it also calls eligibility/technical: on real tenders
+            # its other votes were schedule rows, annex checklists and form fields (69 -> 25 items, must-catch kept)
+            sig = _signals(c, a.pass_fail and a.category in ("eligibility", "technical"))
             labels.append(ClauseLabel(clause_id=c.id, category=a.category, pass_fail=bool(sig), signals=sig,
                                       labelled_by="ai", reason=_reason(sig)))
         else:

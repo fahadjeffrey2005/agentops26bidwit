@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BidWitBento } from "@/components/ui/bidwit-bento";
-import { DoneTile, GateATile, GateBReviewTile, LiveTile, NoGoTile, StartTile } from "@/components/ui/bidwit-live";
+import { GateATile, GateBReviewTile } from "@/components/ui/bidwit-approvals";
+import { DoneTile, LiveTile, NoGoTile, StartTile } from "@/components/ui/bidwit-live";
 import { api } from "@/data/api";
 import type { EvidenceRow, Health, RunRow, RunView } from "@/data/api";
 import * as live from "@/data/live";

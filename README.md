@@ -74,7 +74,7 @@ Known limits:
 - Keys come only from the environment: `GROQ_API_KEY`, `GEMINI_API_KEY`. Never put them in a file in this repository.
 
 ### Part 4: classification
-- **pass/fail** = the bid is rejected at evaluation if this is not met. Set if any one signal fires: **section** (under an eligibility / EMD / bid-submission heading), **wording** (rejected, disqualified, mandatory, EMD, submission deadline) or **ai** (the model says the bid would be rejected). A human confirms every pass/fail item at Gate A, so over-flagging is acceptable and missing one is not.
+- **pass/fail** = the bid is rejected at evaluation if this is not met. Set if any one signal fires: **section** (under an eligibility / EMD / bid-submission heading), **wording** (rejected, disqualified, mandatory, EMD, submission deadline) or **ai** (the model says the bid would be rejected *and* calls the item eligibility or technical; its other votes were schedule rows, annex checklists and form fields: on the backup tender this cut Gate A from 69 to 25 items, with must-catch on the main tender unchanged). A human confirms every pass/fail item at Gate A, so over-flagging is acceptable and missing one is not.
 - **category** (eligibility / technical / commercial / format / other) comes from the AI; rules if no AI is available. Only real criteria (6+ words) are sent to the AI. A batch the AI can't answer is labelled by rules on its own; the other batches keep their AI labels.
 - Annex forms and data tables (link inventory, integrity pact text, bank guarantee format, price bid form) are labelled `template` without AI.
 - Measured on `tender_main.pdf` (proxy, against Aarushi's labels), `python scripts/check_classify.py`:
@@ -109,6 +109,17 @@ extract -> classify -> GATE A -> evidence search -> judge -> [NO-GO gate] -> wri
 `uvicorn bidwit.api:app --host 127.0.0.1 --port 8000`, docs at `/api/docs`.
 `GET /api/health`, `GET /api/evidence` (restricted text never sent), `POST /api/runs` (PDF upload or `sample=tender_main`), `GET /api/runs`, `GET /api/runs/{id}` (status, waiting gate, live audit), `POST /api/runs/{id}/gates/{A|no_go|B}`, `GET /api/runs/{id}/files/{name}`.
 Uploads: PDF only, size-limited, stored as `runs/<run_id>/tender.pdf`. Gate answers are validated strictly.
+
+## Security
+- Runs locally only: the API binds to 127.0.0.1 and serves only requests addressed to localhost (blocks DNS rebinding).
+- Every POST needs the header `X-BidWit: 1`; with the strict CORS policy, other websites can't start runs or answer gates.
+- Request bodies are size-checked before parsing (uploads: the configured limit; JSON: 1 MB). PDF only, checked by magic bytes, then the extraction safety gate (separate process, page/size/zip-bomb limits).
+- At most 3 runs work at once; more get HTTP 429.
+- Outputs are safe to open: CSV cells that would run as spreadsheet formulas are escaped; raw HTML in Markdown is neutralised.
+- Security headers on every response (nosniff, no framing, no referrer, no caching, CSP).
+- Keys only from the environment, never logged or returned (`/api/health` reports only whether a key is set). Restricted evidence is never indexed, sent to a model, or returned by `/api/evidence`.
+- Checkpoints use LangGraph's msgpack serializer limited to our own types (no pickle).
+- Checked: `pip-audit` (73 pinned packages) and `npm audit`: 0 known vulnerabilities; `bandit`: no real findings.
 
 ## Setup (macOS, Python 3.13)
 ```

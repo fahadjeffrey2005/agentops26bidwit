@@ -13,7 +13,7 @@ from .test_workflow import runner  # noqa: F401  (fixture: synthetic tender, fak
 @pytest.fixture
 def api(runner):  # noqa: F811
     app = create_app(runner)
-    with TestClient(app) as c:
+    with TestClient(app, headers={"X-BidWit": "1"}) as c:
         yield c
     app.state.pool.shutdown(wait=True)
 
@@ -68,7 +68,7 @@ def test_sample_run_and_finished_runs_survive_a_restart(api, runner):  # noqa: F
     api.post(f"/api/runs/{rid}/gates/B", json={"reviewer": "x", "decisions": {}}) if wait(api, rid)["gate"]["gate"] == "B" else None
     assert wait(api, rid)["status"] == "done"
     fresh = create_app(Runner(runs_dir=runner.runs_dir))                # new server process: memory is empty
-    with TestClient(fresh) as c:
+    with TestClient(fresh, headers={"X-BidWit": "1"}) as c:
         v = c.get(f"/api/runs/{rid}").json()
         assert v["status"] == "done" and v.get("archived") and v["report"]["run_id"] == rid
     fresh.state.pool.shutdown(wait=True)
@@ -80,7 +80,37 @@ def test_bad_uploads_are_refused_and_leave_nothing_behind(api, runner, monkeypat
     assert api.post("/api/runs").status_code == 422
     monkeypatch.setenv("BIDWIT_MAX_UPLOAD_MB", "1")
     small = create_app(runner)
-    with TestClient(small) as c:
+    with TestClient(small, headers={"X-BidWit": "1"}) as c:
         assert c.post("/api/runs", files={"file": ("x.pdf", b"%PDF-" + b"0" * (1 << 21), "application/pdf")}).status_code == 413
     assert not list(runner.runs_dir.glob("run-*")) if runner.runs_dir.exists() else True
     assert api.get("/api/runs/not-a-run").status_code == 404 and api.get("/api/runs/run-20260101-000000-abcdef").status_code == 404
+
+
+def test_cross_site_and_rebinding_requests_are_refused(runner):  # noqa: F811
+    app = create_app(runner)
+    with TestClient(app) as c:                                         # no X-BidWit header: what a foreign page can send
+        assert c.post("/api/runs", data={"sample": "tender_main"}).status_code == 403
+        assert c.get("/api/health", headers={"host": "evil.example:8000"}).status_code == 421
+        h = c.get("/api/health").headers
+        assert h["x-content-type-options"] == "nosniff" and h["x-frame-options"] == "DENY" and "default-src 'none'" in h["content-security-policy"]
+    app.state.pool.shutdown(wait=True)
+
+
+def test_oversized_json_is_refused_before_parsing(api):
+    r = api.post("/api/runs/run-20260101-000000-abcdef/gates/A", content=b"{" + b" " * (1 << 20) + b"}", headers={"content-type": "application/json"})
+    assert r.status_code == 413
+
+
+def test_too_many_active_runs_get_429(api, monkeypatch):
+    import threading
+    gate = threading.Event()
+    monkeypatch.setattr(api.app.state.runner, "start", lambda *a, **k: gate.wait(5))
+    codes = [api.post("/api/runs", data={"sample": "tender_main"}).status_code for _ in range(4)]
+    gate.set()
+    assert codes == [202, 202, 202, 429]
+
+
+def test_outputs_are_safe_to_open(runner, tmp_path):  # noqa: F811
+    from bidwit.workflow.package import csv_safe, md_safe
+    assert csv_safe("=HYPERLINK(\"http://x\")").startswith("'=") and csv_safe("+1") == "'+1" and csv_safe("ok") == "ok"
+    assert md_safe("<script>alert(1)</script>") == "&lt;script&gt;alert(1)&lt;/script&gt;"

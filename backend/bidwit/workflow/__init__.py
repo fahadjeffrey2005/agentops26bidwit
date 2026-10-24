@@ -25,6 +25,7 @@ from .package import build_report
 
 RUN_ID = "run-{}-{}"
 PROGRESS_KEEP = 200
+KEEP_RUNS = 50
 
 
 class RunNotFound(KeyError):
@@ -41,8 +42,8 @@ class Runner:
         self.runs_dir = Path(runs_dir) if runs_dir else load_settings().runs_dir
         self._locks: dict[str, threading.Lock] = {}
         self._guard = threading.Lock()
-        self._failed: dict[str, str] = {}
-        self._progress: dict[str, list[dict]] = {}       # run_id -> recent checkpoints, newest last                 # run_id -> why the graph itself broke (a bug, not a part)
+        self._failed: dict[str, str] = {}                 # run_id -> why the graph itself broke (a bug, not a part)
+        self._progress: dict[str, list[dict]] = {}       # run_id -> recent checkpoints, newest last (last 50 runs)
 
     def _lock(self, run_id: str) -> threading.Lock:
         with self._guard:
@@ -74,6 +75,8 @@ class Runner:
 
     def _invoke(self, run_id: str, inp: Any) -> None:
         trail = self._progress.setdefault(run_id, [])
+        for old in list(self._progress)[:-KEEP_RUNS]:     # bounded memory on a long-running server
+            self._progress.pop(old, None)
 
         def sink(part: str, msg: str) -> None:
             trail.append({"t": datetime.now(timezone.utc).isoformat(timespec="seconds"), "part": part, "message": msg})

@@ -17,6 +17,17 @@ from bidwit.core.contracts import SCHEMA_VERSION
 from bidwit.core.evidence import is_criterion
 
 GROUP_COMPLY, GROUP_PERSON = "G-COMPLY", "G-PERSON"           # same ids as the Gate B queue
+FORMULA_START = ("=", "+", "-", "@", "\t", "\r")
+
+
+def csv_safe(v):
+    """Tender text is untrusted: a cell starting with = + - @ would run as a formula in Excel/Sheets."""
+    return "'" + v if isinstance(v, str) and v.startswith(FORMULA_START) else v
+
+
+def md_safe(v) -> str:
+    """Untrusted text into Markdown: neutralise raw HTML so a Markdown viewer can't render tags or scripts."""
+    return str(v).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def _dump(x: Any) -> Any:
@@ -89,31 +100,31 @@ def _markdown(rep: dict, s: dict) -> str:
     ev = {h.evidence.id: h.evidence.title for ret in (s["retrieve"].results if s.get("retrieve") else ())
           for h in ret.hits}
     v = rep["verdict"] or {}
-    out = [f"# Bid draft: {rep['tender']['file'] if rep['tender'] else 'tender not read'}", "",
+    out = [f"# Bid draft: {md_safe(rep['tender']['file']) if rep['tender'] else 'tender not read'}", "",
            f"Company: Northwind IT Infrastructure Services. Run {rep['run_id']}.", ""]
     if rep["stopped"]:
-        out += [f"**Run stopped:** {rep['stopped']}", ""]
+        out += [f"**Run stopped:** {md_safe(rep['stopped'])}", ""]
     if v:
-        out += [f"**Bid decision: {v['decision'].upper().replace('_', '-')}.** {v['summary']}", ""]
+        out += [f"**Bid decision: {v['decision'].upper().replace('_', '-')}.** {md_safe(v['summary'])}", ""]
     approved = [r for r in rep["items"] if r["status"] == "answered" and r["human_decision"] == "approve"]
     pending = [r for r in rep["items"] if r["status"] == "answered" and r["human_decision"] == ""]
     out += ["## Approved answers", ""]
     for r in approved:
         cites = ", ".join(f"{e} ({ev.get(e, '?')})" for e in r["evidence_ids"])
-        out += [f"**{r['requirement_id']}** (page {r['page']}): {r['answer']}", f"  - Evidence: {cites}", ""]
+        out += [f"**{r['requirement_id']}** (page {r['page']}): {md_safe(r['answer'])}", f"  - Evidence: {md_safe(cites)}", ""]
     if not approved:
         out += ["None yet.", ""]
     if pending:
-        out += ["## Answers awaiting review", ""] + [f"- {r['requirement_id']}: {r['answer']}" for r in pending] + [""]
+        out += ["## Answers awaiting review", ""] + [f"- {r['requirement_id']}: {md_safe(r['answer'])}" for r in pending] + [""]
     comp = [r for r in rep["items"] if r["status"] == "complied"]
     if comp:
         state = {"approve": "confirmed by the reviewer", "reject": "REJECTED by the reviewer"}.get(comp[0]["human_decision"],
                                                                                                   "awaiting review")
         out += [f"## Compliance statements ({len(comp)}, {state})", "",
-                f"{comp[0]['answer']} Applies to: " + ", ".join(r["requirement_id"] for r in comp) + ".", ""]
+                f"{md_safe(comp[0]['answer'])} Applies to: " + ", ".join(r["requirement_id"] for r in comp) + ".", ""]
     gaps = [r for r in rep["items"] if r["status"] == "gap"]
     out += ["## Gaps (need a person)", ""]
-    out += [f"- {r['requirement_id']} (page {r['page']}, {r['gap_reason']}): {r['gap_detail']}" for r in gaps] or ["None."]
+    out += [f"- {r['requirement_id']} (page {r['page']}, {r['gap_reason']}): {md_safe(r['gap_detail'])}" for r in gaps] or ["None."]
     out += ["", f"Silent misses: {rep['silent_misses_count'] if rep['silent_misses_count'] is not None else 'not checked'}"]
     return "\n".join(out) + "\n"
 
@@ -129,7 +140,7 @@ def write_outputs(s: dict) -> tuple[dict, list[str]]:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for r in rep["items"]:
-            w.writerow({**r, "evidence_ids": " ".join(r["evidence_ids"])})
+            w.writerow({k: csv_safe(v) for k, v in {**r, "evidence_ids": " ".join(r["evidence_ids"])}.items()})
     (out / "bid_draft.md").write_text(_markdown(rep, s), encoding="utf-8")
     with (out / "audit.jsonl").open("w", encoding="utf-8") as f:
         for e in s.get("audit") or []:

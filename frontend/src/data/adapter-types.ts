@@ -1,5 +1,5 @@
 /* Shapes the bento dashboard renders. */
-export type ReqStatus = "cited" | "needs_input" | "flagged" | "human";
+export type ReqStatus = "cited" | "needs_input" | "flagged" | "human" | "pending";
 
 export interface ReqRow {
   id: string;

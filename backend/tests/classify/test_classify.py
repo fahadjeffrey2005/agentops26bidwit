@@ -177,3 +177,11 @@ def test_batches_run_in_parallel_across_providers(monkeypatch, tmp_path, hard):
     res = run(ClassifyRequest(clauses=hard.clauses))
     assert res.mode == "ai" and peak[0] == 2 and res.providers == ("groq:m1", "groq:m2")   # 2 providers -> 2 at once
     assert _t.perf_counter() - t0 < 0.15 * res.ai_calls                                      # faster than one by one
+
+
+def test_ai_pass_fail_vote_needs_an_eligibility_or_technical_category(monkeypatch, tmp_path, hard):
+    def answers(items):
+        return {"answers": [{"i": x["i"], "category": "format", "pass_fail": True} for x in items]}
+    use_fake(monkeypatch, tmp_path, answers, [])
+    res = run(ClassifyRequest(clauses=hard.clauses))
+    assert res.mode == "ai" and not any("ai" in l.signals for l in res.labels)

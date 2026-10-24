@@ -44,6 +44,7 @@ export function pipeline(v: RunView) {
 
 function status(i: RunView["report"] extends infer R ? (R extends { items: (infer I)[] } ? I : never) : never): ReqStatus | null {
   if (i.status === "skipped") return null;
+  if (i.status === "not_drafted") return "pending";                 // not searched / drafted yet
   if (i.status === "answered") return i.checks_passed === false ? "flagged" : "cited";
   if (i.status === "complied") return "needs_input";
   if (i.status === "gap" && i.gap_reason === "human_decides") return "human";

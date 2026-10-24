@@ -31,11 +31,14 @@ from bidwit.core.config import load_settings
 from bidwit.core.contracts import SCHEMA_VERSION, ClauseId
 from bidwit.workflow import Runner, RunNotFound, RunNotWaiting
 
+from .security import Hardening
+
 RUN_ID = re.compile(r"^run-\d{8}-\d{6}-[0-9a-f]{6}$")
 OUTPUTS = {"report.json": "application/json", "compliance.csv": "text/csv", "bid_draft.md": "text/markdown",
            "audit.jsonl": "application/x-ndjson"}
 SAMPLES = {"tender_main": "tender_main.pdf", "tender_backup": "tender_backup.pdf"}
 CHUNK = 1 << 20
+MAX_ACTIVE = 3                                   # runs working at the same time (each may use the AI)
 
 
 class _In(BaseModel):
@@ -72,12 +75,15 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
 
     app = FastAPI(title="BidWit", version=SCHEMA_VERSION, docs_url="/api/docs", openapi_url="/api/openapi.json")
     origins = [o for o in os.environ.get("BIDWIT_UI_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if o]
-    app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
+    app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["GET", "POST"], allow_headers=["Content-Type", "X-BidWit"])
+    app.add_middleware(Hardening, max_upload_mb=settings.max_upload_mb)   # outermost: host, CSRF, size, headers
 
     def background(run_id: str, label: str, fn, *args) -> None:
         with busy_lock:
             if run_id in busy:
                 raise HTTPException(409, f"{run_id} is busy: {busy[run_id]}")
+            if len(busy) >= MAX_ACTIVE:
+                raise HTTPException(429, f"{MAX_ACTIVE} runs are already working; try again when one pauses or finishes")
             busy[run_id] = label
 
         def job():
@@ -163,6 +169,9 @@ def create_app(runner: Runner | None = None, workers: int = 2) -> FastAPI:
             raise HTTPException(422, "send exactly one of: a PDF file, or a sample name")
         if sample is not None and sample not in SAMPLES:
             raise HTTPException(422, f"unknown sample; choose one of {sorted(SAMPLES)}")
+        with busy_lock:
+            if len(busy) >= MAX_ACTIVE:              # checked before anything is written to disk
+                raise HTTPException(429, f"{MAX_ACTIVE} runs are already working; try again when one pauses or finishes")
         run_id = runner.new_run_id()
         folder = runs_dir / run_id
         folder.mkdir(parents=True, exist_ok=False)

@@ -112,6 +112,7 @@ const STATUS_LABEL: Record<ReqStatus, string> = {
   needs_input: "Needs input",
   human: "You decide",
   flagged: "Flagged",
+  pending: "Pending",
 };
 
 function statusColor(s: ReqStatus, p: Palette) {
@@ -482,7 +483,7 @@ function MatrixTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
 
 function SplitTile({ reqs, p }: { reqs: ReqRow[]; p: Palette }) {
   const mounted = useMounted();
-  const parts: { key: ReqStatus; n: number }[] = (["cited", "needs_input", "human", "flagged"] as ReqStatus[])
+  const parts: { key: ReqStatus; n: number }[] = (["cited", "needs_input", "human", "flagged", "pending"] as ReqStatus[])
     .map((k) => ({ key: k, n: reqs.filter((r) => r.status === k).length }))
     .filter((x) => x.n > 0);
   const total = reqs.length;
@@ -603,12 +604,14 @@ function GateBTile({ queueBy, queueTotal, deadline, rounds, p }: { queueBy: Reco
 
         <button
           type="button"
-          className="mt-4 w-full rounded-2xl py-3 text-sm font-semibold transition-transform active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          disabled={!queueTotal}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="mt-4 w-full rounded-2xl py-3 text-sm font-semibold transition-transform active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50"
           style={{ background: ink, color: p.accent }}
         >
-          Start review
+          {queueTotal ? "Review above" : "Opens after drafting"}
         </button>
-        <p className="mt-2 text-center font-mono text-[10px] opacity-60">One decision per item. No approve-all.</p>
+        <p className="mt-2 text-center font-mono text-[10px] opacity-60">Risky items one by one; groups in one click.</p>
       </div>
     </section>
   );
@@ -721,7 +724,7 @@ function PipelineTile({ stages, at, llmUsed, rounds, p, reduced }: { stages: rea
       <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-border pt-3">
         {[
           ["LLM calls", String(llmUsed)],
-          ["Rewrite rounds", String(rounds.length - 1)],
+          ["Rewrite rounds", String(Math.max(0, rounds.length - 1))],
           ["Checks passed", last ? `${last.passed}/${last.total}` : "-"],
         ].map(([k, v]) => (
           <div key={k} className="min-w-0">

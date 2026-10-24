@@ -120,7 +120,9 @@ export interface Health {
 }
 
 async function call<T>(path: string, init?: RequestInit): Promise<T> {
-  const r = await fetch(path, init);
+  // every POST carries X-BidWit: the backend refuses POSTs without it (blocks cross-site requests)
+  const headers = init?.method === "POST" ? { ...(init.headers ?? {}), "X-BidWit": "1" } : init?.headers;
+  const r = await fetch(path, { ...init, headers });
   if (!r.ok) {
     let msg = `${r.status}`;
     try {
